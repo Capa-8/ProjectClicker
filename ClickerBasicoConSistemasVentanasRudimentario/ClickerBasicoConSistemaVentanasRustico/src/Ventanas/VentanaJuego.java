@@ -1,13 +1,7 @@
-package clicker.ventana;
-import clicker.img.*;
+package Ventanas;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
 
 public class VentanaJuego extends Ventana{
 
@@ -46,21 +40,6 @@ public class VentanaJuego extends Ventana{
             this.botonEstadisticas = new JButton("Estadisticas");
             botonEstadisticas.setBounds(100, 400, 100, 100);
             panel1.add(botonEstadisticas);
-
-            // File path = new File("img");
-            // File[] allFiles = path.listFiles();
-            // BufferedImage[] allImages = new BufferedImage[allFiles.length];
-            
-            // for(int i=0; i<allFiles.length;i++){
-            //     try {
-            //         allImages[i] = ImageIO.read(allFiles[i]);
-            //         ImageIcon icon = new ImageIcon(allImages[i]);
-            //         botonBTC.setIcon(new ImageIcon(icon.getImage().getScaledInstance(botonBTC.getWidth(), botonBTC.getHeight(), Image.SCALE_SMOOTH)));
-            //     } catch (IOException e) {
-            //         //TODO: handle exception
-            //     }
-                
-            // }
 
             //Aggregators el boton principal.
             this.botonBTC = new JButton();
