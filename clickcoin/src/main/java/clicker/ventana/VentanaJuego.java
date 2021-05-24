@@ -1,5 +1,5 @@
 package clicker.ventana;
-import clicker.img.*;
+
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
