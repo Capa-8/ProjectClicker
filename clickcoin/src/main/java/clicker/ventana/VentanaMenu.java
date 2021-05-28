@@ -13,7 +13,7 @@ import clicker.*;
  */
 public class VentanaMenu extends javax.swing.JFrame {
     
-    private VentanaJuegoBTC vBTC;
+    private VentanaNombre vn1;
     private VentanaReglas vr1;
     private VentanaSalida vs1;
 
@@ -23,11 +23,8 @@ public class VentanaMenu extends javax.swing.JFrame {
     public VentanaMenu() {
         initComponents();
         
-        Jugador jugador = new Jugador("Player1");
-        Juego j1 = new Juego(jugador);
-        
-        VentanaJuegoBTC ventanaBTC = new VentanaJuegoBTC(j1);
-        this.vBTC = ventanaBTC;
+        VentanaNombre vn1 = new VentanaNombre();
+        this.vn1 = vn1;
         VentanaReglas vr1 = new VentanaReglas();
         this.vr1 = vr1;
         VentanaSalida vs1 = new VentanaSalida();
@@ -36,9 +33,9 @@ public class VentanaMenu extends javax.swing.JFrame {
     
     /*Metodos Botones Ventana Menu*/
     
-    public void iniciarJuego(){
-        setVisible(false);
-        vBTC.setVisible(true);
+    public void ingresarNombre(){
+        vn1.setVisible(true);
+        dispose();
     }
     
     public void mostrarReglas(){
@@ -101,7 +98,7 @@ public class VentanaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        iniciarJuego();
+        ingresarNombre();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

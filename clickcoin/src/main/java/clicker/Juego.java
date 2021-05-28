@@ -1,9 +1,12 @@
 package clicker;
 
+import clicker.mejoras.*;
+
 public class Juego{
     
     private Jugador jugador;
     private Estadisticas estadisticas;
+    private Mejora[] mejorasObtenidas;
     
     public Juego(Jugador jugador){
         this.jugador = jugador;
@@ -17,5 +20,9 @@ public class Juego{
     
     public Estadisticas getEstadisticas(){
         return estadisticas;
+    }
+    
+    public Mejora[] getListaMejoras(){
+        return mejorasObtenidas;
     }
 }

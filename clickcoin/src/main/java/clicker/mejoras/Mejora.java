@@ -3,21 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clicker;
+package clicker.mejoras;
 
 /**
  *
  * @author Nacho
  */
-public class Jugador {
+public interface Mejora {
     
-    private String nombre;
+    public int getTiempo();
     
-    public Jugador(String nombre){
-        this.nombre = nombre;
-    }
-    
-    public String getNombre(){
-        return nombre;
-    }
 }
