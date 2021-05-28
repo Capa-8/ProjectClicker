@@ -20,5 +20,4 @@ public class Minado {
         this.juego.getEstadisticas().aumentarCantMonedas();
         this.juego.getEstadisticas().aumentarCantClicks();
     }
-    
 }
