@@ -1,28 +1,60 @@
 package clicker;
 
 import clicker.mejoras.*;
+import clicker.moneda.*;
+import clicker.ventana.VentanaJuegoBTC;
 
-public class Juego{
-    
-    private Jugador jugador;
+public class Juego {
+
+    private final Jugador jugador;
     private Estadisticas estadisticas;
     private Mejora[] mejorasObtenidas;
-    
-    public Juego(Jugador jugador){
+  //  private Moneda moneda;
+    private Nivel nivel;
+    private Minado minado;
+
+    public Juego(Jugador jugador) {
         this.jugador = jugador;
         Estadisticas estadisticas = new Estadisticas();
         this.estadisticas = estadisticas;
+      //  this.moneda = new MonedaBTC();
+        this.nivel = new Nivel();
+        
+        Minado oMinado = new Minado(this);
+        oMinado.setMoneda(estadisticas.getMonedaBTC());
+        this.minado = oMinado;
+        
+        
+        iniciarJuego();
+    }
+
+    private void iniciarJuego() {
+        VentanaJuegoBTC vBTC = new VentanaJuegoBTC(this);
+        vBTC.setVisible(true);
     }
     
-    public Jugador getJugador(){
+    public void aumentarNivel(){
+        this.nivel.aumentar();
+    }
+    
+    /**
+     * Valida si el jugador llego al la cantidad de monedas necesarias para el superar de nivel
+     */
+    
+    public Minado getMinado(){
+        return this.minado;
+    }
+   
+
+    public Jugador getJugador() {
         return jugador;
     }
-    
-    public Estadisticas getEstadisticas(){
+
+    public Estadisticas getEstadisticas() {
         return estadisticas;
     }
-    
-    public Mejora[] getListaMejoras(){
+
+    public Mejora[] getListaMejoras() {
         return mejorasObtenidas;
     }
 }

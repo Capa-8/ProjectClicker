@@ -5,34 +5,53 @@
  */
 package clicker;
 
+import clicker.moneda.Moneda;
+
 /**
  *
  * @author Nacho
  */
-
 public class Estadisticas {
 
     private float cantMonedas;
     private int cantClicks;
-    
-    public Estadisticas(){
+    private Moneda monedaBTC;
+    private Moneda monedaETH;
+
+    public Estadisticas() {
         this.cantMonedas = 0;
         this.cantClicks = 0;
     }
     
-    public void aumentarCantClicks(){
-        this.cantClicks++;
+    public void setMonedaBTC(Moneda monedaBTC){
+        this.monedaBTC = monedaBTC;
     }
     
-    public void aumentarCantMonedas(){
-        this.cantMonedas+=0.01 ;
+    public void setMonedaETH(Moneda monedaETH){
+        this.monedaETH = monedaETH;
+    }
+    
+    public Moneda getMonedaBTC(){
+        return monedaBTC;
+    }
+    
+    public Moneda getMonedaETH(){
+        return monedaETH;
     }
 
-    public float getMonedas(){
-        return cantMonedas;                          
+    public void aumentarCantClicks() {
+        this.cantClicks++;
     }
-    
-    public int getClicks(){
-        return cantClicks;                          
+
+    public void aumentarCantMonedas() {
+        this.cantMonedas += 0.01;
+    }
+
+    public float getMonedas() {
+        return cantMonedas;
+    }
+
+    public int getClicks() {
+        return cantClicks;
     }
 }

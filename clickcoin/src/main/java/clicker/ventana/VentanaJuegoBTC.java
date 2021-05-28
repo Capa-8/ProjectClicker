@@ -7,6 +7,7 @@ package clicker.ventana;
 
 import clicker.Juego;
 import clicker.Minado;
+import clicker.moneda.Moneda;
 
 /**
  *
@@ -17,10 +18,10 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
     private VentanaEstadisticas ventanaEst;
     private VentanaMejoras ventanaMej;
     private Juego juego;
-    private Minado minado;
 
     /**
      * Creates new form VentanaJuegoBTC
+     * @param juego
      */
     public VentanaJuegoBTC(Juego juego) {
         initComponents();
@@ -30,8 +31,7 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
         this.ventanaEst = ventanaEst;
         VentanaMejoras ventanaMej = new VentanaMejoras(juego);
         this.ventanaMej = ventanaMej;
-        Minado minado = new Minado(juego);
-        this.minado = minado;
+       
         
         jLabel2.setText("Jugando: " + juego.getJugador().getNombre());
         
@@ -133,7 +133,8 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        minado.minar();
+        Moneda moneda = juego.getMinado().realizarMinado();
+        this.juego.getEstadisticas().setMonedaBTC(moneda);
         jLabel1.setText( "Cantidad de BTC : " + juego.getEstadisticas().getMonedas());
     }//GEN-LAST:event_jButton1ActionPerformed
 

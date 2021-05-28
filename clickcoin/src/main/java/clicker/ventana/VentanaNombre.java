@@ -22,12 +22,12 @@ public class VentanaNombre extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void inicializarJuego(){
+    public void crearJuego(){
         setVisible(false);
         Jugador p1 = new Jugador(jTextField1.getText());
         Juego j1 = new Juego(p1);
-        VentanaJuegoBTC vBTC = new VentanaJuegoBTC(j1);
-        vBTC.setVisible(true);
+//        VentanaJuegoBTC vBTC = new VentanaJuegoBTC(j1);
+//        vBTC.setVisible(true);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,7 +73,7 @@ public class VentanaNombre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        inicializarJuego();
+        crearJuego();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package clicker;
+
+import clicker.moneda.Moneda;
+
 /**
  *
  * @author Nacho
@@ -11,13 +14,20 @@ package clicker;
 public class Minado {
     
     private Juego juego;
+    private Moneda moneda;
     
     public Minado(Juego juego){
         this.juego = juego;
     }
     
-    public void minar(){
-        this.juego.getEstadisticas().aumentarCantMonedas();
-        this.juego.getEstadisticas().aumentarCantClicks();
+    public Moneda realizarMinado(){
+        //this.juego.getEstadisticas().aumentarCantMonedas(); no tendria que hacer esto, sino incrementar el objeto moneda
+        juego.getEstadisticas().aumentarCantClicks();
+        moneda.minar();
+        return moneda;
+    }
+    
+    public void setMoneda(Moneda moneda){
+        this.moneda = moneda;
     }
 }
