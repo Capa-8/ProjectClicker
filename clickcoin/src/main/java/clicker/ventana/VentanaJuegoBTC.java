@@ -8,6 +8,7 @@ package clicker.ventana;
 import clicker.Juego;
 import clicker.Minado;
 import clicker.moneda.Moneda;
+import clicker.moneda.MonedaBTC;
 
 /**
  *
@@ -35,6 +36,7 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
         VentanaMejoras ventanaMej = new VentanaMejoras(juego);
         this.ventanaMej = ventanaMej;
        
+        this.juego.getEstadisticas().initSubject((MonedaBTC)this.juego.getEstadisticas().getMonedaBTC());
         
         jLabel2.setText("Jugando: " + juego.getJugador().getNombre());
         

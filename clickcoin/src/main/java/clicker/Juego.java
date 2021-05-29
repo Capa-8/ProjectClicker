@@ -6,10 +6,9 @@ import clicker.ventana.VentanaJuegoBTC;
 
 public class Juego {
 
-    private final Jugador jugador;
+    private Jugador jugador;
     private Estadisticas estadisticas;
     private Mejora[] mejorasObtenidas;
-  //  private Moneda moneda;
     private Nivel nivel;
     private Minado minado;
 
@@ -17,7 +16,6 @@ public class Juego {
         this.jugador = jugador;
         Estadisticas estadisticas = new Estadisticas();
         this.estadisticas = estadisticas;
-      //  this.moneda = new MonedaBTC();
         this.nivel = new Nivel();
         
         Minado oMinado = new Minado(this);
