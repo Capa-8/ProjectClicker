@@ -5,7 +5,7 @@
  */
 package clicker;
 
-import clicker.moneda.Moneda;
+import clicker.moneda.*;
 
 /**
  *
@@ -21,6 +21,8 @@ public class Estadisticas {
     public Estadisticas() {
         this.cantMonedas = 0;
         this.cantClicks = 0;
+        this.monedaBTC = new MonedaBTC();
+        this.monedaETH = new MonedaETH();
     }
     
     public void setMonedaBTC(Moneda monedaBTC){

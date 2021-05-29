@@ -135,7 +135,7 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Moneda moneda = juego.getMinado().realizarMinado();
         this.juego.getEstadisticas().setMonedaBTC(moneda);
-        jLabel1.setText( "Cantidad de BTC : " + juego.getEstadisticas().getMonedas());
+        jLabel1.setText( "Cantidad de BTC : " + juego.getEstadisticas().getMonedaBTC().getMonedas());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
