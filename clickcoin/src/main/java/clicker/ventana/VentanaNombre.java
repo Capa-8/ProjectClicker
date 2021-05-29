@@ -20,6 +20,8 @@ public class VentanaNombre extends javax.swing.JFrame {
      */
     public VentanaNombre() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     public void crearJuego(){

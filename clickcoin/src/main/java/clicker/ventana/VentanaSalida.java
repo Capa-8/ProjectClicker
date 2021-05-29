@@ -16,6 +16,8 @@ public class VentanaSalida extends javax.swing.JFrame {
      */
     public VentanaSalida() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
     
     public void Si(){
