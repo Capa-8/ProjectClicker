@@ -25,7 +25,7 @@ public class VentanaEstadisticas extends javax.swing.JFrame {
 
     public void update(){
         jLabel1.setText("Cantidad de clicks realizados : " + juego.getEstadisticas().getClicks() 
-                + " Cantidad de monedas obtenidas : " + juego.getEstadisticas().getMonedas());
+                + " Cantidad de monedas obtenidas : " + juego.getEstadisticas().getMonedasBTC());
     }
     
     public void Volver(){

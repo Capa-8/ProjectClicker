@@ -31,7 +31,7 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
         setResizable(false);
 
         this.juego = juego;
-        jLabel1.setText("Cantidad de BTC : " + juego.getEstadisticas().getMonedas());
+        jLabel1.setText("Cantidad de BTC : " + juego.getEstadisticas().getMonedasBTC());
         VentanaEstadisticas ventanaEst = new VentanaEstadisticas(juego);
         this.ventanaEst = ventanaEst;
         VentanaMejoras ventanaMej = new VentanaMejoras(juego);
@@ -125,9 +125,7 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Moneda moneda = 
-        juego.getMinado().realizarMinado();
-        //this.juego.getEstadisticas().setMonedaBTC(moneda);
+       juego.getMinado().realizarMinado();
         jLabel1.setText("Cantidad de BTC : " + juego.getEstadisticas().getMonedasBTC());
     }//GEN-LAST:event_jButton1ActionPerformed
 
