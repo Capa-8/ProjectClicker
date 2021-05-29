@@ -19,15 +19,19 @@ public class Estadisticas implements Observer {
 
     private float cantMonedas;
     private int cantClicks;
-    private Moneda monedaBTC;
-    private Moneda monedaETH;
+    private int cantMonedaBTC;
+    private int cantMonedaETH;
+//    private Moneda monedaBTC;
+//    private Moneda monedaETH;
     private Subject monedaSubject;
 
     public Estadisticas() {
-        this.cantMonedas = 0;
-        this.cantClicks = 0;
-        this.monedaBTC = new MonedaBTC();
-        this.monedaETH = new MonedaETH();
+        cantMonedas = 0;
+        cantClicks = 0;
+        cantMonedaBTC = 0;
+        cantMonedaETH = 0;
+//        this.monedaBTC = new MonedaBTC();
+//        this.monedaETH = new MonedaETH();
     }
 
     public void initSubject(Subject monedaSubject) {
@@ -37,38 +41,40 @@ public class Estadisticas implements Observer {
 
     @Override
     public void updateBTC() {
-        
+        cantMonedaBTC += 1;
+        cantClicks += 1;
     }
     
      @Override
     public void updateETH() {
-
+        cantMonedaETH += 1;
+        cantClicks += 1;
     }
     
-    public void setMonedaBTC(Moneda monedaBTC) {
-        this.monedaBTC = monedaBTC;
+//    public void setMonedaBTC(Moneda monedaBTC) {
+//        this.monedaBTC = monedaBTC;
+//    }
+//
+//    public void setMonedaETH(Moneda monedaETH) {
+//        this.monedaETH = monedaETH;
+//    }
+
+    public int getMonedasBTC() {
+        return cantMonedaBTC;
     }
 
-    public void setMonedaETH(Moneda monedaETH) {
-        this.monedaETH = monedaETH;
-    }
-
-    public Moneda getMonedaBTC() {
-        return monedaBTC;
-    }
-
-    public Moneda getMonedaETH() {
-        return monedaETH;
+    public int getMonedasETH() {
+        return cantMonedaETH;
     }
 
     public void aumentarCantClicks() {
-        this.cantClicks++;
+        cantClicks++;
     }
 
     
 
     public void aumentarCantMonedas() {
-        this.cantMonedas += 0.01;
+        cantMonedas += 0.01;
     }
 
     public float getMonedas() {

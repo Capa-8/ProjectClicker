@@ -15,38 +15,39 @@ import clicker.moneda.MonedaBTC;
  * @author Nacho
  */
 public class VentanaJuegoBTC extends javax.swing.JFrame {
-    
+
     private VentanaEstadisticas ventanaEst;
     private VentanaMejoras ventanaMej;
     private Juego juego;
 
     /**
      * Creates new form VentanaJuegoBTC
+     *
      * @param juego
      */
     public VentanaJuegoBTC(Juego juego) {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        
+
         this.juego = juego;
-        jLabel1.setText( "Cantidad de BTC : " + juego.getEstadisticas().getMonedas());
+        jLabel1.setText("Cantidad de BTC : " + juego.getEstadisticas().getMonedas());
         VentanaEstadisticas ventanaEst = new VentanaEstadisticas(juego);
         this.ventanaEst = ventanaEst;
         VentanaMejoras ventanaMej = new VentanaMejoras(juego);
         this.ventanaMej = ventanaMej;
-       
-        this.juego.getEstadisticas().initSubject((MonedaBTC)this.juego.getEstadisticas().getMonedaBTC());
-        
+
+        this.juego.getEstadisticas().initSubject((MonedaBTC) this.juego.getMonedaBTC());
+
         jLabel2.setText("Jugando: " + juego.getJugador().getNombre());
-        
+
     }
-    
-    public void mostrarEstadisiticas(){
+
+    public void mostrarEstadisiticas() {
         ventanaEst.setVisible(true);
     }
-    
-    public void mostrarMejoras(){
+
+    public void mostrarMejoras() {
         ventanaMej.setVisible(true);
     }
 
@@ -124,9 +125,10 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Moneda moneda = juego.getMinado().realizarMinado();
-        this.juego.getEstadisticas().setMonedaBTC(moneda);
-        jLabel1.setText( "Cantidad de BTC : " + juego.getEstadisticas().getMonedaBTC().getMonedas());
+        //Moneda moneda = 
+        juego.getMinado().realizarMinado();
+        //this.juego.getEstadisticas().setMonedaBTC(moneda);
+        jLabel1.setText("Cantidad de BTC : " + juego.getEstadisticas().getMonedasBTC());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

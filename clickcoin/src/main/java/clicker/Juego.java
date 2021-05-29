@@ -11,18 +11,22 @@ public class Juego {
     private Mejora[] mejorasObtenidas;
     private Nivel nivel;
     private Minado minado;
+    private Moneda monedaBTC;
+    private Moneda monedaETH;
 
     public Juego(Jugador jugador) {
         this.jugador = jugador;
         Estadisticas estadisticas = new Estadisticas();
         this.estadisticas = estadisticas;
         this.nivel = new Nivel();
-        
+        this.monedaBTC = new MonedaBTC();
+        this.monedaETH = new MonedaETH();
         Minado oMinado = new Minado(this);
-        oMinado.setMoneda(estadisticas.getMonedaBTC());
+
+        oMinado.setMoneda(this.monedaBTC);
+
         this.minado = oMinado;
-        
-        
+
         iniciarJuego();
     }
 
@@ -30,19 +34,18 @@ public class Juego {
         VentanaJuegoBTC vBTC = new VentanaJuegoBTC(this);
         vBTC.setVisible(true);
     }
-    
-    public void aumentarNivel(){
+
+    public void aumentarNivel() {
         this.nivel.aumentar();
     }
-    
+
     /**
-     * Valida si el jugador llego al la cantidad de monedas necesarias para el superar de nivel
+     * Valida si el jugador llego al la cantidad de monedas necesarias para el
+     * superar de nivel
      */
-    
-    public Minado getMinado(){
+    public Minado getMinado() {
         return this.minado;
     }
-   
 
     public Jugador getJugador() {
         return jugador;
@@ -54,5 +57,13 @@ public class Juego {
 
     public Mejora[] getListaMejoras() {
         return mejorasObtenidas;
+    }
+
+    public Moneda getMonedaBTC() {
+        return monedaBTC;
+    }
+
+    public Moneda getMonedaETH() {
+        return monedaETH;
     }
 }

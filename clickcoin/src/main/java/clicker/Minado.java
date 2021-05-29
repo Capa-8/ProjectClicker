@@ -22,7 +22,7 @@ public class Minado {
 
     public Moneda realizarMinado() {
         //this.juego.getEstadisticas().aumentarCantMonedas(); no tendria que hacer esto, sino incrementar el objeto moneda
-        juego.getEstadisticas().aumentarCantClicks();
+        //juego.getEstadisticas().aumentarCantClicks();
         moneda.minar();
         return moneda;
     }
