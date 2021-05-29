@@ -22,7 +22,8 @@ public class VentanaMenu extends javax.swing.JFrame {
      */
     public VentanaMenu() {
         initComponents();
-        
+        setLocationRelativeTo(null);
+        setResizable(false);
         VentanaNombre vn1 = new VentanaNombre();
         this.vn1 = vn1;
         VentanaReglas vr1 = new VentanaReglas();
@@ -63,7 +64,7 @@ public class VentanaMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/SALIR.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/SALIR2.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

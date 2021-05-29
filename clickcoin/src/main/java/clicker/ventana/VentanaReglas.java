@@ -16,6 +16,8 @@ public class VentanaReglas extends javax.swing.JFrame {
      */
     public VentanaReglas() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
     
     public void Volver(){
