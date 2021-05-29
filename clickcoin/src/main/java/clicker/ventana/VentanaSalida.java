@@ -25,7 +25,7 @@ public class VentanaSalida extends javax.swing.JFrame {
     }
     
     public void No(){
-        setVisible(false);
+        dispose();
     }
 
     /**
@@ -61,7 +61,10 @@ public class VentanaSalida extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 200, 100, 75));
 
-        jLabel2.setText("Desea Salir?");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("¿DESEA SALIR?");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 180));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N
@@ -78,6 +81,19 @@ public class VentanaSalida extends javax.swing.JFrame {
         Si();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public javax.swing.JButton getBoton1(){
+        return jButton1;
+    }
+    
+    public javax.swing.JButton getBoton2(){
+        return jButton2;
+    }
+    
+    public javax.swing.JLabel getLabel1(){
+        return jLabel1;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

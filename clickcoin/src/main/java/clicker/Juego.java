@@ -66,4 +66,8 @@ public class Juego {
     public Moneda getMonedaETH() {
         return monedaETH;
     }
+    
+    public Nivel getNivel(){
+        return nivel;
+    }
 }

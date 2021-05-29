@@ -28,8 +28,6 @@ public class VentanaNombre extends javax.swing.JFrame {
         setVisible(false);
         Jugador p1 = new Jugador(jTextField1.getText());
         Juego j1 = new Juego(p1);
-//        VentanaJuegoBTC vBTC = new VentanaJuegoBTC(j1);
-//        vBTC.setVisible(true);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,8 +46,10 @@ public class VentanaNombre extends javax.swing.JFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Ingrese su nombre para comenzar:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 80, 193, 60));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("INGRESE SU NOMBRE");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 300, 60));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 150, 193, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/COMENZAR.png"))); // NOI18N
@@ -83,8 +83,6 @@ public class VentanaNombre extends javax.swing.JFrame {
         VentanaMenu vm1 = new VentanaMenu();
         vm1.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

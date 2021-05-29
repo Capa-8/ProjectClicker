@@ -5,8 +5,11 @@
  */
 package clicker;
 
+
+import clicker.moneda.*;
 import clicker.observer.Observer;
 import clicker.observer.Subject;
+
 
 /**
  *
@@ -14,15 +17,21 @@ import clicker.observer.Subject;
  */
 public class Estadisticas implements Observer {
 
+    private int cantMonedas;
     private int cantClicks;
     private int cantMonedaBTC;
     private int cantMonedaETH;
+//    private Moneda monedaBTC;
+//    private Moneda monedaETH;
     private Subject monedaSubject;
 
     public Estadisticas() {
+        cantMonedas = 0;
         cantClicks = 0;
         cantMonedaBTC = 0;
         cantMonedaETH = 0;
+//        this.monedaBTC = new MonedaBTC();
+//        this.monedaETH = new MonedaETH();
     }
 
     public void initSubject(Subject monedaSubject) {
@@ -35,23 +44,39 @@ public class Estadisticas implements Observer {
         cantMonedaBTC += 1;
         cantClicks += 1;
     }
-
-    @Override
+    
+     @Override
     public void updateETH() {
         cantMonedaETH += 1;
         cantClicks += 1;
     }
+    
+//    public void setMonedaBTC(Moneda monedaBTC) {
+//        this.monedaBTC = monedaBTC;
+//    }
+//
+//    public void setMonedaETH(Moneda monedaETH) {
+//        this.monedaETH = monedaETH;
+//    }
 
-    public int getMonedasBTC() {
+    public float getMonedasBTC() {
         return cantMonedaBTC;
     }
 
-    public int getMonedasETH() {
+    public float getMonedasETH() {
         return cantMonedaETH;
     }
 
     public void aumentarCantClicks() {
         cantClicks++;
+    }
+
+    public void aumentarCantMonedas() {
+        cantMonedas += 0.01;
+    }
+
+    public float getMonedas() {
+        return cantMonedas;
     }
 
     public int getClicks() {

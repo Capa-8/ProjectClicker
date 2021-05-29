@@ -28,5 +28,4 @@ public class MonedaETH implements Moneda {
      public int getMonedas(){
          return cantidad;
      }
-
 }

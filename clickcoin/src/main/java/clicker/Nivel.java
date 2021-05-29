@@ -23,7 +23,7 @@ public class Nivel {
         valoresList = new ArrayList();
         int cantNiveles = 5;
         int[] valores1 = new int[2];
-        valores1[0] = 100;//BTC
+        valores1[0] = 10;//BTC
         valores1[1] = 0;//ETH
         valoresList.add(valores1);
         int[] valores2 = new int[2];
@@ -77,6 +77,10 @@ public class Nivel {
     public boolean cambiaNivel(int cantBTC, int cantETH){
         int[] valores = (int[]) valoresList.get(numeroNivel-1);
         return (cantBTC==valores[0] && cantETH==valores[1]);
+    }
+    
+    public int getNumeroNivel(){
+        return numeroNivel;
     }
 
 }

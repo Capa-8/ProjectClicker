@@ -49,7 +49,7 @@ public class VentanaMejoras extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 314, 150, 75));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 315, 150, 75));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
@@ -61,6 +61,13 @@ public class VentanaMejoras extends javax.swing.JFrame {
         Volver();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public javax.swing.JButton getBoton1(){
+        return jButton1;
+    }
+    
+    public javax.swing.JLabel getLabel1(){
+        return jLabel1;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
