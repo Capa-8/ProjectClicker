@@ -6,42 +6,62 @@
 package clicker;
 
 import clicker.moneda.Moneda;
+import clicker.observer.Observer;
+import clicker.observer.Subject;
 
 /**
  *
  * @author Nacho
  */
-public class Estadisticas {
+public class Estadisticas implements Observer {
 
     private float cantMonedas;
     private int cantClicks;
     private Moneda monedaBTC;
     private Moneda monedaETH;
+    private Subject monedaSubject;
 
     public Estadisticas() {
         this.cantMonedas = 0;
         this.cantClicks = 0;
     }
+
+    public void initSubject(Subject monedaSubject) {
+        this.monedaSubject = monedaSubject;
+        this.monedaSubject.registerObserver(this);
+    }
+
+    @Override
+    public void updateBTC() {
+        
+    }
     
-    public void setMonedaBTC(Moneda monedaBTC){
+     @Override
+    public void updateETH() {
+
+    }
+    
+    public void setMonedaBTC(Moneda monedaBTC) {
         this.monedaBTC = monedaBTC;
     }
-    
-    public void setMonedaETH(Moneda monedaETH){
+
+    public void setMonedaETH(Moneda monedaETH) {
         this.monedaETH = monedaETH;
     }
-    
-    public Moneda getMonedaBTC(){
+
+    public Moneda getMonedaBTC() {
         return monedaBTC;
     }
-    
-    public Moneda getMonedaETH(){
+
+    public Moneda getMonedaETH() {
         return monedaETH;
     }
 
     public void aumentarCantClicks() {
         this.cantClicks++;
     }
+
+    
 
     public void aumentarCantMonedas() {
         this.cantMonedas += 0.01;

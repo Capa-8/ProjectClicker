@@ -12,22 +12,26 @@ import clicker.moneda.Moneda;
  * @author Nacho
  */
 public class Minado {
-    
+
     private Juego juego;
     private Moneda moneda;
-    
-    public Minado(Juego juego){
+
+    public Minado(Juego juego) {
         this.juego = juego;
     }
-    
-    public Moneda realizarMinado(){
+
+    public Moneda realizarMinado() {
         //this.juego.getEstadisticas().aumentarCantMonedas(); no tendria que hacer esto, sino incrementar el objeto moneda
         juego.getEstadisticas().aumentarCantClicks();
         moneda.minar();
         return moneda;
     }
-    
-    public void setMoneda(Moneda moneda){
+
+    public void setMoneda(Moneda moneda) {
         this.moneda = moneda;
+    }
+    
+    public Moneda getMoneda(){
+        return this.moneda;
     }
 }
