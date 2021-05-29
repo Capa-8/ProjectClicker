@@ -18,7 +18,6 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
 
     private VentanaEstadisticas ventanaEst;
     private VentanaMejoras ventanaMej;
-    private VentanaJuegoETH vETH;
     private Juego juego;
 
     /**
@@ -33,33 +32,22 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
 
         this.juego = juego;
         
-        jButton5.setVisible(false);
-        if (juego.getNivel().getNumeroNivel() == 2) {
-            jButton5.setVisible(true);
-        }
-        
-        
+        jLabel2.setText("JUGANDO: " + juego.getJugador().getNombre());
+        jLabel4.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
         jLabel1.setText("CANTIDAD DE BTC: " + juego.getEstadisticas().getMonedasBTC());
+        
+        
         VentanaEstadisticas ventanaEst = new VentanaEstadisticas(juego);
         this.ventanaEst = ventanaEst;
         VentanaMejoras ventanaMej = new VentanaMejoras(juego);
         this.ventanaMej = ventanaMej;
 
-        VentanaJuegoETH vETH = new VentanaJuegoETH(juego);
-        this.vETH = vETH;
-
         this.juego.getEstadisticas().initSubject((MonedaBTC) this.juego.getMonedaBTC());
-        jLabel2.setText("JUGANDO: " + juego.getJugador().getNombre());
-        jLabel4.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
 
-    }
-
-    public void mostrarEstadisiticas() {
-        ventanaEst.setVisible(true);
-    }
-
-    public void mostrarMejoras() {
-        ventanaMej.setVisible(true);
+        jButton5.setVisible(false);
+        if (juego.getNivel().getNumeroNivel() == 2) {
+            jButton5.setVisible(true);
+        }
     }
 
     /**
@@ -148,11 +136,11 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         ventanaEst.update();
-        mostrarEstadisiticas();
+        ventanaEst.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        mostrarMejoras();
+        ventanaMej.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -163,6 +151,7 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
             juego.getNivel().aumentar();
 
             if (juego.getNivel().getNumeroNivel() == 2) {
+                VentanaJuegoETH vETH = new VentanaJuegoETH(juego);
                 vETH.setVisible(true);
                 jButton5.setVisible(true);
                 dispose();

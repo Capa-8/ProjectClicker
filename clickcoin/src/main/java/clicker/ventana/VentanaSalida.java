@@ -19,14 +19,6 @@ public class VentanaSalida extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
     }
-    
-    public void Si(){
-        System.exit(0);
-    }
-    
-    public void No(){
-        dispose();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,11 +66,11 @@ public class VentanaSalida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        No();
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Si();
+        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public javax.swing.JButton getBoton1(){

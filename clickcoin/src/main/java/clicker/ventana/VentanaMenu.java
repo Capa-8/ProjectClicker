@@ -13,7 +13,6 @@ import clicker.*;
  */
 public class VentanaMenu extends javax.swing.JFrame {
     
-    private VentanaNombre vn1;
     private VentanaReglas vr1;
     private VentanaSalida vs1;
 
@@ -24,29 +23,13 @@ public class VentanaMenu extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        VentanaNombre vn1 = new VentanaNombre();
-        this.vn1 = vn1;
+        
         VentanaReglas vr1 = new VentanaReglas();
         this.vr1 = vr1;
         VentanaSalida vs1 = new VentanaSalida();
         this.vs1 = vs1;
     }
-    
-    /*Metodos Botones Ventana Menu*/
-    
-    public void ingresarNombre(){
-        vn1.setVisible(true);
-        dispose();
-    }
-    
-    public void mostrarReglas(){
-        vr1.setVisible(true);
-    }
-    
-    public void mostrarSalida(){
-        vs1.setVisible(true);
-    }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,15 +78,17 @@ public class VentanaMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        mostrarSalida();
+        vs1.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ingresarNombre();
+        VentanaNombre vn1 = new VentanaNombre();
+        vn1.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        mostrarReglas();
+        vr1.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

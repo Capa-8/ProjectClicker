@@ -27,6 +27,10 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
 
         this.juego = juego;
         
+        jLabel2.setText("JUGANDO: " + juego.getJugador().getNombre());        
+        jLabel3.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
+        jLabel4.setText("CANTIDAD DE ETH: " + juego.getEstadisticas().getMonedasETH()); 
+        
         VentanaEstadisticas vEst = new VentanaEstadisticas(juego);
         this.vEst = vEst;
         
@@ -37,9 +41,9 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
         VentanaMejoras vMej = new VentanaMejoras(juego);
         this.vMej = vMej;
         
+        //Cambiamos aspecto de la ventana de mejoras.
         vMej.getBoton1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/VOLVER4.png")));
         vMej.getLabel1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO2.png")));
-        
     }
 
     /**
@@ -96,8 +100,14 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 12, 150, 75));
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 300, 75));
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 460, 50));
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 460, 50));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/MINARBTC.png"))); // NOI18N
@@ -116,8 +126,8 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        juego.getEstadisticas().aumentarCantMonedas();
-        System.out.println("1");
+        juego.getMinado().realizarMinado();
+        jLabel4.setText("CANTIDAD DE ETH: " + juego.getEstadisticas().getMonedasBTC()); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -131,6 +141,7 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         VentanaSalida vs = new VentanaSalida();
+        //Cambiamos aspecto de la ventana de salida.
         vs.getBoton1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/si1.png")));
         vs.getBoton2().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/no1.png")));
         vs.getLabel1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO2.png")));

@@ -23,12 +23,7 @@ public class VentanaMejoras extends javax.swing.JFrame {
         setResizable(false);
         this.juego = juego;
     }
-
     
-    public void Volver(){
-        setVisible(false);
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,7 +53,7 @@ public class VentanaMejoras extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Volver();
+        setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public javax.swing.JButton getBoton1(){

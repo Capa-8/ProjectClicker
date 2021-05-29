@@ -13,8 +13,6 @@ import clicker.Jugador;
  * @author Nacho
  */
 public class VentanaNombre extends javax.swing.JFrame {
-
-    private VentanaJuegoBTC vBTC;
     /**
      * Creates new form VentanaNombre
      */
@@ -23,12 +21,7 @@ public class VentanaNombre extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
     }
-
-    public void crearJuego(){
-        setVisible(false);
-        Jugador p1 = new Jugador(jTextField1.getText());
-        Juego j1 = new Juego(p1);
-    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,7 +31,6 @@ public class VentanaNombre extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -46,11 +38,8 @@ public class VentanaNombre extends javax.swing.JFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("INGRESE SU NOMBRE");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 300, 60));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 150, 193, -1));
+        jTextField1.setText("Ingrese su nombre");
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 193, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/COMENZAR.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +47,7 @@ public class VentanaNombre extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 180, 193, 75));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 193, 75));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/VOLVER2.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +55,7 @@ public class VentanaNombre extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 260, 193, 75));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 193, 75));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
@@ -75,20 +64,21 @@ public class VentanaNombre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        crearJuego();
+        Jugador p1 = new Jugador(jTextField1.getText());
+        Juego j1 = new Juego(p1);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        setVisible(false);
         VentanaMenu vm1 = new VentanaMenu();
         vm1.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

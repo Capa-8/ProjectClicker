@@ -27,11 +27,7 @@ public class VentanaEstadisticas extends javax.swing.JFrame {
         jLabel1.setText("CANTIDAD DE CLICKS REALIZADOS: " + juego.getEstadisticas().getClicks());
         jLabel3.setText("CANTIDAD DE MONEDAS OBTENIDAS: " + juego.getEstadisticas().getMonedasBTC());
     }
-    
-    public void Volver(){
-        setVisible(false);
-    }
-    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,13 +68,13 @@ public class VentanaEstadisticas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Volver();
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public javax.swing.JButton getBoton1(){
         return jButton1;
     }
-    
+
     public javax.swing.JLabel getLabel1(){
         return jLabel2;
     }
