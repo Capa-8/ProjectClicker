@@ -6,10 +6,7 @@
 package clicker;
 
 
-import clicker.moneda.*;
-import clicker.observer.Observer;
-import clicker.observer.Subject;
-import java.util.Date;
+import clicker.observer.*;
 
 /**
  *
