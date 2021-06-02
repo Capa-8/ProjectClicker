@@ -70,7 +70,7 @@ public class VentanaNombre extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Jugador p1 = new Jugador(jTextField1.getText());
-        Juego j1 = new Juego(p1);
+        Juego juego = new Juego(p1);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
