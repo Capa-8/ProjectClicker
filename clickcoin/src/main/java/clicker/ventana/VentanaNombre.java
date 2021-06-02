@@ -34,11 +34,10 @@ public class VentanaNombre extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextField1.setText("Ingrese su nombre");
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 193, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/COMENZAR.png"))); // NOI18N
@@ -57,7 +56,13 @@ public class VentanaNombre extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 193, 75));
 
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel3.setText("Ingrese su Nombre");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 55, 190, 40));
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
 
         pack();
@@ -79,6 +84,7 @@ public class VentanaNombre extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
