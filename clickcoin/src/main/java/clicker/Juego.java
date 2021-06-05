@@ -1,5 +1,6 @@
 package clicker;
 
+import clicker.enemigos.FabricaEnemigos;
 import clicker.mejoras.*;
 import clicker.moneda.*;
 import clicker.ventana.VentanaJuegoBTC;
@@ -13,6 +14,7 @@ public class Juego {
     private Minado minado;
     private Moneda monedaBTC;
     private Moneda monedaETH;
+    private FabricaEnemigos fabricaE;
 
     public Juego(Jugador jugador) {
         this.jugador = jugador;
@@ -22,6 +24,7 @@ public class Juego {
         this.monedaBTC = new MonedaBTC();
         this.monedaETH = new MonedaETH();
         Minado oMinado = new Minado(this);
+        fabricaE = new FabricaEnemigos(this);
 
         oMinado.setMoneda(this.monedaBTC);
 
@@ -69,5 +72,9 @@ public class Juego {
     
     public Nivel getNivel(){
         return nivel;
+    }
+    
+    public FabricaEnemigos getFabricaE(){
+        return fabricaE;
     }
 }

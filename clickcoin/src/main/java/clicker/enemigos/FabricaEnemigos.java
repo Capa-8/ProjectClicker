@@ -1,5 +1,6 @@
 package clicker.enemigos;
 
+import clicker.Juego;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -16,6 +17,8 @@ public class FabricaEnemigos {
         pause = true;
         enemigos = new ArrayList<>();
         enlistarEnemigos();
+        
+        iniciar();
     }
     
     public void iniciar(){

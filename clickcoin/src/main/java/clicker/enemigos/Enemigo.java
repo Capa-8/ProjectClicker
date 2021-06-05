@@ -1,5 +1,6 @@
 package clicker.enemigos;
 
+import clicker.Juego;
 import clicker.ventana.VentanaEnemigo;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,7 +23,7 @@ public abstract class Enemigo {
      * exista uno vivo, se llama a temporizador de ataques y ronda y se declara dead como falso
     */
     public void nacer(){
-        juego.fabircEnemi.pausa();
+        juego.getFabricaE().pausa();
         dead = false;
         vida = vidaEstandar;
         tiempoRonda = tiempo;
@@ -100,7 +101,7 @@ public abstract class Enemigo {
         tareaAtacar.cancel();
         ventana.matar();
         
-        juego.fabircEnemi.seguir();
+        juego.getFabricaE().seguir();
         
         ventana.setVisible(false);
     }
