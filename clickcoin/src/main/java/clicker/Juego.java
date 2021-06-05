@@ -36,6 +36,7 @@ public class Juego {
     private void iniciarJuego() {
         VentanaJuegoBTC vBTC = new VentanaJuegoBTC(this);
         vBTC.setVisible(true);
+        fabricaE.iniciar();
     }
 
     public void aumentarNivel() {
