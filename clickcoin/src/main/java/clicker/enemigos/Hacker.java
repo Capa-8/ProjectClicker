@@ -25,4 +25,8 @@ public class Hacker extends Enemigo{
        tiempo = tiempo + 2;
     }
     
+    @Override
+    public String nombre(){
+        return "Hacker";
+    }
 }

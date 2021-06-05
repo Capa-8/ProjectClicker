@@ -1,5 +1,6 @@
 package clicker.enemigos;
 
+import clicker.ventana.VentanaEnemigo;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -11,8 +12,10 @@ public abstract class Enemigo {
     int vida;
     int vidaEstandar;
     int tiempo;
+    int tiempoRonda;
     boolean dead;
     private TimerTask tareaAtacar;
+    VentanaEnemigo ventana;
     
     
     /**El metodo nacer pausa a la fabrica para que no cree enemigos nuevos mientras
@@ -22,8 +25,15 @@ public abstract class Enemigo {
         juego.fabircEnemi.pausa();
         dead = false;
         vida = vidaEstandar;
+        tiempoRonda = tiempo;
+        ventana = new VentanaEnemigo(this);
+        ventana.setVisible(true);
+        
+        
         temporizadorRonda(tiempo);
         temporizadorAtaques();
+        
+
     }
     
     /**El metodo atacar le quita una cantidad determinada de monedas al jugador
@@ -40,6 +50,7 @@ public abstract class Enemigo {
         tareaAtacar = new TimerTask(){
            @Override
            public void run(){
+               tiempoRonda--;//Se llevara el conteo de la ronda aqui por ser una accion que se llama cada 1 segundo para la correcta sincronizacion con la ventana
                 atacar();
            }
        };
@@ -58,13 +69,23 @@ public abstract class Enemigo {
                if(!dead){
                vida = vidaEstandar;
                incrementarTiempo();
-               
+               reiniciarVentana();
                temporizadorRonda(tiempo);
                }
            }
        };
        timer.schedule(tarea, t*1000);
     }   
+    
+    
+    /**El metodo reiniciarVentana como su nombre indica realiza un "parpadeo" de 
+     * ventana y a su vez reinicia el contador de tiempo que sera mostrado en la ventana
+     */
+    private void reiniciarVentana(){
+        ventana.setVisible(false);
+        ventana.setVisible(true);
+        tiempoRonda = tiempo;
+    }
     
     
     public float getProbabilidad(){
@@ -77,7 +98,19 @@ public abstract class Enemigo {
     private void matar(){
         dead = true;
         tareaAtacar.cancel();
+        ventana.matar();
+        
         juego.fabircEnemi.seguir();
+        
+        ventana.setVisible(false);
+    }
+    
+    public int getTiempo(){
+    return this.tiempoRonda;
+    }
+    
+    public int getVida(){
+        return vida;
     }
     
     
@@ -89,4 +122,6 @@ public abstract class Enemigo {
     }
     
     public abstract void incrementarTiempo();
+    
+    public abstract String nombre();
 }

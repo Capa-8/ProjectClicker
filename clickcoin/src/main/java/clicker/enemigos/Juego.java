@@ -4,11 +4,8 @@
  * and open the template in the editor.
  */
 package clicker.enemigos;
+    
 
-/**
- *
- * @author Fabio Gazzoni
- */
 public class Juego {
     Nivel nivel;
     FabricaEnemigos fabircEnemi = new FabricaEnemigos(this);

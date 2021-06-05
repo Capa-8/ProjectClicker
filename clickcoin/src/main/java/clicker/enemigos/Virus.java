@@ -24,4 +24,9 @@ public class Virus extends Enemigo{
     public void incrementarTiempo(){
         tiempo = tiempo + 1;
     }
+    
+    @Override
+    public String nombre(){
+        return "Virus";
+    }
 }

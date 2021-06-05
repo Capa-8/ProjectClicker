@@ -24,4 +24,9 @@ public class Invencible extends Enemigo{
     public void incrementarTiempo() {
         tiempo = tiempo + 3;
     }
+    
+    @Override
+    public String nombre(){
+        return "Invencible";
+    }
 }
