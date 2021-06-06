@@ -46,12 +46,8 @@ public class JuegoTest {
     @Test
     public void testAumentarNivel() {
         System.out.println("Test: aumentarNivel");
-        Juego instance = new Juego(new Jugador("test"));
-        
+        Juego instance = new Juego(new Jugador("player1"));
         Integer nivel = instance.aumentarNivel();
         assertEquals(2, nivel);
     }
-
-   
-    
 }

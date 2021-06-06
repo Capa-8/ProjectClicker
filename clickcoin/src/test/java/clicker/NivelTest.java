@@ -42,11 +42,9 @@ public class NivelTest {
      */
     @Test
     public void testAumentar() {
-        System.out.println("aumentar");
+        System.out.println("Test Aumentar");
         Nivel instance = new Nivel();
-        instance.aumentar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(2,instance.aumentar()); 
     }
 
     /**
@@ -54,17 +52,10 @@ public class NivelTest {
      */
     @Test
     public void testCambiaNivel() {
-        System.out.println("cambiaNivel");
-        int cantBTC = 0;
+        System.out.println("Test cambiaNivel");
+        int cantBTC = 100;
         int cantETH = 0;
         Nivel instance = new Nivel();
-        boolean expResult = false;
-        boolean result = instance.cambiaNivel(cantBTC, cantETH);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-   
-    
+        assertEquals(true, instance.cambiaNivel(cantBTC, cantETH));
+    }  
 }

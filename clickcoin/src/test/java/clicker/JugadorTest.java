@@ -36,7 +36,4 @@ public class JugadorTest {
     @AfterEach
     public void tearDown() {
     }
-
-   
-    
 }

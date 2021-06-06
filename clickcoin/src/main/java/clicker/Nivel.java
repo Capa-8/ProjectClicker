@@ -23,7 +23,7 @@ public class Nivel {
         valoresList = new ArrayList();
         int cantNiveles = 5;
         int[] valores1 = new int[2];
-        valores1[0] = 10;//BTC
+        valores1[0] = 100;//BTC
         valores1[1] = 0;//ETH
         valoresList.add(valores1);
         int[] valores2 = new int[2];

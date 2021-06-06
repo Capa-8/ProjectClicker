@@ -44,14 +44,10 @@ public class MinadoTest {
     @Test
     public void testRealizarMinado() {
         System.out.println("realizarMinado");
-        Minado instance = null;
+        Jugador j = new Jugador("player1");
+        Juego juego = new Juego(j);
+        Minado instance = juego.getMinado();
         instance.realizarMinado();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,instance.getMoneda().getMonedas());
     }
-
-  
-
-   
-    
 }
