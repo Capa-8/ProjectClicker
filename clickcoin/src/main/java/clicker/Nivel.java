@@ -69,9 +69,10 @@ public class Nivel {
 //        valoresList.add(this)
     }
 
-    public void aumentar() {
+    public int aumentar() {
         ponderacion *= 10;
         numeroNivel += 1;
+        return numeroNivel;
     }
     
     public boolean cambiaNivel(int cantBTC, int cantETH){

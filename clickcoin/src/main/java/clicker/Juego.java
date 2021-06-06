@@ -39,8 +39,8 @@ public class Juego {
         fabricaE.iniciar();
     }
 
-    public void aumentarNivel() {
-        this.nivel.aumentar();
+    public int aumentarNivel() {
+        return this.nivel.aumentar();
     }
 
     /**

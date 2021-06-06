@@ -3,11 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clicker;
+package clicker.enemigos;
 
-import clicker.enemigos.FabricaEnemigos;
-import clicker.mejoras.Mejora;
-import clicker.moneda.Moneda;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,9 +16,9 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Nehemias
  */
-public class JuegoTest {
+public class HackerTest {
     
-    public JuegoTest() {
+    public HackerTest() {
     }
     
     @BeforeAll
@@ -41,19 +38,29 @@ public class JuegoTest {
     }
 
     /**
-     * Test of aumentarNivel method, of class Juego.
+     * Test of incrementarTiempo method, of class Hacker.
      */
     @Test
-    public void testAumentarNivel() {
-        System.out.println("Test: aumentarNivel");
-        Juego instance = new Juego(new Jugador("test"));
-        
-        Integer nivel = instance.aumentarNivel();
-        assertEquals(2, nivel);
+    public void testIncrementarTiempo() {
+        System.out.println("incrementarTiempo");
+        Hacker instance = null;
+        instance.incrementarTiempo();
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
-   
+    /**
+     * Test of nombre method, of class Hacker.
+     */
+    @Test
+    public void testNombre() {
+        System.out.println("nombre");
+        Hacker instance = null;
+        String expResult = "";
+        String result = instance.nombre();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }
