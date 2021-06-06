@@ -5,6 +5,8 @@
  */
 package clicker.moneda;
 
+import clicker.Juego;
+import clicker.Jugador;
 import clicker.observer.Observer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -44,10 +46,18 @@ public class MonedaBTCTest {
     @Test
     public void testMinar() {
         System.out.println("minar");
-        MonedaBTC instance = new MonedaBTC();
-        instance.minar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Jugador jugador = new Jugador("test");
+        Juego juego = new Juego(jugador);
+        juego.getEstadisticas().initSubject((MonedaBTC) juego.getMonedaBTC());
+        int i = 5;
+        for (int j = 0; j < i; j++) {
+            juego.getMinado().realizarMinado();
+        }
+        //El nivel de monedas debería estar en 5.
+        float cantMonedasBTC = juego.getEstadisticas().getMonedasBTC();
+        float esperado = 5;
+        assertEquals(esperado, cantMonedasBTC);
+       
     }
 
     /**
@@ -58,18 +68,6 @@ public class MonedaBTCTest {
         System.out.println("monedasCambiadas");
         MonedaBTC instance = new MonedaBTC();
         instance.monedasCambiadas();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of notifyObservers method, of class MonedaBTC.
-     */
-    @Test
-    public void testNotifyObservers() {
-        System.out.println("notifyObservers");
-        MonedaBTC instance = new MonedaBTC();
-        instance.notifyObservers();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
