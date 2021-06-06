@@ -55,6 +55,10 @@ public class MonedaBTC implements Moneda, Subject {
             observers.remove(i);
         }
     }
+    
+    public ArrayList getObservers(){
+        return observers;
+    }
 
     @Override
     public int getMonedas() {
