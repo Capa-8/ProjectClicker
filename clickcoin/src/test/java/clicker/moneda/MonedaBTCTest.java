@@ -43,23 +43,10 @@ public class MonedaBTCTest {
      */
     @Test
     public void testMinar() {
-        System.out.println("minar");
+        System.out.println("minar BTC");
         MonedaBTC instance = new MonedaBTC();
         instance.minar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of monedasCambiadas method, of class MonedaBTC.
-     */
-    @Test
-    public void testMonedasCambiadas() {
-        System.out.println("monedasCambiadas");
-        MonedaBTC instance = new MonedaBTC();
-        instance.monedasCambiadas();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,instance.getMonedas());
     }
 
     /**
@@ -98,8 +85,5 @@ public class MonedaBTCTest {
         instance.removeObserver(o);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
-
-   
-    
+    }    
 }

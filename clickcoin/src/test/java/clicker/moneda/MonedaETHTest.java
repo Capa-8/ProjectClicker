@@ -42,12 +42,9 @@ public class MonedaETHTest {
      */
     @Test
     public void testMinar() {
-        System.out.println("minar");
+        System.out.println("minar ETH");
         MonedaETH instance = new MonedaETH();
         instance.minar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,instance.getMonedas());
     }
-
-    
 }
