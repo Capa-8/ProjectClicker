@@ -100,18 +100,6 @@ public class MonedaBTCTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getMonedas method, of class MonedaBTC.
-     */
-    @Test
-    public void testGetMonedas() {
-        System.out.println("getMonedas");
-        MonedaBTC instance = new MonedaBTC();
-        int expResult = 0;
-        int result = instance.getMonedas();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+   
     
 }

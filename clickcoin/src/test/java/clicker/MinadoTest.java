@@ -50,31 +50,8 @@ public class MinadoTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setMoneda method, of class Minado.
-     */
-    @Test
-    public void testSetMoneda() {
-        System.out.println("setMoneda");
-        Moneda moneda = null;
-        Minado instance = null;
-        instance.setMoneda(moneda);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+  
 
-    /**
-     * Test of getMoneda method, of class Minado.
-     */
-    @Test
-    public void testGetMoneda() {
-        System.out.println("getMoneda");
-        Minado instance = null;
-        Moneda expResult = null;
-        Moneda result = instance.getMoneda();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+   
     
 }

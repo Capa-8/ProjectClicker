@@ -49,18 +49,5 @@ public class MonedaETHTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getMonedas method, of class MonedaETH.
-     */
-    @Test
-    public void testGetMonedas() {
-        System.out.println("getMonedas");
-        MonedaETH instance = new MonedaETH();
-        int expResult = 0;
-        int result = instance.getMonedas();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
 }

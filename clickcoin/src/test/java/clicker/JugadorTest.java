@@ -37,18 +37,6 @@ public class JugadorTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getNombre method, of class Jugador.
-     */
-    @Test
-    public void testGetNombre() {
-        System.out.println("getNombre");
-        Jugador instance = null;
-        String expResult = "";
-        String result = instance.getNombre();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+   
     
 }

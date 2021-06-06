@@ -65,18 +65,6 @@ public class NivelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getNumeroNivel method, of class Nivel.
-     */
-    @Test
-    public void testGetNumeroNivel() {
-        System.out.println("getNumeroNivel");
-        Nivel instance = new Nivel();
-        int expResult = 0;
-        int result = instance.getNumeroNivel();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+   
     
 }

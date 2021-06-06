@@ -75,33 +75,7 @@ public class EstadisticasTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getMonedasBTC method, of class Estadisticas.
-     */
-    @Test
-    public void testGetMonedasBTC() {
-        System.out.println("getMonedasBTC");
-        Estadisticas instance = new Estadisticas();
-        float expResult = 0.0F;
-        float result = instance.getMonedasBTC();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getMonedasETH method, of class Estadisticas.
-     */
-    @Test
-    public void testGetMonedasETH() {
-        System.out.println("getMonedasETH");
-        Estadisticas instance = new Estadisticas();
-        float expResult = 0.0F;
-        float result = instance.getMonedasETH();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+   
 
     /**
      * Test of aumentarCantClicks method, of class Estadisticas.
@@ -127,32 +101,6 @@ public class EstadisticasTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getMonedas method, of class Estadisticas.
-     */
-    @Test
-    public void testGetMonedas() {
-        System.out.println("getMonedas");
-        Estadisticas instance = new Estadisticas();
-        float expResult = 0.0F;
-        float result = instance.getMonedas();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getClicks method, of class Estadisticas.
-     */
-    @Test
-    public void testGetClicks() {
-        System.out.println("getClicks");
-        Estadisticas instance = new Estadisticas();
-        int expResult = 0;
-        int result = instance.getClicks();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
     
 }
