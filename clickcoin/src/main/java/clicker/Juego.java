@@ -30,10 +30,9 @@ public class Juego {
 
         this.minado = oMinado;
 
-        iniciarJuego();
     }
 
-    private void iniciarJuego() {
+    public void iniciarJuego() {
         VentanaJuegoBTC vBTC = new VentanaJuegoBTC(this);
         vBTC.setVisible(true);
         fabricaE.iniciar();
