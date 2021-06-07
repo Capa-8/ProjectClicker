@@ -57,8 +57,10 @@ public class MonedaBTCTest {
     public void testNotifyObservers() {
         System.out.println("notifyObservers");
         MonedaBTC instance = new MonedaBTC();
+        Estadisticas e = new Estadisticas();
+        instance.registerObserver(e);
         instance.notifyObservers();
-        assertEquals(true,true);
+        assertEquals(1,e.getMonedasBTC());
     }
 
     /**

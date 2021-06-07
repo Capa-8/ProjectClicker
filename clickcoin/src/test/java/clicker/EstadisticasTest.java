@@ -5,6 +5,8 @@
  */
 package clicker;
 
+import clicker.moneda.*;
+import clicker.*;
 import clicker.observer.Subject;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -44,11 +46,10 @@ public class EstadisticasTest {
     @Test
     public void testInitSubject() {
         System.out.println("initSubject");
-        Subject monedaSubject = null;
         Estadisticas instance = new Estadisticas();
-        instance.initSubject(monedaSubject);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        MonedaBTC moneda = new MonedaBTC();
+        instance.initSubject((MonedaBTC) moneda);
+        assertEquals(1,moneda.getObservers().size());
     }
 
     /**
@@ -58,9 +59,10 @@ public class EstadisticasTest {
     public void testUpdateBTC() {
         System.out.println("updateBTC");
         Estadisticas instance = new Estadisticas();
-        instance.updateBTC();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for(int i=0;i<5;i++){
+            instance.updateBTC();
+        }       
+        assertEquals(5,instance.getMonedasBTC());
     }
 
     /**
@@ -70,34 +72,9 @@ public class EstadisticasTest {
     public void testUpdateETH() {
         System.out.println("updateETH");
         Estadisticas instance = new Estadisticas();
-        instance.updateETH();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-   
-
-    /**
-     * Test of aumentarCantClicks method, of class Estadisticas.
-     */
-    @Test
-    public void testAumentarCantClicks() {
-        System.out.println("aumentarCantClicks");
-        Estadisticas instance = new Estadisticas();
-        instance.aumentarCantClicks();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of aumentarCantMonedas method, of class Estadisticas.
-     */
-    @Test
-    public void testAumentarCantMonedas() {
-        System.out.println("aumentarCantMonedas");
-        Estadisticas instance = new Estadisticas();
-        instance.aumentarCantMonedas();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for(int i=0;i<5;i++){
+            instance.updateETH();
+        }       
+        assertEquals(5,instance.getMonedasETH());
     }
 }

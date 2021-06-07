@@ -42,7 +42,7 @@ public class Estadisticas implements Observer {
         cantClicks += 1;
     }
     
-     @Override
+    @Override
     public void updateETH() {
         cantMonedaETH += 1;
         cantClicks += 1;
@@ -62,14 +62,6 @@ public class Estadisticas implements Observer {
 
     public float getMonedasETH() {
         return cantMonedaETH;
-    }
-
-    public void aumentarCantClicks() {
-        cantClicks++;
-    }
-
-    public void aumentarCantMonedas() {
-        cantMonedas += 0.01;
     }
 
     public float getMonedas() {
