@@ -8,6 +8,7 @@ package clicker.moneda;
 import clicker.Juego;
 import clicker.Jugador;
 import clicker.observer.Observer;
+import clicker.observer.Subject;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -48,7 +49,8 @@ public class MonedaETHTest {
         System.out.println("minar ETH");
         Jugador jugador = new Jugador("test");
         Juego juego = new Juego(jugador);
-        juego.getEstadisticas().initSubject((MonedaBTC) juego.getMonedaETH());
+        juego.getMinado().setMoneda((MonedaETH) juego.getMonedaETH());
+        juego.getEstadisticas().initSubject((MonedaETH) juego.getMonedaETH());
         
         int i = 5;
         for (int j = 0; j < i; j++) {
@@ -68,9 +70,11 @@ public class MonedaETHTest {
         System.out.println("removeObserver");
         Jugador jugador = new Jugador("test");
         Juego juego = new Juego(jugador);
-        juego.getEstadisticas().initSubject((MonedaBTC) juego.getMonedaETH());
-        juego.getMinado().getMoneda().ge
-                assertEquals(1,instance.getObservers().size());
+        juego.getMinado().setMoneda((MonedaETH) juego.getMonedaETH());
+        juego.getEstadisticas().initSubject((MonedaETH) juego.getMonedaETH());
+        MonedaETH monedaETH = (MonedaETH) juego.getMinado().getMoneda();
+        int cantObservers = monedaETH.getObservers().size();
+        assertEquals(1, cantObservers);
     }
 
     /**

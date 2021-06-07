@@ -46,19 +46,12 @@ public class Estadisticas implements Observer, ObserverEnemigo {
         cantClicks += 1;
     }
     
-     @Override
+    @Override
     public void updateETH() {
         cantMonedaETH += 1;
         cantClicks += 1;
     }
-    
-//    public void setMonedaBTC(Moneda monedaBTC) {
-//        this.monedaBTC = monedaBTC;
-//    }
-//
-//    public void setMonedaETH(Moneda monedaETH) {
-//        this.monedaETH = monedaETH;
-//    }
+
 
     public float getMonedasBTC() {
         return cantMonedaBTC;
@@ -66,14 +59,6 @@ public class Estadisticas implements Observer, ObserverEnemigo {
 
     public float getMonedasETH() {
         return cantMonedaETH;
-    }
-
-    public void aumentarCantClicks() {
-        cantClicks++;
-    }
-
-    public void aumentarCantMonedas() {
-        cantMonedas += 0.01;
     }
 
     public float getMonedas() {

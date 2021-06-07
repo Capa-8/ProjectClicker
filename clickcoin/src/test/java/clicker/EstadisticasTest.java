@@ -5,7 +5,13 @@
  */
 package clicker;
 
+import clicker.moneda.*;
+import clicker.*;
+import clicker.enemigos.Enemigo;
+import clicker.enemigos.Virus;
 import clicker.observer.Subject;
+import clicker.observer.SubjectEnemigo;
+import java.util.ArrayList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,22 +24,22 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Nehemias
  */
 public class EstadisticasTest {
-    
+
     public EstadisticasTest() {
     }
-    
+
     @BeforeAll
     public static void setUpClass() {
     }
-    
+
     @AfterAll
     public static void tearDownClass() {
     }
-    
+
     @BeforeEach
     public void setUp() {
     }
-    
+
     @AfterEach
     public void tearDown() {
     }
@@ -44,11 +50,21 @@ public class EstadisticasTest {
     @Test
     public void testInitSubject() {
         System.out.println("initSubject");
-        Subject monedaSubject = null;
         Estadisticas instance = new Estadisticas();
-        instance.initSubject(monedaSubject);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        MonedaBTC moneda = new MonedaBTC();
+        instance.initSubject((MonedaBTC) moneda);
+        assertEquals(1, moneda.getObservers().size());
+    }
+
+    @Test
+    public void testInitSubjectEnemigo() {
+        System.out.println("initSubjectEnemigo");
+        Juego juego = new Juego(new Jugador("test"));
+        juego.getEstadisticas().initSubject((MonedaBTC) juego.getMonedaBTC());
+
+        ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
+        assertEquals(3, enemigos.size());
+
     }
 
     /**
@@ -58,9 +74,10 @@ public class EstadisticasTest {
     public void testUpdateBTC() {
         System.out.println("updateBTC");
         Estadisticas instance = new Estadisticas();
-        instance.updateBTC();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for (int i = 0; i < 5; i++) {
+            instance.updateBTC();
+        }
+        assertEquals(5, instance.getMonedasBTC());
     }
 
     /**
@@ -70,34 +87,58 @@ public class EstadisticasTest {
     public void testUpdateETH() {
         System.out.println("updateETH");
         Estadisticas instance = new Estadisticas();
-        instance.updateETH();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-   
-
-    /**
-     * Test of aumentarCantClicks method, of class Estadisticas.
-     */
-    @Test
-    public void testAumentarCantClicks() {
-        System.out.println("aumentarCantClicks");
-        Estadisticas instance = new Estadisticas();
-        instance.aumentarCantClicks();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for (int i = 0; i < 5; i++) {
+            instance.updateETH();
+        }
+        assertEquals(5, instance.getMonedasETH());
     }
 
     /**
-     * Test of aumentarCantMonedas method, of class Estadisticas.
+     * Test of QuitarBTC method, of class Estadisticas.
      */
     @Test
-    public void testAumentarCantMonedas() {
-        System.out.println("aumentarCantMonedas");
-        Estadisticas instance = new Estadisticas();
-        instance.aumentarCantMonedas();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testQuitarBTC() {
+        System.out.println("quitar BTC");
+        Juego juego = new Juego(new Jugador("test"));
+        juego.getEstadisticas().initSubject((MonedaBTC) juego.getMonedaBTC());
+        int i = 5;
+        for (int j = 0; j < i; j++) {
+            juego.getMinado().realizarMinado();
+        }
+
+        ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
+        Enemigo ene = enemigos.get(0);
+        ene.atacar();
+
+        float cantMonedasBTC = juego.getEstadisticas().getMonedasBTC();
+        float esperado = 4;
+        assertEquals(esperado, cantMonedasBTC);
+
+    }
+    
+    /**
+     * Test of QuitarETH method, of class Estadisticas.
+     */
+    @Test
+    public void testQuitarETH() {
+        System.out.println("quitar ETH");
+        Juego juego = new Juego(new Jugador("test"));
+        Moneda moneda = (MonedaETH) juego.getMonedaETH();
+        juego.getMinado().setMoneda(moneda);
+        juego.getEstadisticas().initSubject((MonedaETH) moneda);
+        int i = 5;
+        for (int j = 0; j < i; j++) {
+            juego.getMinado().realizarMinado();
+        }
+
+      
+        ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
+        Enemigo ene = enemigos.get(0);
+        ene.atacar();
+
+        float cantMonedasETH = juego.getEstadisticas().getMonedasETH();
+        float esperado = 4;
+        assertEquals(esperado, cantMonedasETH);
+
     }
 }

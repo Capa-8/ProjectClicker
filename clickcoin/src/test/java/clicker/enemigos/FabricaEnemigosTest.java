@@ -40,37 +40,37 @@ public class FabricaEnemigosTest {
     /**
      * Test of iniciar method, of class FabricaEnemigos.
      */
-    @Test
-    public void testIniciar() {
-        System.out.println("iniciar");
-        FabricaEnemigos instance = null;
-        instance.iniciar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testIniciar() {
+//        System.out.println("iniciar");
+//        FabricaEnemigos instance = null;
+//        instance.iniciar();
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of pausa method, of class FabricaEnemigos.
      */
-    @Test
-    public void testPausa() {
-        System.out.println("pausa");
-        FabricaEnemigos instance = null;
-        instance.pausa();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testPausa() {
+//        System.out.println("pausa");
+//        FabricaEnemigos instance = null;
+//        instance.pausa();
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of seguir method, of class FabricaEnemigos.
      */
-    @Test
-    public void testSeguir() {
-        System.out.println("seguir");
-        FabricaEnemigos instance = null;
-        instance.seguir();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testSeguir() {
+//        System.out.println("seguir");
+//        FabricaEnemigos instance = null;
+//        instance.seguir();
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
     
 }

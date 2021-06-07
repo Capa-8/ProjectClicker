@@ -43,7 +43,7 @@ public abstract class Enemigo implements SubjectEnemigo {
     /**
      * El metodo atacar le quita una cantidad determinada de monedas al jugador
      */
-    private void atacar() {
+    public void atacar() {
         notifyObservers();
     }
 
@@ -51,7 +51,7 @@ public abstract class Enemigo implements SubjectEnemigo {
      * El metodo temporizador de ataques es el encargado de llamar a un ataque
      * cada 1s siempre que el enemigo no halla muerto
      */
-    private void temporizadorAtaques() {
+    public void temporizadorAtaques() {
         Timer timer = new Timer();
         tareaAtacar = new TimerTask() {
             @Override
@@ -133,6 +133,7 @@ public abstract class Enemigo implements SubjectEnemigo {
         for (int i = 0; i < observers.size(); i++) {
             ObserverEnemigo observer = (ObserverEnemigo) observers.get(i);
             observer.quitarBTC();
+            observer.quitarETH();
         }
     }
 

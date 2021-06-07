@@ -79,4 +79,8 @@ public class FabricaEnemigos {
         
         
     }
+    
+    public ArrayList getEnemigos(){
+        return enemigos;
+    }
 }
