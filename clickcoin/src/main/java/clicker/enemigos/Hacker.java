@@ -1,6 +1,7 @@
 package clicker.enemigos;
 
 import clicker.Juego;
+import java.util.ArrayList;
 
 public class Hacker extends Enemigo{
     
@@ -10,6 +11,8 @@ public class Hacker extends Enemigo{
         probabilidad = 0.02f;
         vidaEstandar = 100;
         tiempo = 25;
+        super.observers = new ArrayList();
+        juego.getEstadisticas().initSubjectEnemigo(this);
     }
 
     
@@ -22,4 +25,10 @@ public class Hacker extends Enemigo{
     public String nombre(){
         return "Hacker";
     }
+
+    
+
+  
+
+   
 }

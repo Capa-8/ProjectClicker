@@ -43,7 +43,8 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
         this.ventanaMej = ventanaMej;
 
         this.juego.getEstadisticas().initSubject((MonedaBTC) this.juego.getMonedaBTC());
-
+        
+        
         jButton5.setVisible(false);
         if (juego.getNivel().getNumeroNivel() == 2) {
             jButton5.setVisible(true);

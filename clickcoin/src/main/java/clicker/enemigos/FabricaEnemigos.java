@@ -76,5 +76,7 @@ public class FabricaEnemigos {
         enemigos.add(new Invencible(juego));//p 0,01%
         enemigos.add(new Hacker(juego));//p 2%
         enemigos.add(new Virus(juego));//p 5%
+        
+        
     }
 }

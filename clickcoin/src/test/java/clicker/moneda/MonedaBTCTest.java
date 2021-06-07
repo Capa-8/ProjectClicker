@@ -8,6 +8,7 @@ package clicker.moneda;
 import clicker.Juego;
 import clicker.Jugador;
 import clicker.observer.Observer;
+import clicker.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -61,28 +62,15 @@ public class MonedaBTCTest {
     }
 
     /**
-     * Test of monedasCambiadas method, of class MonedaBTC.
-     */
-    @Test
-    public void testMonedasCambiadas() {
-        System.out.println("monedasCambiadas");
-        MonedaBTC instance = new MonedaBTC();
-        instance.monedasCambiadas();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of registerObserver method, of class MonedaBTC.
      */
     @Test
     public void testRegisterObserver() {
-        System.out.println("registerObserver");
+        System.out.println("removeObserver");
         Observer o = null;
         MonedaBTC instance = new MonedaBTC();
         instance.registerObserver(o);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(1,instance.getObservers().size());
     }
 
     /**
@@ -93,11 +81,8 @@ public class MonedaBTCTest {
         System.out.println("removeObserver");
         Observer o = null;
         MonedaBTC instance = new MonedaBTC();
+        instance.registerObserver(o);
         instance.removeObserver(o);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-   
-    
+        assertEquals(0,instance.getObservers().size());
+    }    
 }

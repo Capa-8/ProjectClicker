@@ -6,6 +6,7 @@
 package clicker;
 
 import clicker.moneda.Moneda;
+import clicker.observer.ObserverEnemigo;
 
 /**
  *
@@ -31,4 +32,8 @@ public class Minado {
     public Moneda getMoneda(){
         return this.moneda;
     }
+
+  
+
+  
 }

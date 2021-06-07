@@ -25,10 +25,11 @@ public class Juego {
         this.monedaETH = new MonedaETH();
         Minado oMinado = new Minado(this);
         fabricaE = new FabricaEnemigos(this);
-
+       
         oMinado.setMoneda(this.monedaBTC);
 
         this.minado = oMinado;
+        
 
     }
 
@@ -75,6 +76,7 @@ public class Juego {
     }
     
     public FabricaEnemigos getFabricaE(){
+        
         return fabricaE;
     }
 }

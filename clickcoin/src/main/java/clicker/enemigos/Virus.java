@@ -1,6 +1,7 @@
 package clicker.enemigos;
 
 import clicker.Juego;
+import java.util.ArrayList;
 
 public class Virus extends Enemigo{
     
@@ -10,6 +11,8 @@ public class Virus extends Enemigo{
         probabilidad = 0.05f;
         vidaEstandar = 50;
         tiempo = 30;
+        super.observers = new ArrayList();
+        juego.getEstadisticas().initSubjectEnemigo(this);
     }
     
     

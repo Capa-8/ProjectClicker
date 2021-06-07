@@ -12,7 +12,7 @@ import clicker.observer.*;
  *
  * @author Nacho
  */
-public class Estadisticas implements Observer {
+public class Estadisticas implements Observer, ObserverEnemigo {
 
     private int cantMonedas;
     private int cantClicks;
@@ -21,19 +21,23 @@ public class Estadisticas implements Observer {
 //    private Moneda monedaBTC;
 //    private Moneda monedaETH;
     private Subject monedaSubject;
+    private SubjectEnemigo enemigoSubject;
 
     public Estadisticas() {
         cantMonedas = 0;
         cantClicks = 0;
         cantMonedaBTC = 0;
         cantMonedaETH = 0;
-//        this.monedaBTC = new MonedaBTC();
-//        this.monedaETH = new MonedaETH();
     }
 
     public void initSubject(Subject monedaSubject) {
         this.monedaSubject = monedaSubject;
         this.monedaSubject.registerObserver(this);
+    }
+    
+    public void initSubjectEnemigo(SubjectEnemigo enemigoSubject){
+         this.enemigoSubject = enemigoSubject;
+        this.enemigoSubject.registerObserver(this);
     }
 
     @Override
@@ -78,5 +82,15 @@ public class Estadisticas implements Observer {
 
     public int getClicks() {
         return cantClicks;
+    }
+
+    @Override
+    public void quitarBTC() {
+        cantMonedaBTC -= 1;
+    }
+
+    @Override
+    public void quitarETH() {
+        cantMonedaETH -= 1;
     }
 }

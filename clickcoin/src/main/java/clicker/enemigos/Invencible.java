@@ -1,6 +1,7 @@
 package clicker.enemigos;
 
 import clicker.Juego;
+import java.util.ArrayList;
 
 public class Invencible extends Enemigo{
     
@@ -10,6 +11,9 @@ public class Invencible extends Enemigo{
         probabilidad = 0.0001f;
         vidaEstandar = 120;
         tiempo = 20;
+        
+        super.observers = new ArrayList();
+        juego.getEstadisticas().initSubjectEnemigo(this);
     }
     
     
