@@ -67,7 +67,7 @@ public class MonedaETHTest {
      */
     @Test
     public void testRegisterObserver() {
-        System.out.println("removeObserver");
+        System.out.println("registerObserverETH");
         Jugador jugador = new Jugador("test");
         Juego juego = new Juego(jugador);
         juego.getMinado().setMoneda((MonedaETH) juego.getMonedaETH());
@@ -82,7 +82,7 @@ public class MonedaETHTest {
      */
     @Test
     public void testRemoveObserver() {
-        System.out.println("removeObserver");
+        System.out.println("removeObserverETH");
         Observer o = null;
         MonedaBTC instance = new MonedaBTC();
         instance.registerObserver(o);

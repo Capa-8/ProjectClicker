@@ -66,7 +66,7 @@ public class MonedaBTCTest {
      */
     @Test
     public void testRegisterObserver() {
-        System.out.println("removeObserver");
+        System.out.println("registerObserverBTC");
         Observer o = null;
         MonedaBTC instance = new MonedaBTC();
         instance.registerObserver(o);
@@ -78,7 +78,7 @@ public class MonedaBTCTest {
      */
     @Test
     public void testRemoveObserver() {
-        System.out.println("removeObserver");
+        System.out.println("removeObserverBTC");
         Observer o = null;
         MonedaBTC instance = new MonedaBTC();
         instance.registerObserver(o);
