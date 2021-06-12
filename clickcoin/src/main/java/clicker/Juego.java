@@ -44,8 +44,10 @@ public class Juego {
     public void aumentarNivel() { 
         if(this.nivel.cambiaNivel((int) this.getEstadisticas().getMonedasBTC(),(int) this.getEstadisticas().getMonedasETH())){ 
         this.nivel.aumentar(); 
+        
             //Solamente va a entrar una vez. Cuando ya no cumpla las condiciones del if de arriba no entra mas. 
             if(this.getNivel().getNumeroNivel() == 3 ) { 
+                
                 VentanaJuegoETH vETH = new VentanaJuegoETH(this); 
                 vETH.setVisible(true); 
             } 
