@@ -4,6 +4,7 @@ import clicker.enemigos.FabricaEnemigos;
 import clicker.mejoras.*;
 import clicker.moneda.*;
 import clicker.ventana.VentanaJuegoBTC;
+import clicker.ventana.VentanaJuegoETH;
 
 public class Juego {
 
@@ -39,10 +40,18 @@ public class Juego {
         fabricaE.iniciar();
     }
 
-    public int aumentarNivel() {
-        return this.nivel.aumentar();
-    }
 
+    public void aumentarNivel() { 
+        if(this.nivel.cambiaNivel((int) this.getEstadisticas().getMonedasBTC(),(int) this.getEstadisticas().getMonedasETH())){ 
+        this.nivel.aumentar(); 
+            //Solamente va a entrar una vez. Cuando ya no cumpla las condiciones del if de arriba no entra mas. 
+            if(this.getNivel().getNumeroNivel() == 3 ) { 
+                VentanaJuegoETH vETH = new VentanaJuegoETH(this); 
+                vETH.setVisible(true); 
+            } 
+        } 
+    }
+    
     /**
      * Valida si el jugador llego al la cantidad de monedas necesarias para el
      * superar de nivel

@@ -35,6 +35,7 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
         
         VentanaEstadisticas vEst = new VentanaEstadisticas(juego);
         this.vEst = vEst;
+        juego.getEstadisticas().registerObserver(vEst);        
         
         //Cambiamos aspecto de la ventana de estadisticas.
         vEst.getBoton1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/VOLVER4.png")));
@@ -135,12 +136,13 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         juego.getMinado().realizarMinado();
-        jLabel4.setText("CANTIDAD DE ETH: " + juego.getEstadisticas().getMonedasETH()); 
+        juego.aumentarNivel();
+        jLabel3.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
+        jLabel4.setText("CANTIDAD DE ETH: " + juego.getEstadisticas().getMonedasETH());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        vEst.update();
-        vEst.setVisible(true); 
+        vEst.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -160,7 +162,11 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
         VentanaJuegoBTC vBTC = new VentanaJuegoBTC(this.juego);
         this.juego.getMinado().setMoneda(juego.getMonedaBTC());
         vBTC.setVisible(true);
-        dispose();
+        
+        this.dispose();
+        juego.getEstadisticas().removeObserver(vEst);
+        vEst.dispose();
+        vMej.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
