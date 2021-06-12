@@ -4,8 +4,6 @@ import clicker.Juego;
 import clicker.observer.ObserverEnemigo;
 import clicker.observer.SubjectEnemigo;
 import clicker.ventana.VentanaEnemigo;
-import clicker.ventana.VentanaEnemigoDialog;
-import java.awt.Dialog;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,7 +33,7 @@ public abstract class Enemigo implements SubjectEnemigo {
         vida = vidaEstandar;
         tiempoRonda = tiempo;
         ventana = new VentanaEnemigo(this);
-      
+        
         temporizadorRonda(tiempo);
         temporizadorAtaques();
 
@@ -91,15 +89,8 @@ public abstract class Enemigo implements SubjectEnemigo {
      * ventana
      */
     private void reiniciarVentana() {
-        //ventana.setVisible(false);
-        //ventana.setAlwaysOnTop(true);
-         //ventana.setLocationByPlatform( true );
-        
-        //ventana.pack();
-        //ventana.setVisible(true);
-        
-        VentanaEnemigoDialog  ventanaDialog = new VentanaEnemigoDialog(ventana, Dialog.ModalityType.DOCUMENT_MODAL);
-        ventanaDialog.setVisible(true);
+        ventana.setVisible(false);
+        ventana.setVisible(true);
         tiempoRonda = tiempo;
     }
 

@@ -4,6 +4,7 @@ import clicker.enemigos.FabricaEnemigos;
 import clicker.mejoras.*;
 import clicker.moneda.*;
 import clicker.ventana.VentanaJuegoBTC;
+import java.awt.Dialog;
 
 public class Juego {
 
@@ -37,6 +38,7 @@ public class Juego {
         VentanaJuegoBTC vBTC = new VentanaJuegoBTC(this);
         vBTC.setVisible(true);
         fabricaE.iniciar();
+        
     }
 
     public int aumentarNivel() {
