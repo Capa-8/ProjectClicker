@@ -5,6 +5,7 @@ import clicker.mejoras.*;
 import clicker.moneda.*;
 import clicker.ventana.VentanaJuegoBTC;
 import clicker.ventana.VentanaJuegoETH;
+import clicker.ventana.VentanaNivel;
 
 public class Juego {
 
@@ -44,7 +45,9 @@ public class Juego {
     public void aumentarNivel() { 
         if(this.nivel.cambiaNivel((int) this.getEstadisticas().getMonedasBTC(),(int) this.getEstadisticas().getMonedasETH())){ 
         this.nivel.aumentar(); 
-        
+        VentanaNivel vNiv = new VentanaNivel();
+        vNiv.setICON();
+        vNiv.setVisible(true);
             //Solamente va a entrar una vez. Cuando ya no cumpla las condiciones del if de arriba no entra mas. 
             if(this.getNivel().getNumeroNivel() == 3 ) { 
                 
