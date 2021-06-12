@@ -70,16 +70,22 @@ public class Estadisticas implements Observer, ObserverEnemigo {
     }
 
     @Override
-    public void quitarBTC() {
+    public void quitarBTC(int cantidad) {
         if(cantMonedaBTC>0){
-            cantMonedaBTC -= 1;
+            if(cantidad>= cantMonedaBTC)
+                cantMonedaBTC = 0;
+            else
+            cantMonedaBTC -= cantidad;
         }
     }
 
     @Override
-    public void quitarETH() {
+    public void quitarETH(int cantidad) {
         if(cantMonedaETH>0){
-            cantMonedaETH -= 1;
+            if(cantidad>=cantMonedaETH)
+                cantMonedaETH =0;
+            else
+            cantMonedaETH -= cantidad;
         }
     }
 }

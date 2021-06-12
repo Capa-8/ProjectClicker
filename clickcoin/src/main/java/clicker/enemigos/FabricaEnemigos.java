@@ -38,7 +38,7 @@ public class FabricaEnemigos {
     private void crearEnemigo(){
         float numero = (float)(Math.random());
         for(Enemigo enemigo: enemigos){
-            if(numero <= enemigo.getProbabilidad()){
+            if(numero <= (enemigo.getProbabilidad()+getProbAtaqueNivel())){
                 //System.out.print("numero aleatorio: " + numero);
                 enemigo.nacer();
                 break;
@@ -77,6 +77,13 @@ public class FabricaEnemigos {
         enemigos.add(new Virus(juego));//p 5%
         
         
+    }
+    
+    private float getProbAtaqueNivel(){
+        if(juego.getNivel().getNumeroNivel() == 1)
+            return 0;
+        else
+            return ((juego.getNivel().getNumeroNivel()-1)*0.02f);
     }
     
     public ArrayList getEnemigos(){
