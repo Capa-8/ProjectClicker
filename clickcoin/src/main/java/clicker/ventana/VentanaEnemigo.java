@@ -15,6 +15,7 @@ public class VentanaEnemigo extends javax.swing.JFrame {
         
         initComponents();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         if("Virus".equals(enemigo.nombre())){
             getjLabel1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO VIRUS.jpg")));
@@ -28,9 +29,9 @@ public class VentanaEnemigo extends javax.swing.JFrame {
             getjLabel1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO INVENCIBLE.jpg")));
         }
             
-        setVisible(true);
-
         
+        setVisible(true);
+       
         
         this.enemigo = enemigo;
         actualizarVida();  
@@ -68,9 +69,6 @@ public class VentanaEnemigo extends javax.swing.JFrame {
         t.cancel();
     }
     
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
