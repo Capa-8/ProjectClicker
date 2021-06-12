@@ -56,9 +56,10 @@ public class VentanaNombre extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 193, 75));
 
-        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel3.setText("Ingrese su Nombre");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 55, 190, 40));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("INGRESE SU NOMBRE");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 210, 40));
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N

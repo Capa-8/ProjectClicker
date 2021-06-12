@@ -148,13 +148,13 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
         
         juego.getMinado().realizarMinado();
 
-        if (juego.getEstadisticas().getClicks() == 10) {
+        if (juego.getNivel().cambiaNivel((int) juego.getEstadisticas().getMonedasBTC(),(int) juego.getEstadisticas().getMonedasETH())) {
             juego.getNivel().aumentar();
 
-            if (juego.getNivel().getNumeroNivel() == 2) {
+            if (juego.getNivel().getNumeroNivel() == 3) {
                 VentanaJuegoETH vETH = new VentanaJuegoETH(juego);
                 vETH.setVisible(true);
-                jButton5.setVisible(true);
+                //jButton5.setVisible(true);
                 dispose();
             }
         }
@@ -170,6 +170,9 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         VentanaJuegoETH vETH = new VentanaJuegoETH(this.juego);
+        
+        juego.getMinado().setMoneda(juego.getMonedaETH());
+        
         vETH.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed

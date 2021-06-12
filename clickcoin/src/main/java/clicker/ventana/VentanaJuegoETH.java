@@ -106,12 +106,15 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 12, 150, 75));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 300, 75));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 460, 50));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 460, 50));
 
