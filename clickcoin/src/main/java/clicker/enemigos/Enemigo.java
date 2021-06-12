@@ -33,8 +33,6 @@ public abstract class Enemigo implements SubjectEnemigo {
         vida = vidaEstandar;
         tiempoRonda = tiempo;
         ventana = new VentanaEnemigo(this);
-        ventana.setVisible(true);
-
         temporizadorRonda(tiempo);
         temporizadorAtaques();
 

@@ -14,12 +14,26 @@ public class VentanaEnemigo extends javax.swing.JFrame {
     public VentanaEnemigo(Enemigo enemigo) {
         
         initComponents();
+        setLocationRelativeTo(null);
+        
+        if("Virus".equals(enemigo.nombre())){
+            getjLabel1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO VIRUS.jpg")));
+        }
+        
+        if("Hacker".equals(enemigo.nombre())){
+            getjLabel1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO HACKER.jpg")));
+        }
+        
+        if("Invencible".equals(enemigo.nombre())){
+            getjLabel1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO INVENCIBLE.jpg")));
+        }
+            
+        setVisible(true);
+
+        
+        
         this.enemigo = enemigo;
-        
-        actualizarVida();
-        
-        botonEnemigo.setText(enemigo.nombre());
-        
+        actualizarVida();  
         t = new Timer();
         t.schedule(accion, 0,100);
     }
@@ -37,13 +51,13 @@ public class VentanaEnemigo extends javax.swing.JFrame {
     
     
     private void actualizarTiempo() {
-        String tiempo = "Tiempo: " + (s<=9?"0":"")+s;
+        String tiempo = "TIEMPO: " + (s<=9?"0":"")+s;
         textoTiempo.setText(tiempo);
         actualizarVida();
     }
     
     private void actualizarVida(){
-        String tiempo = "Vida: " + enemigo.getVida();
+        String tiempo = "VIDA: " + enemigo.getVida();
         textoVida.setText(tiempo);
     }
     
@@ -69,10 +83,13 @@ public class VentanaEnemigo extends javax.swing.JFrame {
         botonEnemigo = new javax.swing.JButton();
         textoTiempo = new javax.swing.JLabel();
         textoVida = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        botonEnemigo.setText("Enemigo");
+        botonEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON DEFENSA.jpg"))); // NOI18N
         botonEnemigo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botonEnemigoMouseClicked(evt);
@@ -83,41 +100,18 @@ public class VentanaEnemigo extends javax.swing.JFrame {
                 botonEnemigoActionPerformed(evt);
             }
         });
+        getContentPane().add(botonEnemigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 163, 150, 75));
 
         textoTiempo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        textoTiempo.setText("Tiempo: 00 ");
+        textoTiempo.setForeground(new java.awt.Color(255, 255, 255));
+        textoTiempo.setText("TIEMPO: 00 ");
+        getContentPane().add(textoTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 130, 30));
 
-        textoVida.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        textoVida.setText("Vida: ");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonEnemigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(textoTiempo)
-                        .addGap(22, 22, 22)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(textoVida)
-                .addContainerGap(172, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addComponent(textoTiempo)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(botonEnemigo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textoVida)
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
+        textoVida.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        textoVida.setForeground(new java.awt.Color(255, 255, 255));
+        textoVida.setText("VIDA:");
+        getContentPane().add(textoVida, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 120, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -131,9 +125,13 @@ public class VentanaEnemigo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botonEnemigoActionPerformed
     
+    public javax.swing.JLabel getjLabel1(){
+        return jLabel1;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonEnemigo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel textoTiempo;
     private javax.swing.JLabel textoVida;
     // End of variables declaration//GEN-END:variables
