@@ -103,7 +103,7 @@ public class EstadisticasTest {
         juego.getEstadisticas().initSubject((MonedaBTC) juego.getMonedaBTC());
         int i = 5;
         for (int j = 0; j < i; j++) {
-            juego.getMinado().realizarMinado();
+            juego.getMinado().realizarMinado();//aca un observer
         }
 
         ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();

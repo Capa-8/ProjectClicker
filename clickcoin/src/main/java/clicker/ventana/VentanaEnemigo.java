@@ -71,6 +71,7 @@ public class VentanaEnemigo extends javax.swing.JFrame {
         textoVida = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         botonEnemigo.setText("Enemigo");
         botonEnemigo.addMouseListener(new java.awt.event.MouseAdapter() {

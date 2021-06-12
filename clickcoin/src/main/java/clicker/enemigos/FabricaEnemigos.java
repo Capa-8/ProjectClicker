@@ -17,7 +17,6 @@ public class FabricaEnemigos {
         pause = true;
         enemigos = new ArrayList<>();
         enlistarEnemigos();
-        
     }
     
     public void iniciar(){
