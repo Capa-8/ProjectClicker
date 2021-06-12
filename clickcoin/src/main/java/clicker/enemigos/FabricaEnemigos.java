@@ -79,7 +79,7 @@ public class FabricaEnemigos {
         
     }
     
-    private float getProbAtaqueNivel(){
+    public float getProbAtaqueNivel(){
         if(juego.getNivel().getNumeroNivel() == 1)
             return 0;
         else

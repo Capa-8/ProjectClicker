@@ -5,6 +5,8 @@
  */
 package clicker.enemigos;
 
+import clicker.Juego;
+import clicker.Jugador;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -73,4 +75,26 @@ public class FabricaEnemigosTest {
 //        fail("The test case is a prototype.");
 //    }
     
+    @Test
+    public void testGetProbAtaqueNivel1(){
+        System.out.println("Aumento de probabilidad de enemigo en nivel 1");
+        Juego juego = new Juego(new Jugador("test"));
+        float probabilidad = juego.getFabricaE().getProbAtaqueNivel();
+        float esperado = 0;
+        
+        assertEquals(esperado, probabilidad);
+    }
+    
+    @Test
+    public void testGetProbAtaqueNivel(){
+        System.out.println("Aumento de probabilidad de enemigo en nivel 3");
+        Juego juego = new Juego(new Jugador("test"));
+        juego.getNivel().aumentar();
+        juego.getNivel().aumentar();
+        
+        float probabilidad = juego.getFabricaE().getProbAtaqueNivel();
+        float esperado = 0.04f;
+        
+        assertEquals(esperado, probabilidad);
+    }
 }
