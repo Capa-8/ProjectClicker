@@ -5,16 +5,14 @@ import clicker.mejoras.*;
 import clicker.moneda.*;
 import clicker.ventana.VentanaAumentarNivel;
 import clicker.ventana.VentanaJuegoBTC;
-<<<<<<< HEAD
 import javax.swing.JFrame;
-=======
 import clicker.ventana.VentanaJuegoETH;
 import java.net.MalformedURLException;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
->>>>>>> d576aac29a04c3c5bdd75d48cbba7247dae9fd80
+
 
 public class Juego {
 
@@ -26,11 +24,8 @@ public class Juego {
     private Moneda monedaBTC;
     private Moneda monedaETH;
     private FabricaEnemigos fabricaE;
-<<<<<<< HEAD
     private JFrame ventana;
-=======
     private TimerTask tiempoEspera;
->>>>>>> d576aac29a04c3c5bdd75d48cbba7247dae9fd80
 
     public Juego(Jugador jugador) {
         this.jugador = jugador;
@@ -57,8 +52,9 @@ public class Juego {
 
     public void aumentarNivel() {
         if (this.nivel.cambiaNivel((int) this.getEstadisticas().getMonedasBTC(), (int) this.getEstadisticas().getMonedasETH())) {
+            fabricaE.pausa();
             this.nivel.aumentar();
-
+            ventana.setVisible(false);
             VentanaAumentarNivel vNiv = new VentanaAumentarNivel(this);
             try {
                 vNiv.showGIF();
@@ -75,8 +71,10 @@ public class Juego {
                     if (nivel == 3) {
 
                         VentanaJuegoETH vETH = new VentanaJuegoETH(juegoInstancia);
-                        vETH.setVisible(true);
+                        ventana = vETH;
                     }
+                    ventana.setVisible(true);
+                    fabricaE.seguir();
                 }
 
             };

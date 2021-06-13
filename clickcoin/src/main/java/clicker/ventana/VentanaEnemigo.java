@@ -47,9 +47,7 @@ public class VentanaEnemigo extends javax.swing.JFrame {
        public void run() {
             s=enemigo.getTiempo();
             actualizarTiempo();
-            String ronda = "RONDA: " + enemigo.getRondas();
-            textoRonda.setText(ronda);
-            textoMeRindo.setText("ME RINDO: COSTO " + (4-enemigo.getRondas())*enemigo.getRoboT());
+            
         }
         
     };
@@ -64,6 +62,9 @@ public class VentanaEnemigo extends javax.swing.JFrame {
     private void actualizarVida(){
         String tiempo = "VIDA: " + enemigo.getVida();
         textoVida.setText(tiempo);
+        String ronda = "RONDA: " + enemigo.getRondas();
+        textoRonda.setText(ronda);
+        textoMeRindo.setText("ME RINDO: COSTO " + (4-enemigo.getRondas())*enemigo.getRoboT());
     }
     
     /**Este metodo es muy importante, ya que elimina el hilo de TimerTask accion

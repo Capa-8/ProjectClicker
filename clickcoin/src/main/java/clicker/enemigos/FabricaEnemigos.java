@@ -50,7 +50,7 @@ public class FabricaEnemigos {
             if(numero <= (enemigo.getProbabilidad()+getProbAtaqueNivel())){
                 juego.getVentana().setVisible(false);
                 //System.out.print("numero aleatorio: " + numero);
-                //enemigo.nacer();
+                enemigo.nacer();
                 break;
             }//else
                 //System.out.print("NO ENTRE numero aleatorio: " + numero + "\n");

@@ -34,11 +34,8 @@ public abstract class Enemigo implements SubjectEnemigo {
         vida = vidaEstandar;
         tiempoRonda = tiempo;
         ventana = new VentanaEnemigo(this);
-<<<<<<< HEAD
         rondas = 1;
-=======
         
->>>>>>> d576aac29a04c3c5bdd75d48cbba7247dae9fd80
         temporizadorRonda(tiempo);
         temporizadorTiempo();
         
@@ -64,7 +61,7 @@ public abstract class Enemigo implements SubjectEnemigo {
                 tiempoRonda--;
             }
         };
-        timer.schedule(tareaRestar, 1000);
+        timer.schedule(tareaRestar, 1,1000);
     }
 
     /**
