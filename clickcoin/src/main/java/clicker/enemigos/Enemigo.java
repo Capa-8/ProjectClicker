@@ -28,12 +28,15 @@ public abstract class Enemigo implements SubjectEnemigo {
      * mientras exista uno vivo, se llama a temporizador de ataques y ronda y se
      * declara dead como falso
      */
-    public void nacer() {
+    public void nacer(boolean test) {
         juego.getFabricaE().pausa();
         dead = false;
         vida = vidaEstandar;
         tiempoRonda = tiempo;
-        ventana = new VentanaEnemigo(this);
+        
+        if(test)
+            ventana = new VentanaEnemigo(this);
+        
         rondas = 1;
         
         temporizadorRonda(tiempo);
