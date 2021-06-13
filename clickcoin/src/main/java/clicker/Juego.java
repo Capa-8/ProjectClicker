@@ -3,7 +3,16 @@ package clicker;
 import clicker.enemigos.FabricaEnemigos;
 import clicker.mejoras.*;
 import clicker.moneda.*;
+import clicker.ventana.VentanaAumentarNivel;
 import clicker.ventana.VentanaJuegoBTC;
+import javax.swing.JFrame;
+import clicker.ventana.VentanaJuegoETH;
+import java.net.MalformedURLException;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +27,8 @@ public class Juego {
     private Moneda monedaETH;
     private FabricaEnemigos fabricaE;
     private ArrayList<Mejora> mejorasObtenidas;
+    private JFrame ventana;
+    private TimerTask tiempoEspera;
 
     public Juego(Jugador jugador) {
         this.jugador = jugador;
@@ -28,7 +39,7 @@ public class Juego {
         this.monedaETH = new MonedaETH();
         Minado oMinado = new Minado(this);
         fabricaE = new FabricaEnemigos(this);
-       
+
         oMinado.setMoneda(this.monedaBTC);
 
         this.minado = oMinado;
@@ -36,13 +47,49 @@ public class Juego {
     }
 
     public void iniciarJuego() {
-        VentanaJuegoBTC vBTC = new VentanaJuegoBTC(this);
-        vBTC.setVisible(true);
+        ventana = new VentanaJuegoBTC(this);
+        ventana.setVisible(true);
         fabricaE.iniciar();
+        
     }
 
-    public int aumentarNivel() {
-        return this.nivel.aumentar();
+    public void aumentarNivel() {
+        if (this.nivel.cambiaNivel((int) this.getEstadisticas().getMonedasBTC(), (int) this.getEstadisticas().getMonedasETH())) {
+            fabricaE.pausa();
+            this.nivel.aumentar();
+            ventana.setVisible(false);
+            VentanaAumentarNivel vNiv = new VentanaAumentarNivel(this);
+            try {
+                vNiv.showGIF();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Integer nivel = this.getNivel().getNumeroNivel();
+            Juego juegoInstancia = this;
+            Timer timer = new Timer();
+            tiempoEspera = new TimerTask() {
+                @Override
+                public void run() {
+                    vNiv.cerrarTodo();
+                    fabricaE.iniciar();
+                    if (nivel == 3) {
+
+                        VentanaJuegoETH vETH = new VentanaJuegoETH(juegoInstancia);
+                        ventana = vETH;
+                    }
+                    ventana.setVisible(true);
+                }
+
+            };
+            timer.schedule(tiempoEspera, 6000);
+
+            //Solamente va a entrar una vez. Cuando ya no cumpla las condiciones del if de arriba no entra mas. 
+
+        }
+    }
+    
+    public void setVentana(JFrame ventana){
+        this.ventana = ventana;
     }
 
     /**
@@ -68,16 +115,15 @@ public class Juego {
     public Moneda getMonedaETH() {
         return monedaETH;
     }
-    
-    public Nivel getNivel(){
+
+    public Nivel getNivel() {
         return nivel;
     }
-    
-    public FabricaEnemigos getFabricaE(){
-        
+
+    public FabricaEnemigos getFabricaE() {
+
         return fabricaE;
     }
-
     
     public void updateMejoras() {
         for(int i=0; i<mejorasObtenidas.size(); i++){
@@ -90,4 +136,8 @@ public class Juego {
         mejorasObtenidas.add(mejoraActiva);
     }
     
+
+    public JFrame getVentana(){
+        return ventana;
+    }
 }

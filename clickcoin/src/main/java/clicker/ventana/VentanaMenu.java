@@ -6,13 +6,14 @@
 package clicker.ventana;
 
 import clicker.*;
+import java.awt.Dialog;
 
 /**
  *
  * @author Nacho
  */
 public class VentanaMenu extends javax.swing.JFrame {
-    
+
     private VentanaReglas vr1;
     private VentanaSalida vs1;
 
@@ -23,7 +24,7 @@ public class VentanaMenu extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        
+
         VentanaReglas vr1 = new VentanaReglas();
         this.vr1 = vr1;
         VentanaSalida vs1 = new VentanaSalida();
@@ -43,6 +44,7 @@ public class VentanaMenu extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -74,6 +76,14 @@ public class VentanaMenu extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/JUGAR.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 193, 75));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -91,11 +101,16 @@ public class VentanaMenu extends javax.swing.JFrame {
         vr1.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

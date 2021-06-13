@@ -10,7 +10,7 @@ public class Virus extends Enemigo{
         roboEstandar = 5;
         probabilidad = 0.05f;
         vidaEstandar = 50;
-        tiempo = 30;
+        tiempo = 25;
         super.observers = new ArrayList();
         juego.getEstadisticas().initSubjectEnemigo(this);
     }
@@ -18,7 +18,7 @@ public class Virus extends Enemigo{
     
     @Override
     public void incrementarTiempo(){
-        tiempo = tiempo + 1;
+        tiempoRonda = tiempo + 1*rondas;
     }
     
     @Override

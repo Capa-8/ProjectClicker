@@ -5,14 +5,15 @@
  */
 package clicker;
 
-
+import clicker.observer.*;
+import java.util.ArrayList;
 
 import clicker.observer.*;
 /**
  *
  * @author Nacho
  */
-public class Estadisticas implements Observer, ObserverEnemigo {
+public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisticas {
 
     private int cantMonedas;
     private int cantClicks;
@@ -23,6 +24,7 @@ public class Estadisticas implements Observer, ObserverEnemigo {
 //    private Moneda monedaETH;
     private Subject monedaSubject;
     private SubjectEnemigo enemigoSubject;
+    private ArrayList observers;
 
     public Estadisticas() {
         cantMonedas = 0;
@@ -30,6 +32,7 @@ public class Estadisticas implements Observer, ObserverEnemigo {
         cantMonedaBTC = 0;
         cantMonedaETH = 0;
         poder=1;
+        observers = new ArrayList();
     }
 
     public void initSubject(Subject monedaSubject) {
@@ -46,12 +49,14 @@ public class Estadisticas implements Observer, ObserverEnemigo {
     public void updateBTC() {
         cantMonedaBTC += poder;
         cantClicks += 1;
+        HuboCambios();
     }
     
     @Override
     public void updateETH() {
         cantMonedaETH += 1;
         cantClicks += 1;
+        HuboCambios();
     }
 
 
@@ -87,10 +92,40 @@ public class Estadisticas implements Observer, ObserverEnemigo {
     @Override
     public void quitarETH(int cantidad) {
         if(cantMonedaETH>0){
-            if(cantidad>=cantMonedaETH)
+            if(cantidad>=cantMonedaETH){
                 cantMonedaETH =0;
-            else
-            cantMonedaETH -= cantidad;
+                HuboCambios();
+            }
+            else{
+                cantMonedaETH -= cantidad;
+                HuboCambios();
+            }
+            
+        }
+    }
+    
+    public void HuboCambios() {
+        notifyObservers();
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (int i = 0; i < observers.size(); i++) {
+            ObserverEstadisticas observer = (ObserverEstadisticas) observers.get(i);
+            observer.update();
+        }
+    }
+
+    @Override
+    public void registerObserver(ObserverEstadisticas o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(ObserverEstadisticas o) {
+        int i = observers.indexOf(o);
+        if (i >= 0) {
+            observers.remove(i);
         }
     }
 

@@ -9,12 +9,13 @@ public class VentanaEnemigo extends javax.swing.JFrame {
     int s;
     Timer t;
     Enemigo enemigo;
-
+    
     
     public VentanaEnemigo(Enemigo enemigo) {
         
         initComponents();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         if("Virus".equals(enemigo.nombre())){
             getjLabel1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO VIRUS.jpg")));
@@ -28,14 +29,15 @@ public class VentanaEnemigo extends javax.swing.JFrame {
             getjLabel1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO INVENCIBLE.jpg")));
         }
             
-        setVisible(true);
-
         
+        setVisible(true);
+       
         
         this.enemigo = enemigo;
         actualizarVida();  
         t = new Timer();
         t.schedule(accion, 0,100);
+        
     }
     
     
@@ -45,6 +47,7 @@ public class VentanaEnemigo extends javax.swing.JFrame {
        public void run() {
             s=enemigo.getTiempo();
             actualizarTiempo();
+            
         }
         
     };
@@ -59,6 +62,9 @@ public class VentanaEnemigo extends javax.swing.JFrame {
     private void actualizarVida(){
         String tiempo = "VIDA: " + enemigo.getVida();
         textoVida.setText(tiempo);
+        String ronda = "RONDA: " + enemigo.getRondas();
+        textoRonda.setText(ronda);
+        textoMeRindo.setText("ME RINDO: COSTO " + (4-enemigo.getRondas())*enemigo.getRoboT());
     }
     
     /**Este metodo es muy importante, ya que elimina el hilo de TimerTask accion
@@ -66,11 +72,9 @@ public class VentanaEnemigo extends javax.swing.JFrame {
      */
     public void matar(){
         t.cancel();
+        dispose();
     }
     
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,14 +84,27 @@ public class VentanaEnemigo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botonEnemigo = new javax.swing.JButton();
         textoTiempo = new javax.swing.JLabel();
+        textoRonda = new javax.swing.JLabel();
+        botonEnemigo = new javax.swing.JButton();
+        textoMeRindo = new javax.swing.JLabel();
         textoVida = new javax.swing.JLabel();
+        botonMeRindo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        textoTiempo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        textoTiempo.setForeground(new java.awt.Color(255, 255, 255));
+        textoTiempo.setText("TIEMPO: 00");
+        getContentPane().add(textoTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 130, 30));
+
+        textoRonda.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        textoRonda.setForeground(new java.awt.Color(255, 255, 255));
+        textoRonda.setText("RONDA: 0");
+        getContentPane().add(textoRonda, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 110, 30));
 
         botonEnemigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON DEFENSA.jpg"))); // NOI18N
         botonEnemigo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -102,15 +119,24 @@ public class VentanaEnemigo extends javax.swing.JFrame {
         });
         getContentPane().add(botonEnemigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 163, 150, 75));
 
-        textoTiempo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        textoTiempo.setForeground(new java.awt.Color(255, 255, 255));
-        textoTiempo.setText("TIEMPO: 00 ");
-        getContentPane().add(textoTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 130, 30));
+        textoMeRindo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        textoMeRindo.setForeground(new java.awt.Color(255, 255, 255));
+        textoMeRindo.setText("ME RINDO: COSTO 1000");
+        getContentPane().add(textoMeRindo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, 30));
 
         textoVida.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         textoVida.setForeground(new java.awt.Color(255, 255, 255));
         textoVida.setText("VIDA:");
         getContentPane().add(textoVida, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 120, -1));
+
+        botonMeRindo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON ME RINDO.jpg"))); // NOI18N
+        botonMeRindo.setToolTipText("");
+        botonMeRindo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMeRindoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonMeRindo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 180, 40));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
 
         pack();
@@ -124,6 +150,11 @@ public class VentanaEnemigo extends javax.swing.JFrame {
     private void botonEnemigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnemigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonEnemigoActionPerformed
+
+    private void botonMeRindoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMeRindoActionPerformed
+        // TODO add your handling code here:
+        enemigo.meRindo();
+    }//GEN-LAST:event_botonMeRindoActionPerformed
     
     public javax.swing.JLabel getjLabel1(){
         return jLabel1;
@@ -131,7 +162,10 @@ public class VentanaEnemigo extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonEnemigo;
+    private javax.swing.JButton botonMeRindo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel textoMeRindo;
+    private javax.swing.JLabel textoRonda;
     private javax.swing.JLabel textoTiempo;
     private javax.swing.JLabel textoVida;
     // End of variables declaration//GEN-END:variables

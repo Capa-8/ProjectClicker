@@ -10,7 +10,7 @@ public class Hacker extends Enemigo{
         roboEstandar = 10;
         probabilidad = 0.02f;
         vidaEstandar = 100;
-        tiempo = 25;
+        tiempo = 20;
         super.observers = new ArrayList();
         juego.getEstadisticas().initSubjectEnemigo(this);
     }
@@ -18,7 +18,7 @@ public class Hacker extends Enemigo{
     
     @Override
     public void incrementarTiempo() {
-       tiempo = tiempo + 2;
+        tiempoRonda = tiempo + 2*rondas;
     }
     
     @Override

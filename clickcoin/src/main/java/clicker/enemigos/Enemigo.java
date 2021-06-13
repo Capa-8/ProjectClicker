@@ -22,18 +22,24 @@ public abstract class Enemigo implements SubjectEnemigo {
 
     VentanaEnemigo ventana;
     protected ArrayList observers;
+    public int rondas;
 
     /**
      * El metodo nacer pausa a la fabrica para que no cree enemigos nuevos
      * mientras exista uno vivo, se llama a temporizador de ataques y ronda y se
      * declara dead como falso
      */
-    public void nacer() {
+    public void nacer(boolean test) {
         juego.getFabricaE().pausa();
         dead = false;
         vida = vidaEstandar;
         tiempoRonda = tiempo;
-        ventana = new VentanaEnemigo(this);
+        
+        if(!test)
+            ventana = new VentanaEnemigo(this);
+        
+        rondas = 1;
+        
         temporizadorRonda(tiempo);
         temporizadorTiempo();
     }
@@ -58,7 +64,7 @@ public abstract class Enemigo implements SubjectEnemigo {
                 tiempoRonda--;
             }
         };
-        timer.schedule(tareaRestar, 1000, 1000);
+        timer.schedule(tareaRestar, 1,1000);
     }
 
     /**
@@ -74,8 +80,13 @@ public abstract class Enemigo implements SubjectEnemigo {
                 if (!dead) {
                     vida = vidaEstandar;
                     atacar();
+                    rondas ++;
+                    tiempoRonda = tiempo;
                     incrementarTiempo();
                     reiniciarVentana();
+                    if(rondas == 4){
+                        matar();
+                    }
                     temporizadorRonda(tiempo);
                 }
             }
@@ -85,13 +96,11 @@ public abstract class Enemigo implements SubjectEnemigo {
 
     /**
      * El metodo reiniciarVentana como su nombre indica realiza un "parpadeo" de
-     * ventana y a su vez reinicia el contador de tiempo que sera mostrado en la
-     * ventana
+     * ventana.
      */
     private void reiniciarVentana() {
         ventana.setVisible(false);
         ventana.setVisible(true);
-        tiempoRonda = tiempo;
     }
 
     public float getProbabilidad() {
@@ -109,7 +118,7 @@ public abstract class Enemigo implements SubjectEnemigo {
 
         juego.getFabricaE().seguir();
 
-        ventana.setVisible(false);
+        ventana.dispose();
     }
 
     public int getTiempo() {
@@ -125,6 +134,21 @@ public abstract class Enemigo implements SubjectEnemigo {
         if (vida <= 0) {
             matar();
         }
+    }
+    
+    public int getRondas(){
+        return rondas;
+    }
+    
+    public void meRindo(){
+        for(int i=rondas; i <=3 ; i++ ){
+            atacar();   
+        }
+        matar();
+    }
+    
+    public int getRoboT(){
+        return tiempo*roboEstandar;
     }
 
     @Override

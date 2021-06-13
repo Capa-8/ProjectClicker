@@ -6,7 +6,6 @@
 package clicker.ventana;
 
 import clicker.Juego;
-import clicker.moneda.MonedaBTC;
 import clicker.moneda.MonedaETH;
 
 /**
@@ -35,6 +34,7 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
         
         VentanaEstadisticas vEst = new VentanaEstadisticas(juego);
         this.vEst = vEst;
+        juego.getEstadisticas().registerObserver(vEst);        
         
         //Cambiamos aspecto de la ventana de estadisticas.
         vEst.getBoton1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/VOLVER4.png")));
@@ -67,7 +67,7 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        botonCambiarBTC = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,13 +118,13 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 460, 50));
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/MINARBTC.png"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        botonCambiarBTC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/MINARBTC.png"))); // NOI18N
+        botonCambiarBTC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                botonCambiarBTCActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 100, 150, 75));
+        getContentPane().add(botonCambiarBTC, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 100, 150, 75));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
@@ -135,12 +135,13 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         juego.getMinado().realizarMinado();
-        jLabel4.setText("CANTIDAD DE ETH: " + juego.getEstadisticas().getMonedasETH()); 
+        juego.aumentarNivel();
+        jLabel3.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
+        jLabel4.setText("CANTIDAD DE ETH: " + juego.getEstadisticas().getMonedasETH());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        vEst.update();
-        vEst.setVisible(true); 
+        vEst.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -156,19 +157,24 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
         vs.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void botonCambiarBTCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarBTCActionPerformed
         VentanaJuegoBTC vBTC = new VentanaJuegoBTC(this.juego);
         this.juego.getMinado().setMoneda(juego.getMonedaBTC());
+        juego.setVentana(vBTC);
         vBTC.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+        
+        this.dispose();
+        juego.getEstadisticas().removeObserver(vEst);
+        vEst.dispose();
+        vMej.dispose();
+    }//GEN-LAST:event_botonCambiarBTCActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCambiarBTC;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

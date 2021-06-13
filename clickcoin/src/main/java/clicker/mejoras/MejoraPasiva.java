@@ -23,7 +23,7 @@ public class MejoraPasiva implements Mejora {
         this.tiempo = tiempo;
         precio = 1;
         this.ventanaMejoras = ventanaMejoras;
-        this.juego.addMejora(this);
+        //this.juego.addMejora(this);
     }
     
     public int getTiempo(){
