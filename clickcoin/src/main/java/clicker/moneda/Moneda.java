@@ -13,4 +13,6 @@ public interface Moneda {
 
     public void minar();
     public int getMonedas();
+    public int getPoder();
+    public void setPoder(int i);
 }

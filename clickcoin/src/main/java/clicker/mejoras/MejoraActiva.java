@@ -18,10 +18,10 @@ public class MejoraActiva implements Mejora{
     private int precio;
     private VentanaMejoras ventanaMejoras;
     
-    public MejoraActiva(Juego juego,int tiempo, VentanaMejoras ventanaMejoras){
+    public MejoraActiva(Juego juego,int tiempo, VentanaMejoras ventanaMejoras, int precio){
         this.juego = juego;
         this.tiempo = tiempo;
-        precio = 1;
+        this.precio = precio;
         this.ventanaMejoras = ventanaMejoras;
         this.juego.addMejora(this);
     }
@@ -31,20 +31,22 @@ public class MejoraActiva implements Mejora{
         return tiempo;
     }
     
-    public void mejora1(){        
-        
-        if(juego.getEstadisticas().getMonedas() > 100){
-         
-            
-        }
-        System.out.println("Cant mon: "+juego.getEstadisticas().getMonedasBTC());
+    public void disparar(){
+            if(juego.getEstadisticas().quitarBTC(precio)==true){
+                int poderActual;
+                poderActual= juego.getMonedaBTC().getPoder();
+                juego.getMonedaBTC().setPoder(poderActual*2);
+
+                poderActual = juego.getEstadisticas().getPoder();
+                juego.getEstadisticas().setPoder(poderActual*2);
+            }
     }
     
     public void checkPrecio(){
-        if(juego.getEstadisticas().getMonedasBTC() > precio){
+        if(juego.getEstadisticas().getMonedasBTC() >= precio){
             ventanaMejoras.getButDuplicator().setVisible(true);
         }else{
-             ventanaMejoras.getButDuplicator().setVisible(false);
+            ventanaMejoras.getButDuplicator().setVisible(false);
         }
     }
 }

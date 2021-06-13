@@ -18,6 +18,15 @@ public class MonedaETH implements Moneda, Subject {
     public float valor;
     public int cantidad;
     private ArrayList observers;
+    private int poder;
+
+    public int getPoder() {
+        return poder;
+    }
+
+    public void setPoder(int poder) {
+        this.poder = poder;
+    }
 
     public MonedaETH() {
         cantidad = 0;

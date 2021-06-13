@@ -89,4 +89,5 @@ public class Juego {
     public void addMejora(MejoraActiva mejoraActiva){
         mejorasObtenidas.add(mejoraActiva);
     }
+    
 }

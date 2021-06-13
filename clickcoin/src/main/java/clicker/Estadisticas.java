@@ -18,7 +18,7 @@ public class Estadisticas implements Observer, ObserverEnemigo {
     private int cantClicks;
     private int cantMonedaBTC;
     private int cantMonedaETH;
-
+    private int poder;
 //    private Moneda monedaBTC;
 //    private Moneda monedaETH;
     private Subject monedaSubject;
@@ -29,6 +29,7 @@ public class Estadisticas implements Observer, ObserverEnemigo {
         cantClicks = 0;
         cantMonedaBTC = 0;
         cantMonedaETH = 0;
+        poder=1;
     }
 
     public void initSubject(Subject monedaSubject) {
@@ -43,7 +44,7 @@ public class Estadisticas implements Observer, ObserverEnemigo {
 
     @Override
     public void updateBTC() {
-        cantMonedaBTC += 1;
+        cantMonedaBTC += poder;
         cantClicks += 1;
     }
     
@@ -71,13 +72,16 @@ public class Estadisticas implements Observer, ObserverEnemigo {
     }
 
 
-    public void quitarBTC(int cantidad) {
+    public boolean quitarBTC(int cantidad) {
         if(cantMonedaBTC>0){
-            if(cantidad>= cantMonedaBTC)
-                cantMonedaBTC = 0;
-            else
             cantMonedaBTC -= cantidad;
+            if(cantMonedaBTC<0){
+                cantMonedaBTC=0;
+            }
+            System.out.println("BTC:"+cantMonedaBTC);
+            return true;
         }
+        return false;
     }
 
     @Override
@@ -89,4 +93,13 @@ public class Estadisticas implements Observer, ObserverEnemigo {
             cantMonedaETH -= cantidad;
         }
     }
+
+    public int getPoder() {
+        return poder;
+    }
+
+    public void setPoder(int poder) {
+        this.poder = poder;
+    }
+    
 }

@@ -25,7 +25,7 @@ public class VentanaMejoras extends javax.swing.JFrame {
         setResizable(false);
         this.juego = juego;
         
-        this.mejoraActiva = new MejoraActiva(juego,1,this);       
+        this.mejoraActiva = new MejoraActiva(juego,1,this,10);       
         butDuplicator.setVisible(false);
         
     }
@@ -75,8 +75,8 @@ public class VentanaMejoras extends javax.swing.JFrame {
 
 
     private void butDuplicatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butDuplicatorActionPerformed
+        mejoraActiva.disparar();
         setVisible(false);
-        mejoraActiva.mejora1();
     }//GEN-LAST:event_butDuplicatorActionPerformed
 
 

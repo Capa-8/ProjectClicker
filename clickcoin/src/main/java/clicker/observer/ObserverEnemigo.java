@@ -10,6 +10,6 @@ package clicker.observer;
  * @author Nehemias
  */
 public interface ObserverEnemigo {
-    public void quitarBTC(int cantidad);
+    public boolean quitarBTC(int cantidad);
     public void quitarETH(int cantidad);
 }
