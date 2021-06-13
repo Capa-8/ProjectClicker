@@ -68,13 +68,13 @@ public class Juego {
                 @Override
                 public void run() {
                     vNiv.cerrarTodo();
+                    fabricaE.iniciar();
                     if (nivel == 3) {
 
                         VentanaJuegoETH vETH = new VentanaJuegoETH(juegoInstancia);
                         ventana = vETH;
                     }
                     ventana.setVisible(true);
-                    fabricaE.seguir();
                 }
 
             };

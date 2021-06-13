@@ -34,7 +34,7 @@ public abstract class Enemigo implements SubjectEnemigo {
         vida = vidaEstandar;
         tiempoRonda = tiempo;
         
-        if(test)
+        if(!test)
             ventana = new VentanaEnemigo(this);
         
         rondas = 1;

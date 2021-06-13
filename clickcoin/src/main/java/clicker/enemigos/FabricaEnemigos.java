@@ -49,7 +49,7 @@ public class FabricaEnemigos {
         for(Enemigo enemigo: enemigos){
             if(numero <= (enemigo.getProbabilidad()+getProbAtaqueNivel())){
                 juego.getVentana().setVisible(false);
-                //System.out.print("numero aleatorio: " + numero);
+                System.out.print("numero aleatorio: " + numero);
                 enemigo.nacer(false);
                 break;
             }//else
