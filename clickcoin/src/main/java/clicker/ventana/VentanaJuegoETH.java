@@ -6,7 +6,6 @@
 package clicker.ventana;
 
 import clicker.Juego;
-import clicker.moneda.MonedaBTC;
 import clicker.moneda.MonedaETH;
 
 /**

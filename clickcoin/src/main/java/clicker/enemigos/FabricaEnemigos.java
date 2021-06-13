@@ -16,7 +16,7 @@ public class FabricaEnemigos {
         this.juego = juego;
         pause = true;
         enemigos = new ArrayList<>();
-        enlistarEnemigos();
+        //enlistarEnemigos();
     }
     
     public void iniciar(){
@@ -40,7 +40,7 @@ public class FabricaEnemigos {
         for(Enemigo enemigo: enemigos){
             if(numero <= (enemigo.getProbabilidad()+getProbAtaqueNivel())){
                 //System.out.print("numero aleatorio: " + numero);
-                enemigo.nacer();
+               // enemigo.nacer();
                 break;
             }//else
                 //System.out.print("NO ENTRE numero aleatorio: " + numero + "\n");
