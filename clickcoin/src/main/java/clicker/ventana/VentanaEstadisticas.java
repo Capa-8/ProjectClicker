@@ -6,11 +6,12 @@
 package clicker.ventana;
 
 import clicker.Juego;
+import clicker.observer.ObserverEstadisticas;
 /**
  *
  * @author Nacho
  */
-public class VentanaEstadisticas extends javax.swing.JFrame {
+public class VentanaEstadisticas extends javax.swing.JFrame implements ObserverEstadisticas {
 
     private Juego juego;
     /**
@@ -21,11 +22,6 @@ public class VentanaEstadisticas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         this.juego = juego;
-    }
-
-    public void update(){
-        jLabel1.setText("CANTIDAD DE CLICKS REALIZADOS: " + juego.getEstadisticas().getClicks());
-        jLabel3.setText("CANTIDAD DE MONEDAS OBTENIDAS: " + juego.getEstadisticas().getMonedasBTC());
     }
    
     /**
@@ -68,7 +64,8 @@ public class VentanaEstadisticas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dispose();
+
+        setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public javax.swing.JButton getBoton1(){
@@ -77,6 +74,12 @@ public class VentanaEstadisticas extends javax.swing.JFrame {
 
     public javax.swing.JLabel getLabel1(){
         return jLabel2;
+    }
+    
+    @Override
+    public void update(){
+        jLabel1.setText("CANTIDAD DE CLICKS REALIZADOS: " + juego.getEstadisticas().getClicks());
+        jLabel3.setText("CANTIDAD DE MONEDAS OBTENIDAS: " + juego.getEstadisticas().getMonedasBTC());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

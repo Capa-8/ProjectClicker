@@ -101,17 +101,17 @@ public class EstadisticasTest {
         System.out.println("quitar BTC");
         Juego juego = new Juego(new Jugador("test"));
         juego.getEstadisticas().initSubject((MonedaBTC) juego.getMonedaBTC());
-        int i = 5;
+        int i = 200;
         for (int j = 0; j < i; j++) {
             juego.getMinado().realizarMinado();//aca un observer
         }
 
         ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
-        Enemigo ene = enemigos.get(0);
+        Enemigo ene = enemigos.get(2);
         ene.atacar();
 
         float cantMonedasBTC = juego.getEstadisticas().getMonedasBTC();
-        float esperado = 4;
+        float esperado = 50;
         assertEquals(esperado, cantMonedasBTC);
 
     }
@@ -126,18 +126,18 @@ public class EstadisticasTest {
         Moneda moneda = (MonedaETH) juego.getMonedaETH();
         juego.getMinado().setMoneda(moneda);
         juego.getEstadisticas().initSubject((MonedaETH) moneda);
-        int i = 5;
+        int i = 200;
         for (int j = 0; j < i; j++) {
             juego.getMinado().realizarMinado();
         }
 
       
         ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
-        Enemigo ene = enemigos.get(0);
+        Enemigo ene = enemigos.get(2);
         ene.atacar();
 
         float cantMonedasETH = juego.getEstadisticas().getMonedasETH();
-        float esperado = 4;
+        float esperado = 50;
         assertEquals(esperado, cantMonedasETH);
 
     }

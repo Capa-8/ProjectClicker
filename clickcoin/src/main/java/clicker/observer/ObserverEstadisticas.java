@@ -7,10 +7,8 @@ package clicker.observer;
 
 /**
  *
- * @author Nehemias
+ * @author Nacho
  */
-public interface ObserverEnemigo {
-    public void quitarBTC(int cantidad);
-    public void quitarETH(int cantidad);
-    
+public interface ObserverEstadisticas {
+    public void update();
 }
