@@ -111,7 +111,7 @@ public class EstadisticasTest {
         ene.atacar();
 
         float cantMonedasBTC = juego.getEstadisticas().getMonedasBTC();
-        float esperado = 50;
+        float esperado = ene.getRoboT();
         assertEquals(esperado, cantMonedasBTC);
 
     }
@@ -137,7 +137,7 @@ public class EstadisticasTest {
         ene.atacar();
 
         float cantMonedasETH = juego.getEstadisticas().getMonedasETH();
-        float esperado = 50;
+        float esperado = ene.getRoboT();
         assertEquals(esperado, cantMonedasETH);
 
     }
