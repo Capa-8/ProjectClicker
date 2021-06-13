@@ -159,6 +159,7 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         VentanaJuegoBTC vBTC = new VentanaJuegoBTC(this.juego);
         this.juego.getMinado().setMoneda(juego.getMonedaBTC());
+        juego.setVentana(vBTC);
         vBTC.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed

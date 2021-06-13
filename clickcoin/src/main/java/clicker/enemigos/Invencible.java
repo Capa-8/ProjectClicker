@@ -19,7 +19,7 @@ public class Invencible extends Enemigo{
     
     @Override
     public void incrementarTiempo() {
-        tiempo = tiempo + 3;
+        tiempoRonda = tiempo + 3*rondas;
     }
     
     @Override

@@ -4,6 +4,7 @@ import clicker.enemigos.FabricaEnemigos;
 import clicker.mejoras.*;
 import clicker.moneda.*;
 import clicker.ventana.VentanaJuegoBTC;
+import javax.swing.JFrame;
 
 public class Juego {
 
@@ -15,6 +16,7 @@ public class Juego {
     private Moneda monedaBTC;
     private Moneda monedaETH;
     private FabricaEnemigos fabricaE;
+    private JFrame ventana;
 
     public Juego(Jugador jugador) {
         this.jugador = jugador;
@@ -34,13 +36,17 @@ public class Juego {
     }
 
     public void iniciarJuego() {
-        VentanaJuegoBTC vBTC = new VentanaJuegoBTC(this);
-        vBTC.setVisible(true);
+        ventana = new VentanaJuegoBTC(this);
+        ventana.setVisible(true);
         fabricaE.iniciar();
     }
 
     public int aumentarNivel() {
         return this.nivel.aumentar();
+    }
+    
+    public void setVentana(JFrame ventana){
+        this.ventana = ventana;
     }
 
     /**
@@ -78,5 +84,9 @@ public class Juego {
     public FabricaEnemigos getFabricaE(){
         
         return fabricaE;
+    }
+    
+    public JFrame getVentana(){
+        return ventana;
     }
 }

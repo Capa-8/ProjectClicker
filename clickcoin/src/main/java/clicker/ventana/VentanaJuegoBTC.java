@@ -46,7 +46,7 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
         
         
         jButton5.setVisible(false);
-        if (juego.getNivel().getNumeroNivel() == 2) {
+        if (juego.getNivel().getNumeroNivel() >= 2) {
             jButton5.setVisible(true);
         }
     }
@@ -154,6 +154,7 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
             if (juego.getNivel().getNumeroNivel() == 3) {
                 VentanaJuegoETH vETH = new VentanaJuegoETH(juego);
                 vETH.setVisible(true);
+                juego.setVentana(vETH);
                 //jButton5.setVisible(true);
                 dispose();
             }

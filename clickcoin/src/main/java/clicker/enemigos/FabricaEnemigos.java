@@ -10,13 +10,20 @@ public class FabricaEnemigos {
     Juego juego;
     ArrayList<Enemigo> enemigos;
     boolean pause;
-    
+    private TimerTask tareaEsperar;
     
     public FabricaEnemigos(Juego juego){
         this.juego = juego;
         pause = true;
         enemigos = new ArrayList<>();
         enlistarEnemigos();
+        
+        tareaEsperar = new TimerTask(){
+        @Override
+        public void run(){
+                pause = false;
+            }
+        };
     }
     
     public void iniciar(){
@@ -29,7 +36,9 @@ public class FabricaEnemigos {
     }
     
     public void seguir(){
-        pause = false;
+        juego.getVentana().setVisible(true);
+        Timer timer = new Timer();
+        timer.schedule(tareaEsperar , 10000);
     }
     
     /**El metodo crearEnemigo toma la lista de enemigos y junto a un numero
@@ -39,6 +48,7 @@ public class FabricaEnemigos {
         float numero = (float)(Math.random());
         for(Enemigo enemigo: enemigos){
             if(numero <= (enemigo.getProbabilidad()+getProbAtaqueNivel())){
+                juego.getVentana().setVisible(false);
                 //System.out.print("numero aleatorio: " + numero);
                 enemigo.nacer();
                 break;
