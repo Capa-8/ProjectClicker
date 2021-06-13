@@ -53,30 +53,30 @@ public class VentanaAumentarNivel extends javax.swing.JFrame {
         URL url;
         switch (nivel) {
             case 2:
+
                 url = new URL("https://i.pinimg.com/originals/63/81/f6/6381f63592f18a7d91f9f3ac64009b42.gif");
                 break;
             case 3:
                 url = new URL("https://i.pinimg.com/originals/26/5f/1e/265f1e9da2dc2aafab154bdd6f64f2b9.gif");
                 break;
             case 4:
-                url = new URL("https://i.pinimg.com/originals/26/5f/1e/265f1e9da2dc2aafab154bdd6f64f2b9.gif");
+                url = new URL("https://i.pinimg.com/originals/db/c6/59/dbc6597b27b388e63bb782875fc7140c.gif");
+
                 break;
             case 5:
-                url = new URL("https://i.pinimg.com/originals/26/5f/1e/265f1e9da2dc2aafab154bdd6f64f2b9.gif");
+                url = new URL("https://cdn.eldeforma.com/wp-content/uploads/2020/03/giphy-5.gif");
                 break;
             default:
                 url = new URL("https://i.pinimg.com/originals/26/5f/1e/265f1e9da2dc2aafab154bdd6f64f2b9.gif");
                 break;
         }
-        
-        //URL url = new URL("/clicker/resources/barcoBTC.gif");
 
+        //URL url = new URL("/clicker/resources/barcoBTC.gif");
         Image image = Toolkit.getDefaultToolkit().getImage(url);
 
         ImagePanel im = new ImagePanel(image);
         JLabel jlbl = new JLabel();
-        
-        
+
         jlbl.setText("¡Subiste al Nivel " + nivel.toString() + "!");
         String labelText = jlbl.getText();
         jlbl.setFont(new Font(labelText, Font.BOLD, 35));

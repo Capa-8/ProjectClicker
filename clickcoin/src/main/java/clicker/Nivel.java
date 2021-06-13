@@ -35,12 +35,12 @@ public class Nivel {
         valores3[1] = 10;//ETH
         valoresList.add(valores3);
         int[] valores4 = new int[2];
-        valores4[0] = 3000;//BTC
-        valores4[1] = 2000;//ETH
+        valores4[0] = 60;//BTC
+        valores4[1] = 20;//ETH
         valoresList.add(valores4);
         int[] valores5 = new int[2];
-        valores5[0] = 99999999;//BTC
-        valores5[1] = 99999999;//ETH
+        valores5[0] = 70;//BTC
+        valores5[1] = 30;//ETH
         valoresList.add(valores5);
 
 //        valoresList.add()
