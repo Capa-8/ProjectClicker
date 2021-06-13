@@ -27,4 +27,5 @@ public class MejoraPasiva implements Mejora {
     
     public void checkPrecio(){
     }
+    
 }

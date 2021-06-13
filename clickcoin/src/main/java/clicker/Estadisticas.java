@@ -6,11 +6,8 @@
 package clicker;
 
 
-import clicker.mejoras.Mejora;
-import clicker.observer.*;
-import java.util.ArrayList;
-import java.util.List;
 
+import clicker.observer.*;
 /**
  *
  * @author Nacho
@@ -21,7 +18,7 @@ public class Estadisticas implements Observer, ObserverEnemigo {
     private int cantClicks;
     private int cantMonedaBTC;
     private int cantMonedaETH;
-    //private ArrayList mejorasObtenidas;
+
 //    private Moneda monedaBTC;
 //    private Moneda monedaETH;
     private Subject monedaSubject;
@@ -73,13 +70,23 @@ public class Estadisticas implements Observer, ObserverEnemigo {
         return cantClicks;
     }
 
-    @Override
-    public void quitarBTC() {
-        cantMonedaBTC -= 1;
+
+    public void quitarBTC(int cantidad) {
+        if(cantMonedaBTC>0){
+            if(cantidad>= cantMonedaBTC)
+                cantMonedaBTC = 0;
+            else
+            cantMonedaBTC -= cantidad;
+        }
     }
 
     @Override
-    public void quitarETH() {
-        cantMonedaETH -= 1;
+    public void quitarETH(int cantidad) {
+        if(cantMonedaETH>0){
+            if(cantidad>=cantMonedaETH)
+                cantMonedaETH =0;
+            else
+            cantMonedaETH -= cantidad;
+        }
     }
 }

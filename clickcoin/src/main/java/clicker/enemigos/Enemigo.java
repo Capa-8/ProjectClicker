@@ -18,7 +18,8 @@ public abstract class Enemigo implements SubjectEnemigo {
     int tiempo;
     int tiempoRonda;
     boolean dead;
-    private TimerTask tareaAtacar;
+    private TimerTask tareaRestar;
+
     VentanaEnemigo ventana;
     protected ArrayList observers;
 
@@ -34,8 +35,7 @@ public abstract class Enemigo implements SubjectEnemigo {
         tiempoRonda = tiempo;
         ventana = new VentanaEnemigo(this);
         temporizadorRonda(tiempo);
-        temporizadorAtaques();
-
+        temporizadorTiempo();
     }
 
     /**
@@ -46,25 +46,25 @@ public abstract class Enemigo implements SubjectEnemigo {
     }
 
     /**
-     * El metodo temporizador de ataques es el encargado de llamar a un ataque
-     * cada 1s siempre que el enemigo no halla muerto
+     * El metodo temporizador de tiempo es el encargado de llevar el conteo restante
+     * de la ronda para visualizar en la ventana enemigo, esto se hace en esta 
+     * clase para la correcta sincronizacion con la ventana
      */
-    public void temporizadorAtaques() {
+    public void temporizadorTiempo() {
         Timer timer = new Timer();
-        tareaAtacar = new TimerTask() {
+        tareaRestar = new TimerTask() {
             @Override
             public void run() {
-                tiempoRonda--;//Se llevara el conteo de la ronda aqui por ser una accion que se llama cada 1 segundo para la correcta sincronizacion con la ventana
-                atacar();
+                tiempoRonda--;
             }
         };
-        timer.schedule(tareaAtacar, 1000, 1000);
+        timer.schedule(tareaRestar, 1000, 1000);
     }
 
     /**
      * El metodo temporizador ronda es el tiempo por ronda que se tiene para
      * matar al enemigo, en caso de no matarse en ese tiempo establecido se crea
-     * un nuevo temporizador con un tiempo extra.
+     * un nuevo temporizador con un tiempo extra y el enemigo procede a atacar.
      */
     private void temporizadorRonda(int t) {
         Timer timer = new Timer();
@@ -73,6 +73,7 @@ public abstract class Enemigo implements SubjectEnemigo {
             public void run() {
                 if (!dead) {
                     vida = vidaEstandar;
+                    atacar();
                     incrementarTiempo();
                     reiniciarVentana();
                     temporizadorRonda(tiempo);
@@ -103,7 +104,7 @@ public abstract class Enemigo implements SubjectEnemigo {
      */
     private void matar() {
         dead = true;
-        tareaAtacar.cancel();
+        tareaRestar.cancel();
         ventana.matar();
 
         juego.getFabricaE().seguir();
@@ -130,8 +131,8 @@ public abstract class Enemigo implements SubjectEnemigo {
     public void notifyObservers() {
         for (int i = 0; i < observers.size(); i++) {
             ObserverEnemigo observer = (ObserverEnemigo) observers.get(i);
-            observer.quitarBTC();
-            observer.quitarETH();
+            observer.quitarBTC(roboEstandar*tiempo);
+            observer.quitarETH(roboEstandar*tiempo);
         }
     }
 

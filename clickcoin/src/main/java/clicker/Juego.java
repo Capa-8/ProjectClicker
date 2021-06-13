@@ -4,8 +4,10 @@ import clicker.enemigos.FabricaEnemigos;
 import clicker.mejoras.*;
 import clicker.moneda.*;
 import clicker.ventana.VentanaJuegoBTC;
+
 import java.util.ArrayList;
 import java.util.List;
+
 public class Juego {
 
     private Jugador jugador;
@@ -16,7 +18,7 @@ public class Juego {
     private Moneda monedaETH;
     private FabricaEnemigos fabricaE;
     private ArrayList<Mejora> mejorasObtenidas;
-    
+
     public Juego(Jugador jugador) {
         this.jugador = jugador;
         Estadisticas estadisticas = new Estadisticas();
@@ -31,7 +33,6 @@ public class Juego {
 
         this.minado = oMinado;
         mejorasObtenidas = new ArrayList<Mejora>();
-
     }
 
     public void iniciarJuego() {
@@ -60,7 +61,6 @@ public class Juego {
         return estadisticas;
     }
 
-
     public Moneda getMonedaBTC() {
         return monedaBTC;
     }
@@ -77,6 +77,7 @@ public class Juego {
         
         return fabricaE;
     }
+
     
     public void updateMejoras() {
         for(int i=0; i<mejorasObtenidas.size(); i++){

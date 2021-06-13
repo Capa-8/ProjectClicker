@@ -7,6 +7,7 @@ package clicker.ventana;
 
 import clicker.Juego;
 import clicker.mejoras.*;
+
 /**
  *
  * @author Nacho
@@ -23,8 +24,10 @@ public class VentanaMejoras extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         this.juego = juego;
+        
         this.mejoraActiva = new MejoraActiva(juego,1,this);       
         butDuplicator.setVisible(false);
+        
     }
     
     /**
@@ -50,6 +53,7 @@ public class VentanaMejoras extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 315, 150, 75));
 
+
         butDuplicator.setText("Duplicar monedas");
         butDuplicator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +61,7 @@ public class VentanaMejoras extends javax.swing.JFrame {
             }
         });
         getContentPane().add(butDuplicator, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
@@ -68,10 +73,12 @@ public class VentanaMejoras extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+
     private void butDuplicatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butDuplicatorActionPerformed
         setVisible(false);
         mejoraActiva.mejora1();
     }//GEN-LAST:event_butDuplicatorActionPerformed
+
 
     public javax.swing.JButton getBoton1(){
         return jButton1;
@@ -80,14 +87,15 @@ public class VentanaMejoras extends javax.swing.JFrame {
     public javax.swing.JLabel getLabel1(){
         return jLabel1;
     }
+
     public javax.swing.JButton getButDuplicator(){
         return butDuplicator;
     }
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton butDuplicator;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration
 }

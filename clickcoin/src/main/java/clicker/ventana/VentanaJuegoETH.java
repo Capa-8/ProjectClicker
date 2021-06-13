@@ -6,6 +6,8 @@
 package clicker.ventana;
 
 import clicker.Juego;
+import clicker.moneda.MonedaBTC;
+import clicker.moneda.MonedaETH;
 
 /**
  *
@@ -44,6 +46,9 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
         //Cambiamos aspecto de la ventana de mejoras.
         vMej.getBoton1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/VOLVER4.png")));
         vMej.getLabel1().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO2.png")));
+        
+        this.juego.getEstadisticas().initSubject((MonedaETH) this.juego.getMonedaETH());
+        this.juego.getMinado().setMoneda(juego.getMonedaETH());
     }
 
     /**
@@ -153,7 +158,7 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         VentanaJuegoBTC vBTC = new VentanaJuegoBTC(this.juego);
-        juego.getMinado().setMoneda(juego.getMonedaBTC());
+        this.juego.getMinado().setMoneda(juego.getMonedaBTC());
         vBTC.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
