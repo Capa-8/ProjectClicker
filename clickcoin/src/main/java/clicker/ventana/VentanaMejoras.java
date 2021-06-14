@@ -8,15 +8,17 @@ package clicker.ventana;
 import clicker.Juego;
 import clicker.mejoras.*;
 import javax.swing.JButton;
+
 /**
  *
  * @author Nacho
  */
 public class VentanaMejoras extends javax.swing.JFrame {
-    
+
     private Juego juego;
-    private MejoraActiva mejoraActiva;
-    private MejoraPasiva mejoraPasiva;
+//    private MejoraActiva mejoraActiva;
+//    private MejoraPasiva mejoraPasiva;
+
     /**
      * Creates new form VentanaMejoras
      */
@@ -25,13 +27,23 @@ public class VentanaMejoras extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         this.juego = juego;
-        this.mejoraActiva = new MejoraActiva(juego, 1, this, 10);       
-        this.mejoraPasiva = new MejoraPasiva(juego, this, 5);
+        
+//        this.mejoraActiva = new MejoraActiva(juego, 1, this, 0.20f);
+//        this.mejoraPasiva = new MejoraPasiva(juego, this, 0.50f);
+
+        lblPrecioDuplicador.setText(juego.getMejoraActiva().getPrecio());
+        lblPrecioPlaca.setText(juego.getMejoraPasiva().getPrecio());
         btnDuplicate.setVisible(false);
         btnGraphCard.setVisible(false);
         btnOverclock.setVisible(false);
+        lblPrecioDuplicador.setVisible(false);
+        lblPrecioPlaca.setVisible(false);
+        lblPrecioOverclock.setVisible(false);
+        lblPrecioDuplicadorTitulo.setVisible(false);
+        lblPrecioPlacaTitulo.setVisible(false);
+        lblPrecioOverTitulo.setVisible(false);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,9 +55,16 @@ public class VentanaMejoras extends javax.swing.JFrame {
 
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        btnDuplicate = new javax.swing.JButton();
+        lblPrecioDuplicadorTitulo = new javax.swing.JLabel();
+        lblPrecioPlacaTitulo = new javax.swing.JLabel();
+        lblPrecioOverclock = new javax.swing.JLabel();
+        lblPrecioDuplicador = new javax.swing.JLabel();
+        lblPrecioPlaca = new javax.swing.JLabel();
         btnGraphCard = new javax.swing.JButton();
+        btnDuplicate = new javax.swing.JButton();
+        lblPrecioOverTitulo = new javax.swing.JLabel();
         btnOverclock = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -61,14 +80,28 @@ public class VentanaMejoras extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 315, 150, 75));
 
-        btnDuplicate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON DUPLICAR.jpg"))); // NOI18N
-        btnDuplicate.setPreferredSize(new java.awt.Dimension(190, 75));
-        btnDuplicate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDuplicateActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnDuplicate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        lblPrecioDuplicadorTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPrecioDuplicadorTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblPrecioDuplicadorTitulo.setText("Precio: ");
+        getContentPane().add(lblPrecioDuplicadorTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        lblPrecioPlacaTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPrecioPlacaTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblPrecioPlacaTitulo.setText("Precio: ");
+        getContentPane().add(lblPrecioPlacaTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
+
+        lblPrecioOverclock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPrecioOverclock.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblPrecioOverclock, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 110, -1));
+
+        lblPrecioDuplicador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPrecioDuplicador.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblPrecioDuplicador, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 90, 100, -1));
+        lblPrecioDuplicador.getAccessibleContext().setAccessibleName("");
+
+        lblPrecioPlaca.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPrecioPlaca.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblPrecioPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 80, -1));
 
         btnGraphCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTOTN PLACA.jpg"))); // NOI18N
         btnGraphCard.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +109,21 @@ public class VentanaMejoras extends javax.swing.JFrame {
                 btnGraphCardActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGraphCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 190, 75));
+        getContentPane().add(btnGraphCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 190, 75));
+
+        btnDuplicate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON DUPLICAR.jpg"))); // NOI18N
+        btnDuplicate.setPreferredSize(new java.awt.Dimension(190, 75));
+        btnDuplicate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDuplicateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDuplicate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        lblPrecioOverTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPrecioOverTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblPrecioOverTitulo.setText("Precio: ");
+        getContentPane().add(lblPrecioOverTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
 
         btnOverclock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON OVERCLOCK.jpg"))); // NOI18N
         btnOverclock.setPreferredSize(new java.awt.Dimension(190, 75));
@@ -85,7 +132,12 @@ public class VentanaMejoras extends javax.swing.JFrame {
                 btnOverclockActionPerformed(evt);
             }
         });
-        getContentPane().add(btnOverclock, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        getContentPane().add(btnOverclock, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("MEJORAS DISPONIBLES");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
@@ -99,27 +151,28 @@ public class VentanaMejoras extends javax.swing.JFrame {
 
     private void btnDuplicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDuplicateActionPerformed
         setVisible(false);
-        mejoraActiva.disparar();
+        juego.getMejoraActiva().disparar();
     }//GEN-LAST:event_btnDuplicateActionPerformed
 
     private void btnGraphCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraphCardActionPerformed
         setVisible(false);
-        mejoraPasiva.disparar();
+        juego.getMejoraPasiva().disparar();
     }//GEN-LAST:event_btnGraphCardActionPerformed
 
     private void btnOverclockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOverclockActionPerformed
-       //setVisible(false);
-       mejoraPasiva.overclock();
+        //setVisible(false);
+        juego.getMejoraPasiva().overclock();
     }//GEN-LAST:event_btnOverclockActionPerformed
 
-    public javax.swing.JButton getBoton1(){
+    public javax.swing.JButton getBoton1() {
         return jButton1;
     }
-    
-    public javax.swing.JLabel getLabel1(){
+
+    public javax.swing.JLabel getLabel1() {
         return jLabel1;
     }
-    public javax.swing.JButton getBtnDuplicate(){
+
+    public javax.swing.JButton getBtnDuplicate() {
         return btnDuplicate;
     }
 
@@ -130,18 +183,42 @@ public class VentanaMejoras extends javax.swing.JFrame {
     public JButton getBtnOverclock() {
         return btnOverclock;
     }
-    
-    public javax.swing.JButton getbtnDuplicate(){
+
+    public javax.swing.JButton getbtnDuplicate() {
         return btnDuplicate;
     }
-    public javax.swing.JButton getbtnGraphCard(){
+
+    public javax.swing.JButton getbtnGraphCard() {
         return btnGraphCard;
     }
-    public javax.swing.JButton getbtnOverclock(){
+
+    public javax.swing.JButton getbtnOverclock() {
         return btnOverclock;
     }
+
+    public javax.swing.JLabel getLabelDuplicador() {
+        return lblPrecioDuplicador;
+    }
+
+    public javax.swing.JLabel getLabelPlaca() {
+        return lblPrecioPlaca;
+    }
+
+    public javax.swing.JLabel getLabelOverclock() {
+        return lblPrecioOverclock;
+    }
     
-    
+    public javax.swing.JLabel getLabelDuplicadorTitulo() {
+        return lblPrecioDuplicadorTitulo;
+    }
+
+    public javax.swing.JLabel getLabelPlacaTitulo() {
+        return lblPrecioPlacaTitulo;
+    }
+
+    public javax.swing.JLabel getLabelOverclockTitulo() {
+        return lblPrecioOverTitulo;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -151,5 +228,12 @@ public class VentanaMejoras extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblPrecioDuplicador;
+    private javax.swing.JLabel lblPrecioDuplicadorTitulo;
+    private javax.swing.JLabel lblPrecioOverTitulo;
+    private javax.swing.JLabel lblPrecioOverclock;
+    private javax.swing.JLabel lblPrecioPlaca;
+    private javax.swing.JLabel lblPrecioPlacaTitulo;
     // End of variables declaration//GEN-END:variables
 }

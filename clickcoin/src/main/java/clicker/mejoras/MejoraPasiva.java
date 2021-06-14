@@ -15,80 +15,99 @@ import java.util.TimerTask;
  * @author Nacho
  */
 public class MejoraPasiva implements Mejora {
+
     private int tiempo;
     private Juego juego;
-    private int precio;
+    private float precio;
     private VentanaMejoras ventanaMejoras;
-    private int cantPlacas;
+    private float cantPlacas;
     private int porcentaje;
-    private int precioOC;
-    
-    
-    public MejoraPasiva(Juego juego, VentanaMejoras ventanaMejoras, int precio){
+    private float precioOC;
+
+    public MejoraPasiva(Juego juego, float precio) {
         this.juego = juego;
         tiempo = 1000;
         this.precio = precio;
-        this.ventanaMejoras = ventanaMejoras;
         this.juego.addMejoraP(this);
         cantPlacas = 0;
         porcentaje = 95;
-        precioOC = 3;
+        precioOC = precio/2;
+    }
+
+    public void setVentana(VentanaMejoras ventanaMejoras){
+        this.ventanaMejoras = ventanaMejoras;
     }
     
-    public int getTiempo(){
+    public int getTiempo() {
         return tiempo;
     }
-    
+
     public void disparar() {
         if (juego.getEstadisticas().quitarBTC(precio) == true) {
-            cantPlacas++;
+            cantPlacas += 1;
+            float incremento = cantPlacas /10;
+            System.out.println(tiempo);
             Timer timer = new Timer();
             TimerTask generateBTC = new TimerTask() {
+                
                 @Override
                 public void run() {
-                    juego.getEstadisticas().updateBTC(cantPlacas);
-                   // System.out.println(cantPlacas+" Placas de Video han generado" + juego.getEstadisticas().getMonedasBTC());
+                    System.out.println(incremento);
+                    juego.getEstadisticas().updateBTCPasivo(incremento);
+                    // System.out.println(cantPlacas+" Placas de Video han generado" + juego.getEstadisticas().getMonedasBTC());
                 }
             };
             timer.schedule(generateBTC, 1, tiempo);
 
             precio = precio * 3;
-            ventanaMejoras.getBtnGraphCard().setText("Placa de Video (" + precio + " BTC)");
-            
-            
+            ventanaMejoras.getLabelPlaca().setText(precio + " BTC");
+            //ventanaMejoras.getBtnGraphCard().setText("Placa de Video (" + precio + " BTC)");
+            juego.getEstadisticas().valoresCambiados();
         }
     }
-    
-    public void checkPrecio(){
-        if(juego.getEstadisticas().getMonedasBTC() >= precio){
+
+    public void checkPrecio() {
+        if (juego.getEstadisticas().getMonedasBTC() >= precio) {
             ventanaMejoras.getBtnGraphCard().setVisible(true);
-        }else{
+            ventanaMejoras.getLabelPlaca().setVisible(true);
+            ventanaMejoras.getLabelPlacaTitulo().setVisible(true);
+        } else {
             ventanaMejoras.getBtnGraphCard().setVisible(false);
+            ventanaMejoras.getLabelPlaca().setVisible(false);
+            ventanaMejoras.getLabelPlacaTitulo().setVisible(false);
         }
         if (cantPlacas >= 1) {
             if (juego.getEstadisticas().getMonedasBTC() >= precioOC) {
                 ventanaMejoras.getBtnOverclock().setVisible(true);
+                ventanaMejoras.getLabelOverclock().setVisible(true);
+                ventanaMejoras.getLabelOverclockTitulo().setVisible(true);
             } else {
                 ventanaMejoras.getBtnOverclock().setVisible(false);
+                ventanaMejoras.getLabelOverclock().setVisible(false);
+                ventanaMejoras.getLabelOverclockTitulo().setVisible(false);
             }
         }
     }
 
-    public int getCantPlacas() {
+    public float getCantPlacas() {
         return cantPlacas;
     }
-    
-    public void overclock(){
-        if(cantPlacas >= 1){
-            if (juego.getEstadisticas().quitarBTC(precio) == true){
-            tiempo = tiempo * (porcentaje/100);
-            porcentaje = porcentaje - 5;
-            if(porcentaje == 0){
-                porcentaje = 5;
+
+    public void overclock() {
+        if (cantPlacas >= 1) {
+            if (juego.getEstadisticas().quitarBTC(precio) == true) {
+                tiempo = tiempo * (porcentaje / 100);
+                porcentaje = porcentaje - 5;
+                if (porcentaje == 0) {
+                    porcentaje = 5;
+                }
+                precioOC = precioOC * 1;
+                ventanaMejoras.getBtnOverclock().setText("Overclock (" + precioOC + " BTC)");
             }
-            precioOC = precioOC * 1;
-            ventanaMejoras.getBtnOverclock().setText("Overclock (" + precioOC + " BTC)");
-            }
-        }       
+        }
+    }
+
+    public String getPrecio() {
+        return String.valueOf(this.precio);
     }
 }

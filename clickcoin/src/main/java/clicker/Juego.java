@@ -14,7 +14,6 @@ import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +30,8 @@ public class Juego {
     private ArrayList<MejoraPasiva> mejorasPasivas;
     private VentanaMoneda ventana;
     private TimerTask tiempoEspera;
+    private MejoraActiva mejoraActiva;
+    private MejoraPasiva mejoraPasiva;
 
     public Juego(Jugador jugador) {
         this.jugador = jugador;
@@ -45,15 +46,19 @@ public class Juego {
         oMinado.setMoneda(this.monedaBTC);
 
         this.minado = oMinado;
+
         mejorasActivas = new ArrayList<MejoraActiva>();
         mejorasPasivas = new ArrayList<MejoraPasiva>();
+
+        mejoraActiva = new MejoraActiva(this, 1, 0.20f);
+        mejoraPasiva = new MejoraPasiva(this, 0.50f);
     }
 
     public void iniciarJuego() {
         ventana = new VentanaJuegoBTC(this);
         ventana.setVisible(true);
         fabricaE.iniciar();
-        
+
     }
 
     public void aumentarNivel() {
@@ -63,7 +68,7 @@ public class Juego {
             ventana.setVisible(false);
             VentanaAumentarNivel vNiv = new VentanaAumentarNivel(this);
             vNiv.showGIF();
-            
+
             Integer nivel = this.getNivel().getNumeroNivel();
             Juego juegoInstancia = this;
             Timer timer = new Timer();
@@ -71,21 +76,29 @@ public class Juego {
                 @Override
                 public void run() {
                     vNiv.cerrarTodo();
-                    fabricaE.seguir();
                     if (nivel == 3) {
                         VentanaJuegoETH vETH = new VentanaJuegoETH(juegoInstancia);
                         ventana = vETH;
                     }
                     ventana.setVisible(true);
+                    fabricaE.seguir();
                 }
 
             };
             timer.schedule(tiempoEspera, 6000);
         }
     }
-    
-    public void setVentana(VentanaMoneda ventana){
+
+    public void setVentana(VentanaMoneda ventana) {
         this.ventana = ventana;
+    }
+
+    public MejoraActiva getMejoraActiva() {
+        return mejoraActiva;
+    }
+
+    public MejoraPasiva getMejoraPasiva() {
+        return mejoraPasiva;
     }
 
     /**
@@ -120,33 +133,31 @@ public class Juego {
 
         return fabricaE;
     }
-    
+
     public void updateMejoras() {
-        for(int i=0; i<mejorasActivas.size(); i++){
+        for (int i = 0; i < mejorasActivas.size(); i++) {
             mejorasActivas.get(i).checkPrecio();
         }
-        for(int i=0; i<mejorasPasivas.size(); i++){
+        for (int i = 0; i < mejorasPasivas.size(); i++) {
             mejorasPasivas.get(i).checkPrecio();
         }
-            
+
     }
-    
-    public void addMejoraA(MejoraActiva mejoraActiva){
+
+    public void addMejoraA(MejoraActiva mejoraActiva) {
         mejorasActivas.add(mejoraActiva);
     }
-    
-    public void addMejoraP(MejoraPasiva mejoraPasiva){
+
+    public void addMejoraP(MejoraPasiva mejoraPasiva) {
         mejorasPasivas.add(mejoraPasiva);
     }
-    
 
-    public VentanaMoneda getVentana(){
+    public VentanaMoneda getVentana() {
         return ventana;
     }
 
     public ArrayList<MejoraPasiva> getMejorasPasivas() {
         return mejorasPasivas;
     }
-    
- 
+
 }

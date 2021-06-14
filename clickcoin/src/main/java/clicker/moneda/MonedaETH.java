@@ -17,13 +17,15 @@ public class MonedaETH implements Moneda, Subject {
 
     public float cantidad;
     private ArrayList observers;
-    private int poder;
+    private float poder;
 
-    public int getPoder() {
+    @Override
+    public float getPoder() {
         return poder;
     }
 
-    public void setPoder(int poder) {
+    @Override
+    public void setPoder(float poder) {
         this.poder = poder;
     }
 
@@ -34,7 +36,7 @@ public class MonedaETH implements Moneda, Subject {
 
     @Override
     public void minar() {
-        cantidad += 0.01;
+        cantidad += poder;
         monedasCambiadas();
     }
     
@@ -68,7 +70,7 @@ public class MonedaETH implements Moneda, Subject {
     public void notifyObservers() {
        for (int i = 0; i < observers.size(); i++) {
             Observer observer = (Observer) observers.get(i);
-            observer.updateETH();
+            observer.updateETH(poder);
         }
     }
 

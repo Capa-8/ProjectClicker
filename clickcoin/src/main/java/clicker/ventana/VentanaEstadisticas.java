@@ -8,6 +8,7 @@ package clicker.ventana;
 import clicker.Juego;
 import clicker.mejoras.MejoraPasiva;
 import clicker.observer.ObserverEstadisticas;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +19,7 @@ public class VentanaEstadisticas extends javax.swing.JFrame implements ObserverE
 
     private Juego juego;
 
+    private DecimalFormat df;
     /**
      * Creates new form VentanaEstadisticas
      */
@@ -26,6 +28,7 @@ public class VentanaEstadisticas extends javax.swing.JFrame implements ObserverE
         setLocationRelativeTo(null);
         setResizable(false);
         this.juego = juego;
+         df = new DecimalFormat("0.00");
         //Inicializamos valores;
         update();
     }
@@ -89,8 +92,14 @@ public class VentanaEstadisticas extends javax.swing.JFrame implements ObserverE
 
     @Override
     public void update() {
+        
         jLabel1.setText("CANTIDAD DE CLICKS REALIZADOS: " + juego.getEstadisticas().getClicks());
-        jLabel3.setText("CANTIDAD DE MONEDAS OBTENIDAS: " + juego.getEstadisticas().getMonedasBTC());
+        float monedasBTC = juego.getEstadisticas().getMonedasBTC();
+        String monedasBTCStr = "";
+        if(monedasBTC != 0){
+            monedasBTCStr = df.format(monedasBTC);
+        } else {monedasBTCStr = "0";}
+        jLabel3.setText("CANTIDAD DE MONEDAS BTC OBTENIDAS: " + monedasBTCStr);
         ArrayList<MejoraPasiva> mejorasPasivas = new ArrayList<MejoraPasiva>();
         mejorasPasivas = juego.getMejorasPasivas();
         if (mejorasPasivas.size() > 0) {

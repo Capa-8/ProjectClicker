@@ -17,9 +17,8 @@ import javax.swing.JLabel;
  *
  * @author Nacho
  */
-
 public class VentanaJuegoBTC extends VentanaMoneda implements ObserverEstadisticas {
-
+    
     private VentanaEstadisticas ventanaEst;
     private VentanaMejoras ventanaMej;
     private Juego juego;
@@ -34,7 +33,7 @@ public class VentanaJuegoBTC extends VentanaMoneda implements ObserverEstadistic
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-
+        
         this.juego = juego;
         
         jLabel2.setText("JUGANDO: " + juego.getJugador().getNombre());
@@ -42,8 +41,7 @@ public class VentanaJuegoBTC extends VentanaMoneda implements ObserverEstadistic
         
         df = new DecimalFormat("0.00");
         String numero = df.format(juego.getEstadisticas().getMonedasBTC());
-        jLabel1.setText("CANTIDAD DE BTC: " + numero );
-        
+        jLabel1.setText("CANTIDAD DE BTC: " + numero);
         
         VentanaEstadisticas ventanaEst = new VentanaEstadisticas(juego);
         this.ventanaEst = ventanaEst;
@@ -51,15 +49,16 @@ public class VentanaJuegoBTC extends VentanaMoneda implements ObserverEstadistic
         
         VentanaMejoras ventanaMej = new VentanaMejoras(juego);
         this.ventanaMej = ventanaMej;
-
-        this.juego.getEstadisticas().initSubject((MonedaBTC) this.juego.getMonedaBTC());
+        juego.getMejoraActiva().setVentana(ventanaMej);
+        juego.getMejoraPasiva().setVentana(ventanaMej);
         
+        this.juego.getEstadisticas().initSubject((MonedaBTC) this.juego.getMonedaBTC());
         
         botonCambiarETH.setVisible(false);
         if (juego.getNivel().getNumeroNivel() >= 3) {
             botonCambiarETH.setVisible(true);
         }
-        
+
         //Registro la ventana en estadisticas
         juego.getEstadisticas().registerObserver(this);
         
@@ -150,7 +149,7 @@ public class VentanaJuegoBTC extends VentanaMoneda implements ObserverEstadistic
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        
         ventanaEst.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -164,7 +163,7 @@ public class VentanaJuegoBTC extends VentanaMoneda implements ObserverEstadistic
         juego.aumentarNivel();
         jLabel4.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
         String numero = df.format(juego.getEstadisticas().getMonedasBTC());
-        jLabel1.setText("CANTIDAD DE BTC: " + numero );
+        jLabel1.setText("CANTIDAD DE BTC: " + numero);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -185,13 +184,13 @@ public class VentanaJuegoBTC extends VentanaMoneda implements ObserverEstadistic
         ventanaEst.dispose();
         ventanaMej.dispose();
     }//GEN-LAST:event_botonCambiarETHActionPerformed
-
-    @Override
-    public void update(){
-        String numero = df.format(juego.getEstadisticas().getMonedasBTC());
-        jLabel1.setText("CANTIDAD DE BTC: " + numero );
-    }
     
+    @Override
+    public void update() {
+        String numero = df.format(juego.getEstadisticas().getMonedasBTC());
+        jLabel1.setText("CANTIDAD DE BTC: " + numero);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCambiarETH;
     private javax.swing.JButton jButton1;
@@ -206,7 +205,7 @@ public class VentanaJuegoBTC extends VentanaMoneda implements ObserverEstadistic
 
     @Override
     public void cerrarVentanas() {
-            ventanaMej.setVisible(false);
-            ventanaEst.setVisible(false);
+        ventanaMej.setVisible(false);
+        ventanaEst.setVisible(false);
     }
 }

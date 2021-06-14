@@ -10,6 +10,6 @@ package clicker.observer;
  * @author Nehemias
  */
 public interface Observer {
-    public void updateBTC();
-    public void updateETH();
+    public void updateBTC(float cant);
+    public void updateETH(float cant);
 }

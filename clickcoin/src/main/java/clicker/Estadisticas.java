@@ -8,20 +8,13 @@ package clicker;
 import clicker.observer.*;
 import java.util.ArrayList;
 
-import clicker.observer.*;
-/**
- *
- * @author Nacho
- */
 public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisticas {
 
     private int cantMonedas;
     private int cantClicks;
-    private int poder;
+    private float poder;
     private float cantMonedaBTC;
     private float cantMonedaETH;
-//    private Moneda monedaBTC;
-//    private Moneda monedaETH;
     private Subject monedaSubject;
     private SubjectEnemigo enemigoSubject;
     private ArrayList observers;
@@ -31,7 +24,7 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
         cantClicks = 0;
         cantMonedaBTC = 0;
         cantMonedaETH = 0;
-        poder=1;
+        //poder=1;
         observers = new ArrayList();
         //Inicializamos valores;        
     }
@@ -40,31 +33,31 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
         this.monedaSubject = monedaSubject;
         this.monedaSubject.registerObserver(this);
     }
-    
-    public void initSubjectEnemigo(SubjectEnemigo enemigoSubject){
-         this.enemigoSubject = enemigoSubject;
+
+    public void initSubjectEnemigo(SubjectEnemigo enemigoSubject) {
+        this.enemigoSubject = enemigoSubject;
         this.enemigoSubject.registerObserver(this);
     }
 
     @Override
-    public void updateBTC() {
-        cantMonedaBTC += poder;
+    public void updateBTC(float cant) {
+        cantMonedaBTC += cant;
         cantClicks += 1;
-        HuboCambios();
-    }
-    
-    public void updateBTC(int num) {
-        cantMonedaBTC += num;
-        HuboCambios();
-    }
-    
-    @Override
-    public void updateETH() {
-        cantMonedaETH += 0.01f;
-        cantClicks += 1;
-        HuboCambios();
+        valoresCambiados();
     }
 
+    @Override
+    public void updateETH(float cant) {
+        cantMonedaETH += cant;
+        cantClicks += 1;
+        valoresCambiados();
+    }
+
+    public void updateBTCPasivo(float num) {
+        cantMonedaBTC += num;
+        cantMonedaETH += num;
+        valoresCambiados();
+    }
 
     public float getMonedasBTC() {
         return cantMonedaBTC;
@@ -81,16 +74,16 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
     public int getClicks() {
         return cantClicks;
     }
-    
-    
+
     @Override
     public boolean quitarBTC(float cantidad) {
-        if(cantMonedaBTC>0){
+        if (cantMonedaBTC > 0) {
             cantMonedaBTC -= cantidad;
-            if(cantMonedaBTC<0){
-                cantMonedaBTC=0;
+            if (cantMonedaBTC < 0) {
+                cantMonedaBTC = 0;
             }
-            System.out.println("BTC:"+cantMonedaBTC);
+            valoresCambiados();
+            System.out.println("BTC:" + cantMonedaBTC);
             return true;
         }
         return false;
@@ -98,20 +91,17 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
 
     @Override
     public void quitarETH(float cantidad) {
-        if(cantMonedaETH>0){
-            if(cantidad>=cantMonedaETH){
-                cantMonedaETH =0;
-                HuboCambios();
-            }
-            else{
+        if (cantMonedaETH > 0) {
+            if (cantidad >= cantMonedaETH) {
+                cantMonedaETH = 0;
+            } else {
                 cantMonedaETH -= cantidad;
-                HuboCambios();
             }
-            
+            valoresCambiados();
         }
     }
-    
-    public void HuboCambios() {
+
+    public void valoresCambiados() {
         notifyObservers();
     }
 
@@ -136,12 +126,10 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
         }
     }
 
-    public int getPoder() {
-        return poder;
-    }
-
-    public void setPoder(int poder) {
-        this.poder = poder;
-    }
-    
+//    public float getPoder() {
+//        return poder;
+//    }
+//    public void setPoder(float poder) {
+//        this.poder = poder;
+//    }
 }
