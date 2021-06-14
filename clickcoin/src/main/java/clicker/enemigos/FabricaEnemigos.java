@@ -53,13 +53,14 @@ public class FabricaEnemigos {
                         juego.getVentana().setVisible(false);
                         juego.getVentana().cerrarVentanas();
                         enemigo.nacer(false);
+                        break;
                     }
                 }else{
                     if(juego.getMonedaBTC().getMonedas() >= enemigo.getRoboT() && juego.getMonedaETH().getMonedas() >= enemigo.getRoboT() ){
                         juego.getVentana().setVisible(false);
                         juego.getVentana().cerrarVentanas();
                         enemigo.nacer(false);
-                    
+                        break;
                     }
                 }
             }

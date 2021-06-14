@@ -63,7 +63,7 @@ public class Juego {
 
     public void aumentarNivel() {
         if (this.nivel.cambiaNivel((int) this.getEstadisticas().getMonedasBTC(), (int) this.getEstadisticas().getMonedasETH())) {
-            fabricaE.pausa();
+            //fabricaE.pausa();
             this.nivel.aumentar();
             ventana.setVisible(false);
             VentanaAumentarNivel vNiv = new VentanaAumentarNivel(this);
@@ -81,7 +81,7 @@ public class Juego {
                         ventana = vETH;
                     }
                     ventana.setVisible(true);
-                    fabricaE.seguir();
+                    //fabricaE.seguir();
                 }
 
             };
