@@ -23,6 +23,7 @@ public class Minado {
 
     public void realizarMinado() {
         moneda.minar();
+        juego.updateMejoras();
     }
 
     public void setMoneda(Moneda moneda) {

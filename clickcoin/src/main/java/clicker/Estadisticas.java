@@ -5,10 +5,10 @@
  */
 package clicker;
 
-
 import clicker.observer.*;
 import java.util.ArrayList;
 
+import clicker.observer.*;
 /**
  *
  * @author Nacho
@@ -17,6 +17,7 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
 
     private int cantMonedas;
     private int cantClicks;
+    private int poder;
     private float cantMonedaBTC;
     private float cantMonedaETH;
 //    private Moneda monedaBTC;
@@ -30,7 +31,9 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
         cantClicks = 0;
         cantMonedaBTC = 0;
         cantMonedaETH = 0;
+        poder=1;
         observers = new ArrayList();
+        //Inicializamos valores;        
     }
 
     public void initSubject(Subject monedaSubject) {
@@ -45,8 +48,13 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
 
     @Override
     public void updateBTC() {
-        cantMonedaBTC += 0.01f;
+        cantMonedaBTC += poder;
         cantClicks += 1;
+        HuboCambios();
+    }
+    
+    public void updateBTC(int num) {
+        cantMonedaBTC += num;
         HuboCambios();
     }
     
@@ -73,16 +81,19 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
     public int getClicks() {
         return cantClicks;
     }
-
+    
+    
     @Override
-    public void quitarBTC(float cantidad) {
+    public boolean quitarBTC(float cantidad) {
         if(cantMonedaBTC>0){
-            if(cantidad>= cantMonedaBTC)
-                cantMonedaBTC = 0;
-            
-            else
             cantMonedaBTC -= cantidad;
+            if(cantMonedaBTC<0){
+                cantMonedaBTC=0;
+            }
+            System.out.println("BTC:"+cantMonedaBTC);
+            return true;
         }
+        return false;
     }
 
     @Override
@@ -124,4 +135,13 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
             observers.remove(i);
         }
     }
+
+    public int getPoder() {
+        return poder;
+    }
+
+    public void setPoder(int poder) {
+        this.poder = poder;
+    }
+    
 }

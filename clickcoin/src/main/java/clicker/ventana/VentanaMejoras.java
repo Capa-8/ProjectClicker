@@ -6,6 +6,8 @@
 package clicker.ventana;
 
 import clicker.Juego;
+import clicker.mejoras.*;
+import javax.swing.JButton;
 /**
  *
  * @author Nacho
@@ -13,7 +15,8 @@ import clicker.Juego;
 public class VentanaMejoras extends javax.swing.JFrame {
     
     private Juego juego;
-
+    private MejoraActiva mejoraActiva;
+    private MejoraPasiva mejoraPasiva;
     /**
      * Creates new form VentanaMejoras
      */
@@ -22,6 +25,11 @@ public class VentanaMejoras extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         this.juego = juego;
+        this.mejoraActiva = new MejoraActiva(juego, 1, this, 10);       
+        this.mejoraPasiva = new MejoraPasiva(juego, this, 5);
+        btnDuplicate.setVisible(false);
+        btnGraphCard.setVisible(false);
+        btnOverclock.setVisible(false);
     }
     
     /**
@@ -33,8 +41,15 @@ public class VentanaMejoras extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnDuplicate = new javax.swing.JButton();
+        btnGraphCard = new javax.swing.JButton();
+        btnOverclock = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Esta mejora le permite al jugador aumentar la ponderacion del click.");
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -46,6 +61,32 @@ public class VentanaMejoras extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 315, 150, 75));
 
+        btnDuplicate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON DUPLICAR.jpg"))); // NOI18N
+        btnDuplicate.setPreferredSize(new java.awt.Dimension(190, 75));
+        btnDuplicate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDuplicateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDuplicate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        btnGraphCard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTOTN PLACA.jpg"))); // NOI18N
+        btnGraphCard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGraphCardActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGraphCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 190, 75));
+
+        btnOverclock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON OVERCLOCK.jpg"))); // NOI18N
+        btnOverclock.setPreferredSize(new java.awt.Dimension(190, 75));
+        btnOverclock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOverclockActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnOverclock, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
 
@@ -56,6 +97,21 @@ public class VentanaMejoras extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnDuplicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDuplicateActionPerformed
+        setVisible(false);
+        mejoraActiva.disparar();
+    }//GEN-LAST:event_btnDuplicateActionPerformed
+
+    private void btnGraphCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraphCardActionPerformed
+        setVisible(false);
+        mejoraPasiva.disparar();
+    }//GEN-LAST:event_btnGraphCardActionPerformed
+
+    private void btnOverclockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOverclockActionPerformed
+       //setVisible(false);
+       mejoraPasiva.overclock();
+    }//GEN-LAST:event_btnOverclockActionPerformed
+
     public javax.swing.JButton getBoton1(){
         return jButton1;
     }
@@ -63,9 +119,37 @@ public class VentanaMejoras extends javax.swing.JFrame {
     public javax.swing.JLabel getLabel1(){
         return jLabel1;
     }
+    public javax.swing.JButton getBtnDuplicate(){
+        return btnDuplicate;
+    }
+
+    public javax.swing.JButton getBtnGraphCard() {
+        return btnGraphCard;
+    }
+
+    public JButton getBtnOverclock() {
+        return btnOverclock;
+    }
+    
+    public javax.swing.JButton getbtnDuplicate(){
+        return btnDuplicate;
+    }
+    public javax.swing.JButton getbtnGraphCard(){
+        return btnGraphCard;
+    }
+    public javax.swing.JButton getbtnOverclock(){
+        return btnOverclock;
+    }
+    
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDuplicate;
+    private javax.swing.JButton btnGraphCard;
+    private javax.swing.JButton btnOverclock;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

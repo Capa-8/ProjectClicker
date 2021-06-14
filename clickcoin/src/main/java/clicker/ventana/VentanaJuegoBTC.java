@@ -10,12 +10,15 @@ import clicker.Minado;
 import clicker.moneda.Moneda;
 import clicker.moneda.MonedaBTC;
 import java.text.DecimalFormat;
+import clicker.observer.ObserverEstadisticas;
+import javax.swing.JLabel;
 
 /**
  *
  * @author Nacho
  */
-public class VentanaJuegoBTC extends VentanaMoneda {
+
+public class VentanaJuegoBTC extends VentanaMoneda implements ObserverEstadisticas {
 
     private VentanaEstadisticas ventanaEst;
     private VentanaMejoras ventanaMej;
@@ -37,7 +40,7 @@ public class VentanaJuegoBTC extends VentanaMoneda {
         jLabel2.setText("JUGANDO: " + juego.getJugador().getNombre());
         jLabel4.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
         
-        df = new DecimalFormat("#0.00");
+        df = new DecimalFormat("0.00");
         String numero = df.format(juego.getEstadisticas().getMonedasBTC());
         jLabel1.setText("CANTIDAD DE BTC: " + numero );
         
@@ -56,6 +59,10 @@ public class VentanaJuegoBTC extends VentanaMoneda {
         if (juego.getNivel().getNumeroNivel() >= 3) {
             botonCambiarETH.setVisible(true);
         }
+        
+        //Registro la ventana en estadisticas
+        juego.getEstadisticas().registerObserver(this);
+        
     }
 
     /**
@@ -154,7 +161,6 @@ public class VentanaJuegoBTC extends VentanaMoneda {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         juego.getMinado().realizarMinado();
-        
         juego.aumentarNivel();
         jLabel4.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
         String numero = df.format(juego.getEstadisticas().getMonedasBTC());
@@ -175,10 +181,17 @@ public class VentanaJuegoBTC extends VentanaMoneda {
 //      Cuando me cambio de ventanas destruyo las otras no sin antes remover el observador de VentanaEstadistica.
         this.dispose();
         juego.getEstadisticas().removeObserver(ventanaEst);
+        juego.getEstadisticas().removeObserver(this);
         ventanaEst.dispose();
         ventanaMej.dispose();
     }//GEN-LAST:event_botonCambiarETHActionPerformed
 
+    @Override
+    public void update(){
+        String numero = df.format(juego.getEstadisticas().getMonedasBTC());
+        jLabel1.setText("CANTIDAD DE BTC: " + numero );
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCambiarETH;
     private javax.swing.JButton jButton1;

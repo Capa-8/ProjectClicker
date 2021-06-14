@@ -122,12 +122,12 @@ public class VentanaEnemigo extends javax.swing.JFrame {
         textoMeRindo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         textoMeRindo.setForeground(new java.awt.Color(255, 255, 255));
         textoMeRindo.setText("ME RINDO: COSTO 1000");
-        getContentPane().add(textoMeRindo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, 30));
+        getContentPane().add(textoMeRindo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, -1, 30));
 
         textoVida.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         textoVida.setForeground(new java.awt.Color(255, 255, 255));
         textoVida.setText("VIDA:");
-        getContentPane().add(textoVida, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 120, -1));
+        getContentPane().add(textoVida, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 120, -1));
 
         botonMeRindo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON ME RINDO.jpg"))); // NOI18N
         botonMeRindo.setToolTipText("");
@@ -136,7 +136,7 @@ public class VentanaEnemigo extends javax.swing.JFrame {
                 botonMeRindoActionPerformed(evt);
             }
         });
-        getContentPane().add(botonMeRindo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 180, 40));
+        getContentPane().add(botonMeRindo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 150, 75));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
 
         pack();

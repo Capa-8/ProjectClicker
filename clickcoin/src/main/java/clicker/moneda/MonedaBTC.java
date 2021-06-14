@@ -17,15 +17,27 @@ public class MonedaBTC implements Moneda, Subject {
     
     public float cantidad;
     private ArrayList observers;
+    private int poder;
+
+    
+    public void setPoder(int poder) {
+        this.poder = poder;
+    }
+
+    public int getPoder() {
+        return poder;
+    }
 
     public MonedaBTC() {
         cantidad = 0;
         observers = new ArrayList();
+        poder = 1;
     }
 
     @Override
     public void minar() {
-        cantidad += 0.01f;
+        cantidad = cantidad + poder;
+        //System.out.println("Cantidad: "+cantidad+"  Poder: "+poder);
         monedasCambiadas();
     }
 

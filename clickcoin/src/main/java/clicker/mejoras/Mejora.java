@@ -12,5 +12,6 @@ package clicker.mejoras;
 public interface Mejora {
     
     public int getTiempo();
-    
+    public void checkPrecio();
+
 }

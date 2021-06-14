@@ -19,6 +19,7 @@ public abstract class Enemigo implements SubjectEnemigo {
     int tiempoRonda;
     boolean dead;
     private TimerTask tareaRestar;
+
     VentanaEnemigo ventana;
     protected ArrayList observers;
     public int rondas;
@@ -41,7 +42,6 @@ public abstract class Enemigo implements SubjectEnemigo {
         
         temporizadorRonda(tiempo);
         temporizadorTiempo();
-        
     }
 
     /**

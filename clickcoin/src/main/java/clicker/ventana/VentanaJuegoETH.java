@@ -7,17 +7,20 @@ package clicker.ventana;
 
 import clicker.Juego;
 import clicker.moneda.MonedaETH;
+import clicker.observer.ObserverEstadisticas;
+import java.text.DecimalFormat;
 
 /**
  *
  * @author Nacho
  */
-public class VentanaJuegoETH extends VentanaMoneda {
+
+public class VentanaJuegoETH extends VentanaMoneda implements ObserverEstadisticas {
     
     private VentanaEstadisticas vEst;
     private VentanaMejoras vMej;
     private Juego juego;
-
+    private DecimalFormat df; 
     /**
      * Creates new form VentanaJuegoETH
      */
@@ -30,7 +33,10 @@ public class VentanaJuegoETH extends VentanaMoneda {
         
         jLabel2.setText("JUGANDO: " + juego.getJugador().getNombre());        
         jLabel3.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
-        jLabel4.setText("CANTIDAD DE ETH: " + juego.getEstadisticas().getMonedasETH()); 
+        
+        df = new DecimalFormat("0.00");
+        String numero = df.format(juego.getEstadisticas().getMonedasETH());
+        jLabel4.setText("CANTIDAD DE ETH: " + numero );
         
         VentanaEstadisticas vEst = new VentanaEstadisticas(juego);
         this.vEst = vEst;
@@ -49,6 +55,9 @@ public class VentanaJuegoETH extends VentanaMoneda {
         
         this.juego.getEstadisticas().initSubject((MonedaETH) this.juego.getMonedaETH());
         this.juego.getMinado().setMoneda(juego.getMonedaETH());
+        
+        //Registro la ventana en estadisticas
+        juego.getEstadisticas().registerObserver(this);
     }
 
     /**
@@ -137,7 +146,6 @@ public class VentanaJuegoETH extends VentanaMoneda {
         juego.getMinado().realizarMinado();
         juego.aumentarNivel();
         jLabel3.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
-        jLabel4.setText("CANTIDAD DE ETH: " + juego.getEstadisticas().getMonedasETH());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -145,6 +153,9 @@ public class VentanaJuegoETH extends VentanaMoneda {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        vMej.getbtnDuplicate().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON DUPLICAR 2.jpg")));
+        vMej.getbtnGraphCard().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTOTN PLACA2.jpg")));
+        vMej.getbtnOverclock().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/overclocking2.jpg")));
         vMej.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -164,11 +175,18 @@ public class VentanaJuegoETH extends VentanaMoneda {
         vBTC.setVisible(true);
         
         this.dispose();
+        juego.getEstadisticas().removeObserver(this);
         juego.getEstadisticas().removeObserver(vEst);
         vEst.dispose();
         vMej.dispose();
     }//GEN-LAST:event_botonCambiarBTCActionPerformed
 
+    @Override
+    public void update(){
+        String numero = df.format(juego.getEstadisticas().getMonedasETH());
+        jLabel4.setText("CANTIDAD DE ETH: " + numero );
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCambiarBTC;
     private javax.swing.JButton jButton1;
