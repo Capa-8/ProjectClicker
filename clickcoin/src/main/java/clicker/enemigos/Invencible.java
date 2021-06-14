@@ -8,7 +8,7 @@ public class Invencible extends Enemigo{
     Invencible(Juego juego){
         this.juego = juego;
         roboEstandar = 15;
-        probabilidad = 0.0001f;
+        probabilidad = 0.0000000000000001f;
         vidaEstandar = 120;
         tiempo = 20;
         

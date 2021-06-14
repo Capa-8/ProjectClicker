@@ -23,7 +23,6 @@ import javax.swing.JLabel;
  */
 public class VentanaAumentarNivel extends javax.swing.JFrame {
 
-    JFrame frame;
     Juego juego;
 
     /**
@@ -36,58 +35,37 @@ public class VentanaAumentarNivel extends javax.swing.JFrame {
         this.juego = juego;
         setLocationRelativeTo(null);
         setResizable(false);
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
 
-    public void showGIF() throws MalformedURLException {
-        frame = new JFrame("Image");
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        frame.setUndecorated(true);
-        frame.setSize(600, 400);
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+    public void showGIF(){
 
         Integer nivel = this.juego.getNivel().getNumeroNivel();
-        URL url;
         switch (nivel) {
             case 2:
-
-                url = new URL("https://i.pinimg.com/originals/63/81/f6/6381f63592f18a7d91f9f3ac64009b42.gif");
+                jLabel2.setText("¡Subiste al Nivel " + nivel.toString() + "!");    
+                jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/nivel 2.gif")));
                 break;
-            case 3:
-                url = new URL("https://i.pinimg.com/originals/26/5f/1e/265f1e9da2dc2aafab154bdd6f64f2b9.gif");
+            case 3:             
+                jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/nivel 3.gif")));
+                jLabel2.setText("¡Subiste al Nivel " + nivel.toString() + "!");   
                 break;
-            case 4:
-                url = new URL("https://i.pinimg.com/originals/db/c6/59/dbc6597b27b388e63bb782875fc7140c.gif");
-
+            case 4:             
+                jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/nivel 4.gif")));
+                jLabel2.setText("¡Subiste al Nivel " + nivel.toString() + "!");   
                 break;
-            case 5:
-                url = new URL("https://cdn.eldeforma.com/wp-content/uploads/2020/03/giphy-5.gif");
+            case 5:          
+                jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/nivel 5.gif")));
+                jLabel2.setText("¡Subiste al Nivel " + nivel.toString() + "!");   
                 break;
             default:
-                url = new URL("https://i.pinimg.com/originals/26/5f/1e/265f1e9da2dc2aafab154bdd6f64f2b9.gif");
+                jLabel2.setText("¡Subiste al Nivel " + nivel.toString() + "!");   
                 break;
         }
-
-        //URL url = new URL("/clicker/resources/barcoBTC.gif");
-        Image image = Toolkit.getDefaultToolkit().getImage(url);
-
-        ImagePanel im = new ImagePanel(image);
-        JLabel jlbl = new JLabel();
-
-        jlbl.setText("¡Subiste al Nivel " + nivel.toString() + "!");
-        String labelText = jlbl.getText();
-        jlbl.setFont(new Font(labelText, Font.BOLD, 35));
-        jlbl.setForeground(Color.white);
-        im.add(jlbl);
-        frame.add(im);
-        frame.setVisible(true);
+        setVisible(true);
     }
 
     public void cerrarTodo() {
-        frame.dispose();
+        dispose();
     }
 
     /**
@@ -99,18 +77,21 @@ public class VentanaAumentarNivel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 640, 70));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,5 +132,8 @@ public class VentanaAumentarNivel extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

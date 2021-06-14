@@ -9,12 +9,13 @@ import clicker.Juego;
 import clicker.Minado;
 import clicker.moneda.Moneda;
 import clicker.moneda.MonedaBTC;
+import clicker.observer.ObserverEstadisticas;
 
 /**
  *
  * @author Nacho
  */
-public class VentanaJuegoBTC extends javax.swing.JFrame {
+public class VentanaJuegoBTC extends javax.swing.JFrame implements ObserverEstadisticas {
 
     private VentanaEstadisticas ventanaEst;
     private VentanaMejoras ventanaMej;
@@ -51,6 +52,10 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
         if (juego.getNivel().getNumeroNivel() >= 3) {
             botonCambiarETH.setVisible(true);
         }
+        
+        //Registro la ventana en estadisticas
+        juego.getEstadisticas().registerObserver(this);
+        
     }
 
     /**
@@ -149,10 +154,8 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         juego.getMinado().realizarMinado();
-        
         juego.aumentarNivel();
-        jLabel4.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
-        jLabel1.setText("CANTIDAD DE BTC: " + juego.getEstadisticas().getMonedasBTC());
+        jLabel4.setText("NIVEL: " + juego.getNivel().getNumeroNivel());        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -169,10 +172,16 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
 //      Cuando me cambio de ventanas destruyo las otras no sin antes remover el observador de VentanaEstadistica.
         this.dispose();
         juego.getEstadisticas().removeObserver(ventanaEst);
+        juego.getEstadisticas().removeObserver(this);
         ventanaEst.dispose();
         ventanaMej.dispose();
     }//GEN-LAST:event_botonCambiarETHActionPerformed
 
+    @Override
+    public void update(){
+        jLabel1.setText("CANTIDAD DE BTC: " + juego.getEstadisticas().getMonedasBTC());
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCambiarETH;
     private javax.swing.JButton jButton1;

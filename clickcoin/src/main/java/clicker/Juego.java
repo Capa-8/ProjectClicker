@@ -56,11 +56,8 @@ public class Juego {
             this.nivel.aumentar();
             ventana.setVisible(false);
             VentanaAumentarNivel vNiv = new VentanaAumentarNivel(this);
-            try {
-                vNiv.showGIF();
-            } catch (MalformedURLException ex) {
-                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            vNiv.showGIF();
+            
             Integer nivel = this.getNivel().getNumeroNivel();
             Juego juegoInstancia = this;
             Timer timer = new Timer();
@@ -70,7 +67,6 @@ public class Juego {
                     vNiv.cerrarTodo();
                     fabricaE.iniciar();
                     if (nivel == 3) {
-
                         VentanaJuegoETH vETH = new VentanaJuegoETH(juegoInstancia);
                         ventana = vETH;
                     }
@@ -79,9 +75,6 @@ public class Juego {
 
             };
             timer.schedule(tiempoEspera, 6000);
-
-            //Solamente va a entrar una vez. Cuando ya no cumpla las condiciones del if de arriba no entra mas. 
-
         }
     }
     

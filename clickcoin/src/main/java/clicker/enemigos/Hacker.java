@@ -8,7 +8,7 @@ public class Hacker extends Enemigo{
     Hacker(Juego juego){
         this.juego = juego;
         roboEstandar = 10;
-        probabilidad = 0.02f;
+        probabilidad = 0.00000000000002f;
         vidaEstandar = 100;
         tiempo = 20;
         super.observers = new ArrayList();

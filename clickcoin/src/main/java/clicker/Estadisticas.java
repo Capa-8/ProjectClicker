@@ -31,6 +31,7 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
         cantMonedaBTC = 0;
         cantMonedaETH = 0;
         observers = new ArrayList();
+        //Inicializamos valores;        
     }
 
     public void initSubject(Subject monedaSubject) {
@@ -77,11 +78,14 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
     @Override
     public void quitarBTC(int cantidad) {
         if(cantMonedaBTC>0){
-            if(cantidad>= cantMonedaBTC)
+            if(cantidad>= cantMonedaBTC){
                 cantMonedaBTC = 0;
-            
-            else
-            cantMonedaBTC -= cantidad;
+                HuboCambios();
+            }
+            else{
+                cantMonedaBTC -= cantidad;
+                HuboCambios();
+            }            
         }
     }
 

@@ -22,6 +22,8 @@ public class VentanaEstadisticas extends javax.swing.JFrame implements ObserverE
         setLocationRelativeTo(null);
         setResizable(false);
         this.juego = juego;
+        //Inicializamos valores;
+        update();
     }
    
     /**
