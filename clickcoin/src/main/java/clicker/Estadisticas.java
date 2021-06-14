@@ -52,6 +52,11 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
         HuboCambios();
     }
     
+    public void updateBTC(int num) {
+        cantMonedaBTC += num;
+        HuboCambios();
+    }
+    
     @Override
     public void updateETH() {
         cantMonedaETH += 1;

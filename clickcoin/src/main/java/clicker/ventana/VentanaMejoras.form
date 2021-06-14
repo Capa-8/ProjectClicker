@@ -37,13 +37,12 @@
         </Constraint>
       </Constraints>
     </Component>
-<<<<<<< HEAD
-    <Component class="javax.swing.JButton" name="butDuplicator">
+    <Component class="javax.swing.JButton" name="btnDuplicate">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Duplicar monedas"/>
+        <Property name="text" type="java.lang.String" value="Duplicar monedas (10 BTC)"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butDuplicatorActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDuplicateActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -51,8 +50,19 @@
         </Constraint>
       </Constraints>
     </Component>
-=======
->>>>>>> fb8a301bc58477f1cd7e262dcf74e5d7cd381155
+    <Component class="javax.swing.JButton" name="btnGraphCard">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Placa de Video"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGraphCardActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="20" y="70" width="160" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">

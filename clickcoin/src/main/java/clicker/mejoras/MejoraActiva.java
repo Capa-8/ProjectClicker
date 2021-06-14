@@ -23,7 +23,7 @@ public class MejoraActiva implements Mejora{
         this.tiempo = tiempo;
         this.precio = precio;
         this.ventanaMejoras = ventanaMejoras;
-        this.juego.addMejora(this);
+        this.juego.addMejoraA(this);
     }
     
     @Override
@@ -39,14 +39,17 @@ public class MejoraActiva implements Mejora{
 
                 poderActual = juego.getEstadisticas().getPoder();
                 juego.getEstadisticas().setPoder(poderActual*2);
+                
+                precio = precio * 5;
+                ventanaMejoras.getBtnDuplicate().setText("Duplicar Monedas ("+precio+" BTC)");
             }
     }
     
     public void checkPrecio(){
         if(juego.getEstadisticas().getMonedasBTC() >= precio){
-            ventanaMejoras.getButDuplicator().setVisible(true);
+            ventanaMejoras.getBtnGraphCard().setVisible(true);
         }else{
-            ventanaMejoras.getButDuplicator().setVisible(false);
+            ventanaMejoras.getBtnGraphCard().setVisible(false);
         }
     }
 }

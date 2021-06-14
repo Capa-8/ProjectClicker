@@ -26,7 +26,8 @@ public class Juego {
     private Moneda monedaBTC;
     private Moneda monedaETH;
     private FabricaEnemigos fabricaE;
-    private ArrayList<Mejora> mejorasObtenidas;
+    private ArrayList<MejoraActiva> mejorasActivas;
+    private ArrayList<MejoraPasiva> mejorasPasivas;
     private JFrame ventana;
     private TimerTask tiempoEspera;
 
@@ -43,7 +44,8 @@ public class Juego {
         oMinado.setMoneda(this.monedaBTC);
 
         this.minado = oMinado;
-        mejorasObtenidas = new ArrayList<Mejora>();
+        mejorasActivas = new ArrayList<MejoraActiva>();
+        mejorasPasivas = new ArrayList<MejoraPasiva>();
     }
 
     public void iniciarJuego() {
@@ -126,14 +128,21 @@ public class Juego {
     }
     
     public void updateMejoras() {
-        for(int i=0; i<mejorasObtenidas.size(); i++){
-            mejorasObtenidas.get(i).checkPrecio();
+        for(int i=0; i<mejorasActivas.size(); i++){
+            mejorasActivas.get(i).checkPrecio();
+        }
+        for(int i=0; i<mejorasPasivas.size(); i++){
+            mejorasPasivas.get(i).checkPrecio();
         }
             
     }
     
-    public void addMejora(MejoraActiva mejoraActiva){
-        mejorasObtenidas.add(mejoraActiva);
+    public void addMejoraA(MejoraActiva mejoraActiva){
+        mejorasActivas.add(mejoraActiva);
+    }
+    
+    public void addMejoraP(MejoraPasiva mejoraPasiva){
+        mejorasPasivas.add(mejoraPasiva);
     }
     
 

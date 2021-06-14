@@ -7,6 +7,8 @@ package clicker.mejoras;
 
 import clicker.Juego;
 import clicker.ventana.VentanaMejoras;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -17,34 +19,44 @@ public class MejoraPasiva implements Mejora {
     private Juego juego;
     private int precio;
     private VentanaMejoras ventanaMejoras;
+    private int cantPlacas;
     
-    public MejoraPasiva(Juego juego,int tiempo, VentanaMejoras ventanaMejoras){
+    public MejoraPasiva(Juego juego, VentanaMejoras ventanaMejoras, int precio){
         this.juego = juego;
-        this.tiempo = tiempo;
-        precio = 1;
+        tiempo = 1000;
+        this.precio = precio;
         this.ventanaMejoras = ventanaMejoras;
-        //this.juego.addMejora(this);
+        this.juego.addMejoraP(this);
+        cantPlacas = 0;
     }
     
     public int getTiempo(){
         return tiempo;
     }
     
-    public void mejora1(){        
-        
-        if(juego.getEstadisticas().getMonedas() > 100){
-         
-            
+    public void disparar() {
+        if (juego.getEstadisticas().quitarBTC(precio) == true) {
+            cantPlacas++;
+            Timer timer = new Timer();
+            TimerTask generateBTC = new TimerTask() {
+                @Override
+                public void run() {
+                    juego.getEstadisticas().updateBTC(cantPlacas);
+                    System.out.println(cantPlacas+" Placas de Video han generado" + juego.getEstadisticas().getMonedasBTC());
+                }
+            };
+            timer.schedule(generateBTC, 1, tiempo);
+
+            precio = precio * 1;
+            ventanaMejoras.getBtnDuplicate().setText("Placa de Video (" + precio + " BTC)");
         }
-        System.out.println("Cant mon: "+juego.getEstadisticas().getMonedasBTC());
     }
     
     public void checkPrecio(){
-        if(juego.getEstadisticas().getMonedasBTC() > precio){
-            ventanaMejoras.getButDuplicator().setVisible(true);
+        if(juego.getEstadisticas().getMonedasBTC() >= precio){
+            ventanaMejoras.getBtnGraphCard().setVisible(true);
         }else{
-            ventanaMejoras.getButDuplicator().setVisible(false);
+            ventanaMejoras.getBtnGraphCard().setVisible(false);
         }
     }
-    
 }
