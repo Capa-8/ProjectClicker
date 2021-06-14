@@ -7,6 +7,7 @@ import clicker.ventana.VentanaAumentarNivel;
 import clicker.ventana.VentanaJuegoBTC;
 import javax.swing.JFrame;
 import clicker.ventana.VentanaJuegoETH;
+import clicker.ventana.VentanaMoneda;
 import java.net.MalformedURLException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -24,7 +25,7 @@ public class Juego {
     private Moneda monedaBTC;
     private Moneda monedaETH;
     private FabricaEnemigos fabricaE;
-    private JFrame ventana;
+    private VentanaMoneda ventana;
     private TimerTask tiempoEspera;
 
     public Juego(Jugador jugador) {
@@ -85,7 +86,7 @@ public class Juego {
         }
     }
     
-    public void setVentana(JFrame ventana){
+    public void setVentana(VentanaMoneda ventana){
         this.ventana = ventana;
     }
 
@@ -126,7 +127,7 @@ public class Juego {
         return fabricaE;
     }
     
-    public JFrame getVentana(){
+    public VentanaMoneda getVentana(){
         return ventana;
     }
 }

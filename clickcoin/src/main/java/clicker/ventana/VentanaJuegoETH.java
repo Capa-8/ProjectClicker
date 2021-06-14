@@ -12,7 +12,7 @@ import clicker.moneda.MonedaETH;
  *
  * @author Nacho
  */
-public class VentanaJuegoETH extends javax.swing.JFrame {
+public class VentanaJuegoETH extends VentanaMoneda {
     
     private VentanaEstadisticas vEst;
     private VentanaMejoras vMej;
@@ -180,4 +180,10 @@ public class VentanaJuegoETH extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void cerrarVentanas() {
+        vMej.setVisible(false);
+        vEst.setVisible(false);
+    }
 }

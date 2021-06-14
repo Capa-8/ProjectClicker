@@ -14,14 +14,12 @@ import java.util.ArrayList;
  * @author Nehemias
  */
 public class MonedaBTC implements Moneda, Subject {
-
-    public float valor;
-    public int cantidad;
+    
+    public float cantidad;
     private ArrayList observers;
 
     public MonedaBTC() {
         cantidad = 0;
-        valor = 0;
         observers = new ArrayList();
     }
 
@@ -61,7 +59,7 @@ public class MonedaBTC implements Moneda, Subject {
     }
 
     @Override
-    public int getMonedas() {
+    public float getMonedas() {
         return cantidad;
     }
 

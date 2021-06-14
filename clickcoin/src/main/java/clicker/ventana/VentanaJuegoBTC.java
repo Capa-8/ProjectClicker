@@ -14,7 +14,7 @@ import clicker.moneda.MonedaBTC;
  *
  * @author Nacho
  */
-public class VentanaJuegoBTC extends javax.swing.JFrame {
+public class VentanaJuegoBTC extends VentanaMoneda {
 
     private VentanaEstadisticas ventanaEst;
     private VentanaMejoras ventanaMej;
@@ -184,4 +184,10 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void cerrarVentanas() {
+            ventanaMej.setVisible(false);
+            ventanaEst.setVisible(false);
+    }
 }
