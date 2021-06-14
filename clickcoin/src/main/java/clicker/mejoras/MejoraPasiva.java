@@ -78,13 +78,9 @@ public class MejoraPasiva implements Mejora {
         }
         if (cantPlacas >= 1) {
             if (juego.getEstadisticas().getMonedasBTC() >= precioOC) {
-                ventanaMejoras.getBtnOverclock().setVisible(true);
                 ventanaMejoras.getLabelOverclock().setVisible(true);
-                ventanaMejoras.getLabelOverclockTitulo().setVisible(true);
             } else {
-                ventanaMejoras.getBtnOverclock().setVisible(false);
                 ventanaMejoras.getLabelOverclock().setVisible(false);
-                ventanaMejoras.getLabelOverclockTitulo().setVisible(false);
             }
         }
     }
@@ -93,19 +89,18 @@ public class MejoraPasiva implements Mejora {
         return cantPlacas;
     }
 
-    public void overclock() {
-        if (cantPlacas >= 1) {
-            if (juego.getEstadisticas().quitarBTC(precio) == true) {
-                tiempo = tiempo * (porcentaje / 100);
-                porcentaje = porcentaje - 5;
-                if (porcentaje == 0) {
-                    porcentaje = 5;
-                }
-                precioOC = precioOC * 1;
-                ventanaMejoras.getBtnOverclock().setText("Overclock (" + precioOC + " BTC)");
-            }
-        }
-    }
+//    public void overclock() {
+//        if (cantPlacas >= 1) {
+//            if (juego.getEstadisticas().quitarBTC(precio) == true) {
+//                tiempo = tiempo * (porcentaje / 100);
+//                porcentaje = porcentaje - 5;
+//                if (porcentaje == 0) {
+//                    porcentaje = 5;
+//                }
+//                precioOC = precioOC * 1;
+//            }
+//        }
+//    }
 
     public String getPrecio() {
         return String.valueOf(this.precio);

@@ -80,7 +80,7 @@ public class FabricaEnemigosTest {
         System.out.println("Aumento de probabilidad de enemigo en nivel 1");
         Juego juego = new Juego(new Jugador("test"));
         float probabilidad = juego.getFabricaE().getProbAtaqueNivel();
-        float esperado = 0;
+        float esperado = 1.0f;
         
         assertEquals(esperado, probabilidad);
     }
@@ -93,7 +93,7 @@ public class FabricaEnemigosTest {
         juego.getNivel().aumentar();
         
         float probabilidad = juego.getFabricaE().getProbAtaqueNivel();
-        float esperado = 0.04f;
+        float esperado = 4f;
         
         assertEquals(esperado, probabilidad);
     }

@@ -75,9 +75,9 @@ public class EstadisticasTest {
         System.out.println("updateBTC");
         Estadisticas instance = new Estadisticas();
         for (int i = 0; i < 5; i++) {
-            instance.updateBTC();
+            instance.updateBTC(1.0f);
         }
-        assertEquals(5, instance.getMonedasBTC());
+        assertEquals(5.0, instance.getMonedasBTC());
     }
 
     /**
@@ -88,9 +88,9 @@ public class EstadisticasTest {
         System.out.println("updateETH");
         Estadisticas instance = new Estadisticas();
         for (int i = 0; i < 5; i++) {
-            instance.updateETH();
+            instance.updateETH(1.0f);
         }
-        assertEquals(5, instance.getMonedasETH());
+        assertEquals(5.0, instance.getMonedasETH());
     }
 
     /**
@@ -101,18 +101,22 @@ public class EstadisticasTest {
         System.out.println("quitar BTC");
         Juego juego = new Juego(new Jugador("test"));
         juego.getEstadisticas().initSubject((MonedaBTC) juego.getMonedaBTC());
-        int i = 200;
-        for (int j = 0; j < i; j++) {
-            juego.getMinado().realizarMinado();//aca un observer
+        
+        for (int j = 0; j < 10; j++) {
+            juego.getMinado().realizarMinado();
         }
+        
+        juego.getEstadisticas().quitarBTC(0.1f);
+//        int i = 200;
+//        for (int j = 0; j < i; j++) {
+//            juego.getMinado().realizarMinado();//aca un observer
+//        }
+//
+//        ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
+//        Enemigo ene = enemigos.get(2);
+//        ene.atacar();
 
-        ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
-        Enemigo ene = enemigos.get(2);
-        ene.atacar();
-
-        float cantMonedasBTC = juego.getEstadisticas().getMonedasBTC();
-        float esperado = i - ene.getRoboT();
-        assertEquals(esperado, cantMonedasBTC);
+        assertEquals(0, juego.getEstadisticas().getMonedasBTC());
 
     }
     
@@ -121,24 +125,25 @@ public class EstadisticasTest {
      */
     @Test
     public void testQuitarETH() {
-        System.out.println("quitar ETH");
+System.out.println("quitar ETH");
         Juego juego = new Juego(new Jugador("test"));
-        Moneda moneda = (MonedaETH) juego.getMonedaETH();
-        juego.getMinado().setMoneda(moneda);
-        juego.getEstadisticas().initSubject((MonedaETH) moneda);
-        int i = 200;
-        for (int j = 0; j < i; j++) {
+        juego.getEstadisticas().initSubject((MonedaETH) juego.getMonedaETH());
+        
+        for (int j = 0; j < 10; j++) {
             juego.getMinado().realizarMinado();
         }
+        
+        juego.getEstadisticas().quitarETH(0.1f);
+//        int i = 200;
+//        for (int j = 0; j < i; j++) {
+//            juego.getMinado().realizarMinado();//aca un observer
+//        }
+//
+//        ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
+//        Enemigo ene = enemigos.get(2);
+//        ene.atacar();
 
-      
-        ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
-        Enemigo ene = enemigos.get(2);
-        ene.atacar();
-
-        float cantMonedasETH = juego.getEstadisticas().getMonedasETH();
-        float esperado = i - ene.getRoboT();
-        assertEquals(esperado, cantMonedasETH);
+        assertEquals(0, juego.getEstadisticas().getMonedasETH());
 
     }
 }

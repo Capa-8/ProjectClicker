@@ -71,7 +71,6 @@ public class VentanaJuegoETH extends VentanaMoneda implements ObserverEstadistic
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -97,15 +96,7 @@ public class VentanaJuegoETH extends VentanaMoneda implements ObserverEstadistic
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 12, 150, 75));
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/MEJORAS2.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 12, 150, 75));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 150, 75));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/SALIR2.png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +104,7 @@ public class VentanaJuegoETH extends VentanaMoneda implements ObserverEstadistic
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 12, 150, 75));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 150, 75));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -133,7 +124,7 @@ public class VentanaJuegoETH extends VentanaMoneda implements ObserverEstadistic
                 botonCambiarBTCActionPerformed(evt);
             }
         });
-        getContentPane().add(botonCambiarBTC, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 100, 150, 75));
+        getContentPane().add(botonCambiarBTC, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 150, 75));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
@@ -151,13 +142,6 @@ public class VentanaJuegoETH extends VentanaMoneda implements ObserverEstadistic
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         vEst.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        vMej.getbtnDuplicate().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON DUPLICAR 2.jpg")));
-        vMej.getbtnGraphCard().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTOTN PLACA2.jpg")));
-        vMej.getbtnOverclock().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/overclocking2.jpg")));
-        vMej.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         VentanaSalida vs = new VentanaSalida();
@@ -191,7 +175,6 @@ public class VentanaJuegoETH extends VentanaMoneda implements ObserverEstadistic
     private javax.swing.JButton botonCambiarBTC;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
