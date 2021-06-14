@@ -10,6 +10,7 @@ import clicker.Minado;
 import clicker.moneda.Moneda;
 import clicker.moneda.MonedaBTC;
 import clicker.observer.ObserverEstadisticas;
+import javax.swing.JLabel;
 
 /**
  *

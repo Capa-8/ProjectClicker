@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package clicker.moneda;
+package unc.ing_soft.clickcoin;
 
 /**
  *
  * @author Nehemias
  */
-public interface Moneda {
-
-    public void minar();
-    public int getMonedas();
-    public int getPoder();
-    public void setPoder(int i);
+public class Main {
+    public static void main(String[] args){
+        Juego j1 = new Juego("Jugador1");
+        j1.iniciarJuego();
+    }
 }

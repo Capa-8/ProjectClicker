@@ -5,10 +5,10 @@
  */
 package clicker;
 
-
 import clicker.observer.*;
 import java.util.ArrayList;
 
+import clicker.observer.*;
 /**
  *
  * @author Nacho
@@ -19,6 +19,7 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
     private int cantClicks;
     private int cantMonedaBTC;
     private int cantMonedaETH;
+    private int poder;
 //    private Moneda monedaBTC;
 //    private Moneda monedaETH;
     private Subject monedaSubject;
@@ -30,6 +31,7 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
         cantClicks = 0;
         cantMonedaBTC = 0;
         cantMonedaETH = 0;
+        poder=1;
         observers = new ArrayList();
         //Inicializamos valores;        
     }
@@ -46,8 +48,13 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
 
     @Override
     public void updateBTC() {
-        cantMonedaBTC += 1;
+        cantMonedaBTC += poder;
         cantClicks += 1;
+        HuboCambios();
+    }
+    
+    public void updateBTC(int num) {
+        cantMonedaBTC += num;
         HuboCambios();
     }
     
@@ -75,8 +82,8 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
         return cantClicks;
     }
 
-    @Override
-    public void quitarBTC(int cantidad) {
+
+    public boolean quitarBTC(int cantidad) {
         if(cantMonedaBTC>0){
             if(cantidad>= cantMonedaBTC){
                 cantMonedaBTC = 0;
@@ -87,6 +94,7 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
                 HuboCambios();
             }            
         }
+        return false;
     }
 
     @Override
@@ -128,4 +136,13 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
             observers.remove(i);
         }
     }
+
+    public int getPoder() {
+        return poder;
+    }
+
+    public void setPoder(int poder) {
+        this.poder = poder;
+    }
+    
 }

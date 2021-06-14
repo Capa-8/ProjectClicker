@@ -96,6 +96,7 @@ public class FabricaEnemigos {
             return ((juego.getNivel().getNumeroNivel()-1)*0.02f);
     }
     
+
     public ArrayList getEnemigos(){
         return enemigos;
     }

@@ -14,16 +14,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Juego {
 
     private Jugador jugador;
     private Estadisticas estadisticas;
-    private Mejora[] mejorasObtenidas;
     private Nivel nivel;
     private Minado minado;
     private Moneda monedaBTC;
     private Moneda monedaETH;
     private FabricaEnemigos fabricaE;
+    private ArrayList<MejoraActiva> mejorasActivas;
+    private ArrayList<MejoraPasiva> mejorasPasivas;
     private JFrame ventana;
     private TimerTask tiempoEspera;
 
@@ -40,7 +44,8 @@ public class Juego {
         oMinado.setMoneda(this.monedaBTC);
 
         this.minado = oMinado;
-
+        mejorasActivas = new ArrayList<MejoraActiva>();
+        mejorasPasivas = new ArrayList<MejoraPasiva>();
     }
 
     public void iniciarJuego() {
@@ -98,10 +103,6 @@ public class Juego {
         return estadisticas;
     }
 
-    public Mejora[] getListaMejoras() {
-        return mejorasObtenidas;
-    }
-
     public Moneda getMonedaBTC() {
         return monedaBTC;
     }
@@ -119,7 +120,32 @@ public class Juego {
         return fabricaE;
     }
     
+    public void updateMejoras() {
+        for(int i=0; i<mejorasActivas.size(); i++){
+            mejorasActivas.get(i).checkPrecio();
+        }
+        for(int i=0; i<mejorasPasivas.size(); i++){
+            mejorasPasivas.get(i).checkPrecio();
+        }
+            
+    }
+    
+    public void addMejoraA(MejoraActiva mejoraActiva){
+        mejorasActivas.add(mejoraActiva);
+    }
+    
+    public void addMejoraP(MejoraPasiva mejoraPasiva){
+        mejorasPasivas.add(mejoraPasiva);
+    }
+    
+
     public JFrame getVentana(){
         return ventana;
     }
+
+    public ArrayList<MejoraPasiva> getMejorasPasivas() {
+        return mejorasPasivas;
+    }
+    
+ 
 }
