@@ -79,9 +79,9 @@ public class MejoraPasiva implements Mejora {
             ventanaMejoras.getLabelPlacaTitulo().setVisible(false);
         }
         //a apartir de aca lo agregue
-        ventanaMejoras.getBtnOverclock().setVisible(false);
+       // ventanaMejoras.getBtnOverclock().setVisible(false);
         ventanaMejoras.getLabelOverclock().setVisible(false);
-        ventanaMejoras.getLabelOverclockTitulo().setVisible(false);
+       // ventanaMejoras.getLabelOverclockTitulo().setVisible(false);
         //hasta aca
 
         //if (cantPlacas >= 1) {

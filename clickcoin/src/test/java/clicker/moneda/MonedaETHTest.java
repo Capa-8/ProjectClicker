@@ -45,21 +45,17 @@ public class MonedaETHTest {
      * Test of minar method, of class MonedaETH.
      */
     @Test
-    public void testMinar() {
-        System.out.println("minar ETH");
+    public void testMinar(){
+        System.out.println("minar EtH");
         Jugador jugador = new Jugador("test");
         Juego juego = new Juego(jugador);
-        juego.getMinado().setMoneda((MonedaETH) juego.getMonedaETH());
-        juego.getEstadisticas().initSubject((MonedaETH) juego.getMonedaETH());
-        
-        int i = 5;
-        for (int j = 0; j < i; j++) {
-            juego.getMinado().realizarMinado();
-        }
-        //El nivel de monedas debería estar en 5.
-        float cantMonedasETH = juego.getEstadisticas().getMonedasETH();
-        float esperado = 5;
+        juego.getMinado().setMoneda((Moneda)juego.getMonedaETH());
+        juego.getMinado().realizarMinado();
+
+        float cantMonedasETH = juego.getMonedaETH().getMonedas();
+        float esperado = 0.01f;
         assertEquals(esperado, cantMonedasETH);
+       
     }
     
      /**

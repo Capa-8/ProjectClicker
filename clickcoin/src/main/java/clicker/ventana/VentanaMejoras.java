@@ -35,13 +35,11 @@ public class VentanaMejoras extends javax.swing.JFrame {
         lblPrecioPlaca.setText(juego.getMejoraPasiva().getPrecio());
         btnDuplicate.setVisible(false);
         btnGraphCard.setVisible(false);
-        btnOverclock.setVisible(false);
         lblPrecioDuplicador.setVisible(false);
         lblPrecioPlaca.setVisible(false);
         lblPrecioOverclock.setVisible(false);
         lblPrecioDuplicadorTitulo.setVisible(false);
         lblPrecioPlacaTitulo.setVisible(false);
-        lblPrecioOverTitulo.setVisible(false);
     }
 
     /**
@@ -62,8 +60,6 @@ public class VentanaMejoras extends javax.swing.JFrame {
         lblPrecioPlaca = new javax.swing.JLabel();
         btnGraphCard = new javax.swing.JButton();
         btnDuplicate = new javax.swing.JButton();
-        lblPrecioOverTitulo = new javax.swing.JLabel();
-        btnOverclock = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -97,7 +93,6 @@ public class VentanaMejoras extends javax.swing.JFrame {
         lblPrecioDuplicador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPrecioDuplicador.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lblPrecioDuplicador, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 90, 100, -1));
-        lblPrecioDuplicador.getAccessibleContext().setAccessibleName("");
 
         lblPrecioPlaca.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPrecioPlaca.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,20 +114,6 @@ public class VentanaMejoras extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDuplicate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
-
-        lblPrecioOverTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblPrecioOverTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lblPrecioOverTitulo.setText("Precio: ");
-        getContentPane().add(lblPrecioOverTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, -1, -1));
-
-        btnOverclock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON OVERCLOCK.jpg"))); // NOI18N
-        btnOverclock.setPreferredSize(new java.awt.Dimension(190, 75));
-        btnOverclock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOverclockActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnOverclock, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -180,9 +161,6 @@ public class VentanaMejoras extends javax.swing.JFrame {
         return btnGraphCard;
     }
 
-    public JButton getBtnOverclock() {
-        return btnOverclock;
-    }
 
     public javax.swing.JButton getbtnDuplicate() {
         return btnDuplicate;
@@ -190,10 +168,6 @@ public class VentanaMejoras extends javax.swing.JFrame {
 
     public javax.swing.JButton getbtnGraphCard() {
         return btnGraphCard;
-    }
-
-    public javax.swing.JButton getbtnOverclock() {
-        return btnOverclock;
     }
 
     public javax.swing.JLabel getLabelDuplicador() {
@@ -216,22 +190,16 @@ public class VentanaMejoras extends javax.swing.JFrame {
         return lblPrecioPlacaTitulo;
     }
 
-    public javax.swing.JLabel getLabelOverclockTitulo() {
-        return lblPrecioOverTitulo;
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDuplicate;
     private javax.swing.JButton btnGraphCard;
-    private javax.swing.JButton btnOverclock;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblPrecioDuplicador;
     private javax.swing.JLabel lblPrecioDuplicadorTitulo;
-    private javax.swing.JLabel lblPrecioOverTitulo;
     private javax.swing.JLabel lblPrecioOverclock;
     private javax.swing.JLabel lblPrecioPlaca;
     private javax.swing.JLabel lblPrecioPlacaTitulo;
