@@ -9,6 +9,7 @@ import clicker.Juego;
 import clicker.Minado;
 import clicker.moneda.Moneda;
 import clicker.moneda.MonedaBTC;
+import javax.swing.JLabel;
 
 /**
  *
@@ -173,6 +174,8 @@ public class VentanaJuegoBTC extends javax.swing.JFrame {
         ventanaMej.dispose();
     }//GEN-LAST:event_botonCambiarETHActionPerformed
 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCambiarETH;
     private javax.swing.JButton jButton1;

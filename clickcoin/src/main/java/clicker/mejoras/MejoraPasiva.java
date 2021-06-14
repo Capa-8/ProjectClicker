@@ -20,6 +20,9 @@ public class MejoraPasiva implements Mejora {
     private int precio;
     private VentanaMejoras ventanaMejoras;
     private int cantPlacas;
+    private int porcentaje;
+    private int precioOC;
+    
     
     public MejoraPasiva(Juego juego, VentanaMejoras ventanaMejoras, int precio){
         this.juego = juego;
@@ -28,6 +31,8 @@ public class MejoraPasiva implements Mejora {
         this.ventanaMejoras = ventanaMejoras;
         this.juego.addMejoraP(this);
         cantPlacas = 0;
+        porcentaje = 95;
+        precioOC = 3;
     }
     
     public int getTiempo(){
@@ -47,8 +52,10 @@ public class MejoraPasiva implements Mejora {
             };
             timer.schedule(generateBTC, 1, tiempo);
 
-            precio = precio * 1;
-            ventanaMejoras.getBtnDuplicate().setText("Placa de Video (" + precio + " BTC)");
+            precio = precio * 3;
+            ventanaMejoras.getBtnGraphCard().setText("Placa de Video (" + precio + " BTC)");
+            
+            
         }
     }
     
@@ -58,5 +65,30 @@ public class MejoraPasiva implements Mejora {
         }else{
             ventanaMejoras.getBtnGraphCard().setVisible(false);
         }
+        if (cantPlacas >= 1) {
+            if (juego.getEstadisticas().getMonedasBTC() >= precioOC) {
+                ventanaMejoras.getBtnOverclock().setVisible(true);
+            } else {
+                ventanaMejoras.getBtnOverclock().setVisible(false);
+            }
+        }
+    }
+
+    public int getCantPlacas() {
+        return cantPlacas;
+    }
+    
+    public void overclock(){
+        if(cantPlacas >= 1){
+            if (juego.getEstadisticas().quitarBTC(precio) == true){
+            tiempo = tiempo * (porcentaje/100);
+            porcentaje = porcentaje - 5;
+            if(porcentaje == 0){
+                porcentaje = 5;
+            }
+            precioOC = precioOC * 1;
+            ventanaMejoras.getBtnOverclock().setText("Overclock (" + precioOC + " BTC)");
+            }
+        }       
     }
 }

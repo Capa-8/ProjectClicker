@@ -26,9 +26,10 @@ public class VentanaMejoras extends javax.swing.JFrame {
         setResizable(false);
         this.juego = juego;
         this.mejoraActiva = new MejoraActiva(juego, 1, this, 10);       
-        this.mejoraPasiva = new MejoraPasiva(juego, this, 2);
+        this.mejoraPasiva = new MejoraPasiva(juego, this, 5);
         btnDuplicate.setVisible(false);
         btnGraphCard.setVisible(false);
+        btnOverclock.setVisible(false);
     }
     
     /**
@@ -43,6 +44,7 @@ public class VentanaMejoras extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnDuplicate = new javax.swing.JButton();
         btnGraphCard = new javax.swing.JButton();
+        btnOverclock = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,13 +65,21 @@ public class VentanaMejoras extends javax.swing.JFrame {
         });
         getContentPane().add(btnDuplicate, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        btnGraphCard.setText("Placa de Video");
+        btnGraphCard.setText("Placa de Video (5 BTC)");
         btnGraphCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGraphCardActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGraphCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 160, -1));
+        getContentPane().add(btnGraphCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 190, -1));
+
+        btnOverclock.setText("Overclocking");
+        btnOverclock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOverclockActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnOverclock, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
@@ -91,6 +101,11 @@ public class VentanaMejoras extends javax.swing.JFrame {
         mejoraPasiva.disparar();
     }//GEN-LAST:event_btnGraphCardActionPerformed
 
+    private void btnOverclockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOverclockActionPerformed
+       //setVisible(false);
+       mejoraPasiva.overclock();
+    }//GEN-LAST:event_btnOverclockActionPerformed
+
     public javax.swing.JButton getBoton1(){
         return jButton1;
     }
@@ -106,10 +121,17 @@ public class VentanaMejoras extends javax.swing.JFrame {
         return btnGraphCard;
     }
 
+    public JButton getBtnOverclock() {
+        return btnOverclock;
+    }
+    
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDuplicate;
     private javax.swing.JButton btnGraphCard;
+    private javax.swing.JButton btnOverclock;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

@@ -47,9 +47,9 @@ public class MejoraActiva implements Mejora{
     
     public void checkPrecio(){
         if(juego.getEstadisticas().getMonedasBTC() >= precio){
-            ventanaMejoras.getBtnGraphCard().setVisible(true);
+            ventanaMejoras.getBtnDuplicate().setVisible(true);
         }else{
-            ventanaMejoras.getBtnGraphCard().setVisible(false);
+            ventanaMejoras.getBtnDuplicate().setVisible(false);
         }
     }
 }

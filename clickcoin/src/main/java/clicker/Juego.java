@@ -149,4 +149,10 @@ public class Juego {
     public JFrame getVentana(){
         return ventana;
     }
+
+    public ArrayList<MejoraPasiva> getMejorasPasivas() {
+        return mejorasPasivas;
+    }
+    
+ 
 }

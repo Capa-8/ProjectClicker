@@ -36,6 +36,7 @@ public class VentanaEstadisticas extends javax.swing.JFrame implements ObserverE
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        cantidadPlacaVideo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setTitle("Estadisticas");
@@ -49,13 +50,17 @@ public class VentanaEstadisticas extends javax.swing.JFrame implements ObserverE
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 315, 150, 75));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 620, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 620, 30));
+
+        cantidadPlacaVideo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        cantidadPlacaVideo.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(cantidadPlacaVideo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 620, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/FONDO.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
@@ -80,9 +85,11 @@ public class VentanaEstadisticas extends javax.swing.JFrame implements ObserverE
     public void update(){
         jLabel1.setText("CANTIDAD DE CLICKS REALIZADOS: " + juego.getEstadisticas().getClicks());
         jLabel3.setText("CANTIDAD DE MONEDAS OBTENIDAS: " + juego.getEstadisticas().getMonedasBTC());
+        cantidadPlacaVideo.setText("CANTIDAD DE PLACAS DE VIDEO: " + juego.getMejorasPasivas().get(0).getCantPlacas());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cantidadPlacaVideo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
