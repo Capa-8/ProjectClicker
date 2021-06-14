@@ -46,17 +46,15 @@ public class MonedaBTCTest {
      */
     @Test
     public void testMinar() {
-        System.out.println("minar");
+        System.out.println("minar Btc");
         Jugador jugador = new Jugador("test");
         Juego juego = new Juego(jugador);
         juego.getEstadisticas().initSubject((MonedaBTC) juego.getMonedaBTC());
-        int i = 5;
-        for (int j = 0; j < i; j++) {
-            juego.getMinado().realizarMinado();
-        }
+        juego.getMinado().realizarMinado();
+        
         //El nivel de monedas debería estar en 5.
         float cantMonedasBTC = juego.getEstadisticas().getMonedasBTC();
-        float esperado = 5;
+        float esperado = 0.01f;
         assertEquals(esperado, cantMonedasBTC);
        
     }
