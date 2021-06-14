@@ -148,6 +148,9 @@ public class VentanaJuegoETH extends javax.swing.JFrame implements ObserverEstad
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        vMej.getbtnDuplicate().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTON DUPLICAR 2.jpg")));
+        vMej.getbtnGraphCard().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/BOTOTN PLACA2.jpg")));
+        vMej.getbtnOverclock().setIcon(new javax.swing.ImageIcon(getClass().getResource("/clicker/resources/overclocking2.jpg")));
         vMej.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 

@@ -136,7 +136,7 @@ public class VentanaEnemigo extends javax.swing.JFrame {
                 botonMeRindoActionPerformed(evt);
             }
         });
-        getContentPane().add(botonMeRindo, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 310, 150, 75));
+        getContentPane().add(botonMeRindo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 150, 75));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 400));
 
         pack();
