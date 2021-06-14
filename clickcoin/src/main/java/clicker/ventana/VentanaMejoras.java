@@ -161,7 +161,7 @@ public class VentanaMejoras extends javax.swing.JFrame {
 
     private void btnOverclockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOverclockActionPerformed
         //setVisible(false);
-        juego.getMejoraPasiva().overclock();
+        //juego.getMejoraPasiva().overclock();
     }//GEN-LAST:event_btnOverclockActionPerformed
 
     public javax.swing.JButton getBoton1() {

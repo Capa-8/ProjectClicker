@@ -50,6 +50,7 @@ public class MejoraActiva implements Mejora {
             ventanaMejoras.getLabelDuplicador().setText(precio + " BTC");
             //ventanaMejoras.getBtnDuplicate().setText("Duplicar Monedas (" + precio + " BTC)");
             juego.getEstadisticas().valoresCambiados();
+            juego.updateMejoras();
         }
     }
 
