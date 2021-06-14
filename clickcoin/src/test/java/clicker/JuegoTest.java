@@ -6,7 +6,6 @@
 package clicker;
 
 import clicker.enemigos.FabricaEnemigos;
-import clicker.mejoras.Mejora;
 import clicker.moneda.Moneda;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
