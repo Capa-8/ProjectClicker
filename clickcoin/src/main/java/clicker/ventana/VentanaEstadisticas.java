@@ -6,7 +6,10 @@
 package clicker.ventana;
 
 import clicker.Juego;
+import clicker.mejoras.MejoraPasiva;
 import clicker.observer.ObserverEstadisticas;
+import java.util.ArrayList;
+
 /**
  *
  * @author Nacho
@@ -14,6 +17,7 @@ import clicker.observer.ObserverEstadisticas;
 public class VentanaEstadisticas extends javax.swing.JFrame implements ObserverEstadisticas {
 
     private Juego juego;
+
     /**
      * Creates new form VentanaEstadisticas
      */
@@ -25,7 +29,7 @@ public class VentanaEstadisticas extends javax.swing.JFrame implements ObserverE
         //Inicializamos valores;
         update();
     }
-   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,19 +79,24 @@ public class VentanaEstadisticas extends javax.swing.JFrame implements ObserverE
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public javax.swing.JButton getBoton1(){
+    public javax.swing.JButton getBoton1() {
         return jButton1;
     }
 
-    public javax.swing.JLabel getLabel1(){
+    public javax.swing.JLabel getLabel1() {
         return jLabel2;
     }
-    
+
     @Override
-    public void update(){
+    public void update() {
         jLabel1.setText("CANTIDAD DE CLICKS REALIZADOS: " + juego.getEstadisticas().getClicks());
         jLabel3.setText("CANTIDAD DE MONEDAS OBTENIDAS: " + juego.getEstadisticas().getMonedasBTC());
-        cantidadPlacaVideo.setText("CANTIDAD DE PLACAS DE VIDEO: " + juego.getMejorasPasivas().get(0).getCantPlacas());
+        ArrayList<MejoraPasiva> mejorasPasivas = new ArrayList<MejoraPasiva>();
+        mejorasPasivas = juego.getMejorasPasivas();
+        if (mejorasPasivas.size() > 0) {
+            cantidadPlacaVideo.setText("CANTIDAD DE PLACAS DE VIDEO: " + mejorasPasivas.get(0).getCantPlacas());
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
