@@ -12,5 +12,5 @@ package clicker.moneda;
 public interface Moneda {
 
     public void minar();
-    public int getMonedas();
+    public float getMonedas();
 }

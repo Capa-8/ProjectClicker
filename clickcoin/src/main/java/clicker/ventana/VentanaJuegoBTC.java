@@ -9,6 +9,7 @@ import clicker.Juego;
 import clicker.Minado;
 import clicker.moneda.Moneda;
 import clicker.moneda.MonedaBTC;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -19,6 +20,7 @@ public class VentanaJuegoBTC extends VentanaMoneda {
     private VentanaEstadisticas ventanaEst;
     private VentanaMejoras ventanaMej;
     private Juego juego;
+    private DecimalFormat df;
 
     /**
      * Creates new form VentanaJuegoBTC
@@ -34,7 +36,10 @@ public class VentanaJuegoBTC extends VentanaMoneda {
         
         jLabel2.setText("JUGANDO: " + juego.getJugador().getNombre());
         jLabel4.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
-        jLabel1.setText("CANTIDAD DE BTC: " + juego.getEstadisticas().getMonedasBTC());
+        
+        df = new DecimalFormat("#0.00");
+        String numero = df.format(juego.getEstadisticas().getMonedasBTC());
+        jLabel1.setText("CANTIDAD DE BTC: " + numero );
         
         
         VentanaEstadisticas ventanaEst = new VentanaEstadisticas(juego);
@@ -152,7 +157,8 @@ public class VentanaJuegoBTC extends VentanaMoneda {
         
         juego.aumentarNivel();
         jLabel4.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
-        jLabel1.setText("CANTIDAD DE BTC: " + juego.getEstadisticas().getMonedasBTC());
+        String numero = df.format(juego.getEstadisticas().getMonedasBTC());
+        jLabel1.setText("CANTIDAD DE BTC: " + numero );
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

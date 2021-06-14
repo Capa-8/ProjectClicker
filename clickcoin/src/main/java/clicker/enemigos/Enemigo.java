@@ -11,7 +11,7 @@ import java.util.TimerTask;
 public abstract class Enemigo implements SubjectEnemigo {
 
     float probabilidad;
-    int roboEstandar;
+    float roboEstandar;
     Juego juego;
     int vida;
     int vidaEstandar;
@@ -147,7 +147,7 @@ public abstract class Enemigo implements SubjectEnemigo {
         matar();
     }
     
-    public int getRoboT(){
+    public float getRoboT(){
         return tiempo*roboEstandar;
     }
 

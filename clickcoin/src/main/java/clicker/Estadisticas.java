@@ -17,8 +17,8 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
 
     private int cantMonedas;
     private int cantClicks;
-    private int cantMonedaBTC;
-    private int cantMonedaETH;
+    private float cantMonedaBTC;
+    private float cantMonedaETH;
 //    private Moneda monedaBTC;
 //    private Moneda monedaETH;
     private Subject monedaSubject;
@@ -45,14 +45,14 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
 
     @Override
     public void updateBTC() {
-        cantMonedaBTC += 1;
+        cantMonedaBTC += 0.01f;
         cantClicks += 1;
         HuboCambios();
     }
     
     @Override
     public void updateETH() {
-        cantMonedaETH += 1;
+        cantMonedaETH += 0.01f;
         cantClicks += 1;
         HuboCambios();
     }
@@ -75,7 +75,7 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
     }
 
     @Override
-    public void quitarBTC(int cantidad) {
+    public void quitarBTC(float cantidad) {
         if(cantMonedaBTC>0){
             if(cantidad>= cantMonedaBTC)
                 cantMonedaBTC = 0;
@@ -86,7 +86,7 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
     }
 
     @Override
-    public void quitarETH(int cantidad) {
+    public void quitarETH(float cantidad) {
         if(cantMonedaETH>0){
             if(cantidad>=cantMonedaETH){
                 cantMonedaETH =0;

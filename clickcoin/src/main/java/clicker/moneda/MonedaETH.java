@@ -15,19 +15,17 @@ import java.util.ArrayList;
  */
 public class MonedaETH implements Moneda, Subject {
 
-    public float valor;
-    public int cantidad;
+    public float cantidad;
     private ArrayList observers;
 
     public MonedaETH() {
         cantidad = 0;
-        valor = 0;
         observers = new ArrayList();
     }
 
     @Override
     public void minar() {
-        cantidad += 1;
+        cantidad += 0.01;
         monedasCambiadas();
     }
     
@@ -36,7 +34,7 @@ public class MonedaETH implements Moneda, Subject {
     }
     
      @Override
-     public int getMonedas(){
+     public float getMonedas(){
          return cantidad;
      }
 

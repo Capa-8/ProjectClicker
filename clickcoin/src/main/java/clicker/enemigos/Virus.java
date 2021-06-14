@@ -7,7 +7,7 @@ public class Virus extends Enemigo{
     
     Virus(Juego juego){
         this.juego = juego;
-        roboEstandar = 5;
+        roboEstandar = 0.05f;
         probabilidad = 0.05f;
         vidaEstandar = 50;
         tiempo = 25;

@@ -48,25 +48,21 @@ public class FabricaEnemigos {
         float numero = (float)(Math.random());
         for(Enemigo enemigo: enemigos){
             if(numero <= (enemigo.getProbabilidad()*getProbAtaqueNivel())){
-                if(juego.getNivel().getNumeroNivel()<3){
+               if(juego.getNivel().getNumeroNivel()<3){
                     if(juego.getMonedaBTC().getMonedas() >= enemigo.getRoboT()){
                         juego.getVentana().setVisible(false);
                         juego.getVentana().cerrarVentanas();
-                        System.out.print("numero aleatorio: " + numero);
                         enemigo.nacer(false);
-                        break;
                     }
                 }else{
                     if(juego.getMonedaBTC().getMonedas() >= enemigo.getRoboT() && juego.getMonedaETH().getMonedas() >= enemigo.getRoboT() ){
                         juego.getVentana().setVisible(false);
                         juego.getVentana().cerrarVentanas();
-                        System.out.print("numero aleatorio: " + numero);
                         enemigo.nacer(false);
-                        break;
+                    
                     }
                 }
-            }//else
-                //System.out.print("NO ENTRE numero aleatorio: " + numero + "\n");
+            }
         }
     }
     
@@ -104,7 +100,7 @@ public class FabricaEnemigos {
     
     public float getProbAtaqueNivel(){
         if(juego.getNivel().getNumeroNivel() == 1)
-            return 0;
+            return 1;
         else
             return ((juego.getNivel().getNumeroNivel()-1)*2);
     }

@@ -7,7 +7,7 @@ public class Hacker extends Enemigo{
     
     Hacker(Juego juego){
         this.juego = juego;
-        roboEstandar = 10;
+        roboEstandar = 0.10f;
         probabilidad = 0.02f;
         vidaEstandar = 100;
         tiempo = 20;
@@ -26,9 +26,4 @@ public class Hacker extends Enemigo{
         return "Hacker";
     }
 
-    
-
-  
-
-   
 }

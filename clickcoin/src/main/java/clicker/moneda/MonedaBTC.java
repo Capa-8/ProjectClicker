@@ -25,7 +25,7 @@ public class MonedaBTC implements Moneda, Subject {
 
     @Override
     public void minar() {
-        cantidad += 1;
+        cantidad += 0.01f;
         monedasCambiadas();
     }
 
