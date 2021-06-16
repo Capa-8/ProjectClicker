@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ##############################
 ## Java
 ##############################
@@ -83,3 +84,6 @@ nb-configuration.xml
 ##############################
 .DS_Store
 /mavenproject1/nbproject/
+=======
+/clickcoin/nbproject/
+>>>>>>> fb8a301bc58477f1cd7e262dcf74e5d7cd381155
