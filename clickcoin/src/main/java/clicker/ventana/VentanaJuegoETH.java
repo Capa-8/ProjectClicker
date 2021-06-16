@@ -135,6 +135,7 @@ public class VentanaJuegoETH extends VentanaMoneda implements ObserverEstadistic
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         juego.getMinado().realizarMinado();
+        juego.updateMejoras();
         juego.aumentarNivel();
         jLabel3.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
     }//GEN-LAST:event_jButton1ActionPerformed

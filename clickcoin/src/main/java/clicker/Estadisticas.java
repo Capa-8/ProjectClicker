@@ -6,6 +6,7 @@
 package clicker;
 
 import clicker.observer.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisticas {
@@ -18,6 +19,7 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
     private Subject monedaSubject;
     private SubjectEnemigo enemigoSubject;
     private ArrayList observers;
+    private DecimalFormat df;
 
     public Estadisticas() {
         cantMonedas = 0;
@@ -27,6 +29,7 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
         //poder=1;
         observers = new ArrayList();
         //Inicializamos valores;        
+        df = new DecimalFormat("0.00");
     }
 
     public void initSubject(Subject monedaSubject) {
@@ -42,6 +45,8 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
     @Override
     public void updateBTC(float cant) {
         cantMonedaBTC += cant;
+        String numero = df.format(cantMonedaBTC);
+        cantMonedaBTC = Float.parseFloat(numero);
         cantClicks += 1;
         valoresCambiados();
     }
@@ -50,6 +55,8 @@ public class Estadisticas implements Observer, ObserverEnemigo, SubjectEstadisti
     public void updateETH(float cant) {
         cantMonedaETH += cant;
         cantClicks += 1;
+        String numero = df.format(cantMonedaETH);
+        cantMonedaETH = Float.parseFloat(numero);
         valoresCambiados();
     }
 

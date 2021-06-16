@@ -6,6 +6,7 @@
 package clicker;
 
 import clicker.moneda.Moneda;
+import clicker.moneda.MonedaBTC;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,22 +19,22 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Nehemias
  */
 public class MinadoTest {
-    
+
     public MinadoTest() {
     }
-    
+
     @BeforeAll
     public static void setUpClass() {
     }
-    
+
     @AfterAll
     public static void tearDownClass() {
     }
-    
+
     @BeforeEach
     public void setUp() {
     }
-    
+
     @AfterEach
     public void tearDown() {
     }
@@ -46,8 +47,11 @@ public class MinadoTest {
         System.out.println("realizarMinado");
         Jugador j = new Jugador("player1");
         Juego juego = new Juego(j);
+        juego.getEstadisticas().initSubject((MonedaBTC) juego.getMonedaBTC());
         Minado instance = juego.getMinado();
         instance.realizarMinado();
-        assertEquals(1,instance.getMoneda().getMonedas());
+
+        float monedasBTC = juego.getEstadisticas().getMonedasBTC();
+        assertEquals(0.01f, monedasBTC);
     }
 }

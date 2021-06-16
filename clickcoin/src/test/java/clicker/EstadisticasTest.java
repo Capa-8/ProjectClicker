@@ -101,49 +101,52 @@ public class EstadisticasTest {
         System.out.println("quitar BTC");
         Juego juego = new Juego(new Jugador("test"));
         juego.getEstadisticas().initSubject((MonedaBTC) juego.getMonedaBTC());
-        
-        for (int j = 0; j < 10; j++) {
-            juego.getMinado().realizarMinado();
-        }
-        
-        juego.getEstadisticas().quitarBTC(0.1f);
-//        int i = 200;
-//        for (int j = 0; j < i; j++) {
-//            juego.getMinado().realizarMinado();//aca un observer
+
+//        for (int j = 0; j < 10; j++) {
+//            juego.getMinado().realizarMinado();
 //        }
 //
-//        ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
-//        Enemigo ene = enemigos.get(2);
-//        ene.atacar();
+        juego.getEstadisticas().quitarBTC(0.1f);
+        int i = 50;
+        for (int j = 0; j < i; j++) {
+            juego.getMinado().realizarMinado();//aca un observer
+        }
 
-        assertEquals(0, juego.getEstadisticas().getMonedasBTC());
+        ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
+        Enemigo ene = enemigos.get(2);
+        ene.atacar();
+        float monedasBTC = juego.getEstadisticas().getMonedasBTC();
+
+        assertEquals(0, monedasBTC);
 
     }
-    
+
     /**
      * Test of QuitarETH method, of class Estadisticas.
      */
     @Test
     public void testQuitarETH() {
-System.out.println("quitar ETH");
+        System.out.println("quitar ETH");
         Juego juego = new Juego(new Jugador("test"));
         juego.getEstadisticas().initSubject((MonedaETH) juego.getMonedaETH());
-        
-        for (int j = 0; j < 10; j++) {
-            juego.getMinado().realizarMinado();
-        }
-        
-        juego.getEstadisticas().quitarETH(0.1f);
-//        int i = 200;
-//        for (int j = 0; j < i; j++) {
-//            juego.getMinado().realizarMinado();//aca un observer
+
+//        for (int j = 0; j < 10; j++) {
+//            juego.getMinado().realizarMinado();
 //        }
 //
-//        ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
-//        Enemigo ene = enemigos.get(2);
-//        ene.atacar();
+//        juego.getEstadisticas().quitarETH(0.1f);
+        int i = 200;
+        for (int j = 0; j < i; j++) {
+            juego.getMinado().realizarMinado();//aca un observer
+        }
 
-        assertEquals(0, juego.getEstadisticas().getMonedasETH());
+        ArrayList<Enemigo> enemigos = juego.getFabricaE().getEnemigos();
+        Enemigo ene = enemigos.get(2);
+        ene.atacar();
+
+        float monedasETH = juego.getEstadisticas().getMonedasETH();
+        
+        assertEquals(0, monedasETH);
 
     }
 }

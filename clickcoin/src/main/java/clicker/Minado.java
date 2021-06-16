@@ -23,18 +23,14 @@ public class Minado {
 
     public void realizarMinado() {
         moneda.minar();
-        juego.updateMejoras();
     }
 
     public void setMoneda(Moneda moneda) {
         this.moneda = moneda;
     }
-    
-    public Moneda getMoneda(){
+
+    public Moneda getMoneda() {
         return this.moneda;
     }
 
-  
-
-  
 }

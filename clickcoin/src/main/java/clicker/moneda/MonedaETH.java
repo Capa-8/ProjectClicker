@@ -32,6 +32,7 @@ public class MonedaETH implements Moneda, Subject {
     public MonedaETH() {
         cantidad = 0;
         observers = new ArrayList();
+         poder = 0.01f;
     }
 
     @Override

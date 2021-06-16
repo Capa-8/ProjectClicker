@@ -49,6 +49,7 @@ public class MonedaETHTest {
         System.out.println("minar EtH");
         Jugador jugador = new Jugador("test");
         Juego juego = new Juego(jugador);
+        juego.getEstadisticas().initSubject((MonedaETH) juego.getMonedaETH());
         juego.getMinado().setMoneda((Moneda)juego.getMonedaETH());
         juego.getMinado().realizarMinado();
 

@@ -160,6 +160,7 @@ public class VentanaJuegoBTC extends VentanaMoneda implements ObserverEstadistic
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         juego.getMinado().realizarMinado();
+        juego.updateMejoras();
         juego.aumentarNivel();
         jLabel4.setText("NIVEL: " + juego.getNivel().getNumeroNivel());
         String numero = df.format(juego.getEstadisticas().getMonedasBTC());
